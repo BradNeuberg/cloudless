@@ -76,11 +76,17 @@ def _print_input_details(details):
 
 def _split_data_sets(details):
   """
-  Splits our datasets into training and validation sets.
+  Shuffles and splits our datasets into training and validation sets.
   """
 
-  return train_test_split(details["image_paths"], details["targets"], train_size=0.8, test_size=0.2, \
+  image_paths = details["image_paths"]
+  targets = details["targets"]
+
+  print "\tShuffling data..."
+  (image_paths, targets) = shuffle(image_paths, targets, random_state=0)
+
   print "\tSplitting data 80% training, 20% validation..."
+  return train_test_split(image_paths, targets, train_size=0.8, test_size=0.2, \
       random_state=0)
 
 def _generate_leveldb(file_path, image_paths, targets):
