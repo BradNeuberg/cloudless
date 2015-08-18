@@ -3,9 +3,9 @@ import argparse
 import os
 import random
 
-import constants;
-import prepare_data;
-import train;
+import constants
+from prepare_data import prepare_data
+import train
 
 def parse_command_line():
     parser = argparse.ArgumentParser(
@@ -31,7 +31,7 @@ def parse_command_line():
     random.seed(0)
 
     if args["prepare_data"] == True:
-        prepare_data();
+        prepare_data()
     if args["train"] == True:
         train(args["graph"], weight_file=args["weights"], note=args["note"])
 
