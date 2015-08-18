@@ -79,6 +79,7 @@ def _split_data_sets(details):
   Splits our datasets into training and validation sets.
   """
 
+  print "Splitting data 80% training, 20% validation..."
   return train_test_split(details["image_paths"], details["targets"], train_size=0.8, test_size=0.2, \
       random_state=0)
 
