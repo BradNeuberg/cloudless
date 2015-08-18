@@ -32,6 +32,9 @@ CAFFE_HOME = os.environ.get("CAFFE_HOME")
 MODEL_ROOT = ROOT_DIR + "/src/caffe_model/bvlc_alexnet"
 SOLVER_FILE = MODEL_ROOT + "/solver.prototxt"
 
+WIDTH = 227
+HEIGHT = 227
+
 # Architecture string that will appear on graphs; good for relatively stable
 # hyperparameter tuning.
 ARCHITECTURE = "AlexNet fine tune; Landsat data"
