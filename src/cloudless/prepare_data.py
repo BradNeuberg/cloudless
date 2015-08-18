@@ -57,36 +57,36 @@ def _get_landsat_details():
     }
 
 def _print_input_details(details):
-  """
-  Prints out statistics about our input data.
-  """
+    """
+    Prints out statistics about our input data.
+    """
 
-  positive_cloud_class = 0
-  negative_cloud_class = 0
-  for entry in details["targets"]:
-    if entry == 1:
-      positive_cloud_class = positive_cloud_class + 1
-    else:
-      negative_cloud_class = negative_cloud_class + 1
+    positive_cloud_class = 0
+    negative_cloud_class = 0
+    for entry in details["targets"]:
+        if entry == 1:
+            positive_cloud_class = positive_cloud_class + 1
+        else:
+            negative_cloud_class = negative_cloud_class + 1
 
-  print "\t\tInput data details:"
-  print "\t\t\tTotal number of input images: %d" % len(details["image_paths"])
-  print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
-  print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
+    print "\t\tInput data details:"
+    print "\t\t\tTotal number of input images: %d" % len(details["image_paths"])
+    print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
+    print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
 
 def _split_data_sets(details):
-  """
-  Shuffles and splits our datasets into training and validation sets.
-  """
+    """
+    Shuffles and splits our datasets into training and validation sets.
+    """
 
-  image_paths = details["image_paths"]
-  targets = details["targets"]
+    image_paths = details["image_paths"]
+    targets = details["targets"]
 
-  print "\tShuffling data..."
-  (image_paths, targets) = shuffle(image_paths, targets, random_state=0)
+    print "\tShuffling data..."
+    (image_paths, targets) = shuffle(image_paths, targets, random_state=0)
 
-  print "\tSplitting data 80% training, 20% validation..."
-  return train_test_split(image_paths, targets, train_size=0.8, test_size=0.2, \
+    print "\tSplitting data 80% training, 20% validation..."
+    return train_test_split(image_paths, targets, train_size=0.8, test_size=0.2, \
       random_state=0)
 
 def _generate_leveldb(file_path, image_paths, targets):
