@@ -20,7 +20,7 @@ Note that the trained AlexNet file is much too large to check into Github (it's 
 
 This is all a stub for now; nothing real will happen currently.
 
-TODO:
+# TODO
 * Setup annotated Landsat data into data/landsat
 * Update prepare_data.py to read annotated data in, preprocess it, split into training and validation sets, and write to LevelDB files.
 * Configure Caffe AlexNet prototxt files for fine tuning/transfer learning (freeze some layers, slow down others, etc.).
