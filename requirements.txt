@@ -1,0 +1,4 @@
+numpy>=1.8.0
+plyvel>=0.9
+scikit-learn>=0.15.2
+
