@@ -20,11 +20,3 @@ Note that the trained AlexNet file is much too large to check into Github (it's 
 
 This is all a stub for now; nothing real will happen currently.
 
-# TODO
-* Setup annotated Landsat data into data/landsat
-* Update prepare_data.py to read annotated data in, preprocess it, split into training and validation sets, and write to LevelDB files.
-* Configure Caffe AlexNet prototxt files for fine tuning/transfer learning (freeze some layers, slow down others, etc.).
-* Adapt existing train.py to work with fine tuned weight file
-* Try to run against AlexNet network config to ensure log parsing and graphs are working
-* Flesh out the predict.py validation testing code to generate precision/recall statistics, ROC curve, confusion matrix, etc. to know how training is going.
-* Experiment with a few hyperparameter values, most likely learning rate.
