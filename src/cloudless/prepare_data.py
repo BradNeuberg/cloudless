@@ -69,10 +69,10 @@ def _print_input_details(details):
         else:
             negative_cloud_class = negative_cloud_class + 1
 
-    print "\t\tInput data details:"
-    print "\t\t\tTotal number of input images: %d" % len(details["image_paths"])
-    print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
-    print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
+    print "\tInput data details:"
+    print "\t\tTotal number of input images: %d" % len(details["image_paths"])
+    print "\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
+    print "\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
 
 def _split_data_sets(details):
     """
