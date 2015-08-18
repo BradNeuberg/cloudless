@@ -13,12 +13,26 @@ def train(output_graphs, data=None, weight_file=None, note=None):
     run_trainer()
     generate_parsed_logs()
     (training_details, validation_details) = parse_logs()
+    # TODO(neuberg): This will need to be adapted against an already trained weight
+    # file that we are fine-tuning.
+    trained_weight_file = get_trained_weight_file()
+
+    # if output_graphs:
+    #     graph.plot_results(training_details, validation_details, note)
+
+    #     # If no weight file is provided by callers to this method, parse out the one we just
+    #     # trained.
+    #     if weight_file == None:
+    #         weight_file = trained_weight_file
+    #     predict.test_validation(data, weight_file)
 
 def run_trainer():
     """
     Runs Caffe to train the model.
     """
     print("\tRunning trainer...")
+    # TODO(neuberg): This will need to be adapted against an already trained weight
+    # file that we are fine-tuning.
     with open(constants.OUTPUT_LOG_PATH, "w") as f:
         process = subprocess.Popen([constants.CAFFE_HOME + "/build/tools/caffe", "train",
             "--solver=" + constants.SOLVER_FILE],
@@ -108,3 +122,14 @@ def parse_logs():
             "loss": validation_loss
         }
     )
+
+def get_trained_weight_file():
+    """
+    Parses out the file name of the model weight file we just trained.
+    """
+    trained_weight_file = None
+    with open(constants.OUTPUT_LOG_PATH) as f:
+        content = f.read()
+        trained_weight_file = re.findall("Snapshotting to (.*)$", content, re.MULTILINE)[0]
+
+    return trained_weight_file
