@@ -12,6 +12,8 @@ Preparing the data, training, and generating graphs to know how we are doing is 
 
 Note that you must have CAFFE_HOME defined before running this with Caffe installed.
 
+Training info and graphs go into logs/.
+
 We currently have pretrained weights from the BVLC AlexNet Caffe Model Zoo, in src/caffe_model/bvlc_alexnet. This is trained on ILSVRC 2012, almost exactly as described in (ImageNet classification with deep convolutional neural networks)[http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks] by Krizhevsky et al. in NIPS 2012.
 
 This is all a stub for now; nothing real will happen currently.
