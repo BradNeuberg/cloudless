@@ -1,4 +1,5 @@
 *.pyc
 *.caffemodel
+*.DS_Store
 data/landsat/images
 data/planetlab/images
