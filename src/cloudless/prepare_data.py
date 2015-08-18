@@ -24,7 +24,7 @@ def prepare_data():
     _print_input_details(details)
     (train_paths, validation_paths, train_targets, validation_targets) = _split_data_sets(details)
 
-    print "Saving prepared data..."
+    print "\tSaving prepared data..."
     _generate_leveldb(constants.TRAINING_FILE, train_paths, train_targets)
     _generate_leveldb(constants.VALIDATION_FILE, validation_paths, validation_targets)
 
@@ -69,18 +69,18 @@ def _print_input_details(details):
     else:
       negative_cloud_class = negative_cloud_class + 1
 
-  print "\tInput data details:"
-  print "\t\tTotal number of input images: %d" % len(details["image_paths"])
-  print "\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
-  print "\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
+  print "\t\tInput data details:"
+  print "\t\t\tTotal number of input images: %d" % len(details["image_paths"])
+  print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
+  print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
 
 def _split_data_sets(details):
   """
   Splits our datasets into training and validation sets.
   """
 
-  print "Splitting data 80% training, 20% validation..."
   return train_test_split(details["image_paths"], details["targets"], train_size=0.8, test_size=0.2, \
+  print "\tSplitting data 80% training, 20% validation..."
       random_state=0)
 
 def _generate_leveldb(file_path, image_paths, targets):
@@ -88,7 +88,7 @@ def _generate_leveldb(file_path, image_paths, targets):
     Caffe uses the LevelDB format to efficiently load its training and validation data; this method
     writes paired out faces in an efficient way into this format.
     """
-    print "\tGenerating LevelDB file at %s..." % file_path
+    print "\t\tGenerating LevelDB file at %s..." % file_path
     shutil.rmtree(file_path, ignore_errors=True)
     db = plyvel.DB(file_path, create_if_missing=True)
     wb = db.write_batch()
@@ -118,12 +118,12 @@ def _generate_leveldb(file_path, image_paths, targets):
         wb = db.write_batch()
         end_time = int(round(time.time() * 1000))
         total_time = end_time - start_time
-        print "\t\tWrote batch, key: %s, time for batch: %d ms" % (key, total_time)
+        print "\t\t\tWrote batch, key: %s, time for batch: %d ms" % (key, total_time)
         start_time = int(round(time.time() * 1000))
 
     end_time = int(round(time.time() * 1000))
     total_time = end_time - start_time
-    print "\t\tWriting final batch, time for batch: %d ms" % total_time
+    print "\t\t\tWriting final batch, time for batch: %d ms" % total_time
     wb.write()
     db.close()
 
