@@ -6,6 +6,7 @@ import fileinput
 import re
 
 import constants
+import graph
 
 def train(output_graphs, data=None, weight_file=None, note=None):
     print("Training data, generating graphs: %r" % output_graphs)
@@ -17,8 +18,8 @@ def train(output_graphs, data=None, weight_file=None, note=None):
     # file that we are fine-tuning.
     trained_weight_file = get_trained_weight_file()
 
-    # if output_graphs:
-    #     graph.plot_results(training_details, validation_details, note)
+    if output_graphs:
+        graph.plot_results(training_details, validation_details, note)
 
     #     # If no weight file is provided by callers to this method, parse out the one we just
     #     # trained.
