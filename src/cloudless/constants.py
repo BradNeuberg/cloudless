@@ -31,9 +31,19 @@ CAFFE_HOME = os.environ.get("CAFFE_HOME")
 
 MODEL_ROOT = ROOT_DIR + "/src/caffe_model/bvlc_alexnet"
 SOLVER_FILE = MODEL_ROOT + "/solver.prototxt"
+# TODO(neuberg): Differentiate between the stock vanilla Caffe model zoo AlexNet and
+# the one we've fine tuned via training and our data.
+TRAINED_WEIGHTS = MODEL_ROOT + "/bvlc_alexnet.caffemodel"
+
+TRAINING_FILE = ROOT_DIR + "/data/leveldb/train_leveldb"
+VALIDATION_FILE = ROOT_DIR + "/data/leveldb/validation_leveldb"
 
 WIDTH = 227
 HEIGHT = 227
+
+LANDSAT_ROOT = ROOT_DIR + "/data/landsat"
+LANDSAT_IMAGES = LANDSAT_ROOT + "/images"
+LANDSAT_METADATA = LANDSAT_ROOT + "/metadata/training-validation-set.csv"
 
 # Architecture string that will appear on graphs; good for relatively stable
 # hyperparameter tuning.
