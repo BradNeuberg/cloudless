@@ -7,6 +7,7 @@ import re
 
 import constants
 import graph
+import predict
 
 def train(output_graphs, data=None, weight_file=None, note=None):
     print("Training data, generating graphs: %r" % output_graphs)
@@ -21,11 +22,11 @@ def train(output_graphs, data=None, weight_file=None, note=None):
     if output_graphs:
         graph.plot_results(training_details, validation_details, note)
 
-    #     # If no weight file is provided by callers to this method, parse out the one we just
-    #     # trained.
-    #     if weight_file == None:
-    #         weight_file = trained_weight_file
-    #     predict.test_validation(data, weight_file)
+        # If no weight file is provided by callers to this method, parse out the one we just
+        # trained.
+        if weight_file == None:
+            weight_file = trained_weight_file
+        predict.test_validation(data, weight_file)
 
 def run_trainer():
     """
