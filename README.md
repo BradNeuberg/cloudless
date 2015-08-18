@@ -20,3 +20,15 @@ Note that the trained AlexNet file is much too large to check into Github (it's 
 
 This is all a stub for now; nothing real will happen currently.
 
+# Landsat data details
+
+The scripts to prepare the Landsat data are [here](https://github.com/max-nova/cloudless).
+
+The zip file is the raw imagery stuff pulled down from USGS.
+
+The training-set.csv has 5 columns:
+ * Image Name
+ * Clouds - 1 if there are clouds
+ * Edge - 1 if the image is partially nulled out
+ * Blank - 1 if the image is totally nulled out
+ * Comments - any random comments I had
