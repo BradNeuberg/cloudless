@@ -1,3 +1,4 @@
 *.pyc
+*.caffemodel
 data/landsat/images
 data/planetlab/images
