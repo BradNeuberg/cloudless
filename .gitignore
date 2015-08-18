@@ -1,0 +1,3 @@
+*.pyc
+data/landsat/images
+data/planetlab/images
