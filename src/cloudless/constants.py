@@ -25,7 +25,7 @@ OUTPUT_LOG_PREFIX = LOG_DIR + "/output" + OUTPUT_ENDING
 OUTPUT_LOG_PATH = OUTPUT_LOG_PREFIX + ".log"
 
 # Where to write out training and validation result graphs.
-OUTPUT_GRAPH_PATH = OUTPUT_LOG_PREFIX + ".png"
+OUTPUT_GRAPH_PATH = OUTPUT_LOG_PREFIX
 
 CAFFE_HOME = os.environ.get("CAFFE_HOME")
 

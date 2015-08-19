@@ -18,14 +18,13 @@ def train(output_graphs, data=None, note=None):
     _generate_parsed_logs()
     (training_details, validation_details) = _parse_logs()
 
-    # if output_graphs:
-    #     graph.plot_results(training_details, validation_details, note)
-
     #     # If no weight file is provided by callers to this method, parse out the one we just
     #     # trained.
     #     if weight_file == None:
     #         weight_file = trained_weight_file
     #     predict.test_validation(data, weight_file)
+    if output_graphs:
+        graph.plot_results(training_details, validation_details, note)
 
 def _copy_original_model():
     """

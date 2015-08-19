@@ -2,15 +2,24 @@ import re
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.ticker as mtick
 from matplotlib.font_manager import FontProperties
 
 import constants
 
 def plot_results(training_details, validation_details, note=None):
     """
-    Generates a combined training/validation graph.
+    Generates training/validation graphs.
     """
-    print "\tPlotting results..."
+
+    _plot_loss(training_details, validation_details, note)
+    _plot_accuracy(validation_details, note)
+
+def _plot_loss(training_details, validation_details, note=None):
+    """
+    Plots training/validation loss side by side.
+    """
+    print "\tPlotting training/validation loss..."
     fig, ax1 = plt.subplots()
     ax1.plot(training_details["iters"], training_details["loss"], "b-")
     ax1.set_xlabel("Iterations")
@@ -24,19 +33,37 @@ def plot_results(training_details, validation_details, note=None):
     for tl in ax2.get_yticklabels():
         tl.set_color("r")
 
-    legend_font = FontProperties()
-    legend_font.set_size("small")
-    blue_line = mpatches.Patch(color="blue", label="Training Loss")
-    red_line = mpatches.Patch(color="red", label="Validation Loss")
-    plt.legend(handles=[blue_line, red_line], prop=legend_font, loc="lower right")
-
     plt.suptitle("Iterations vs. Training/Validation Loss", fontsize=14)
-    plt.title(get_hyperparameter_details(note), style="italic", fontsize=12)
+    plt.title(_get_hyperparameter_details(note), style="italic", fontsize=12)
 
-    plt.savefig(constants.OUTPUT_GRAPH_PATH)
-    print("\t\tGraph saved to %s" % constants.OUTPUT_GRAPH_PATH)
+    filename = constants.OUTPUT_GRAPH_PATH + ".loss.png"
+    plt.savefig(filename)
+    plt.close()
+    print("\t\tGraph saved to %s" % filename)
 
-def get_hyperparameter_details(note=None):
+def _plot_accuracy(validation_details, note=None):
+    """
+    Plots validation accuracy over iterations.
+    """
+    print "\tPlotting validation accuracy..."
+    fig, ax = plt.subplots()
+    percentage = [percent * 100 for percent in validation_details["accuracy"]]
+    ax.plot(validation_details["iters"], percentage, "b-")
+    ax.set_xlabel("Iterations")
+    ax.set_ylabel("Validation Accuracy")
+    fmt = '%.2f%%'
+    yticks = mtick.FormatStrFormatter(fmt)
+    ax.yaxis.set_major_formatter(yticks)
+
+    plt.suptitle("Iterations vs. Validation Accuracy", fontsize=14)
+    plt.title(_get_hyperparameter_details(note), style="italic", fontsize=12)
+
+    filename = constants.OUTPUT_GRAPH_PATH + ".accuracy.png"
+    plt.savefig(filename)
+    plt.close()
+    print("\t\tGraph saved to %s" % filename)
+
+def _get_hyperparameter_details(note=None):
     """
     Parse out some of the values we need from the Caffe solver prototext file.
     """
