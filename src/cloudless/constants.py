@@ -38,11 +38,11 @@ TRAINED_WEIGHTS = MODEL_ROOT + "/bvlc_alexnet.caffemodel"
 TRAINING_FILE = ROOT_DIR + "/data/leveldb/train_leveldb"
 VALIDATION_FILE = ROOT_DIR + "/data/leveldb/validation_leveldb"
 
-WIDTH = 227
-HEIGHT = 227
 # Path to ImageNet's mean file, which AlexNet is trained on and which must be used as a mask.
 TRAINING_MEAN_FILE = ROOT_DIR + "/data/imagenet/imagenet_mean.binaryproto"
 
+WIDTH = 256
+HEIGHT = 256
 
 LANDSAT_ROOT = ROOT_DIR + "/data/landsat"
 LANDSAT_IMAGES = LANDSAT_ROOT + "/images"
