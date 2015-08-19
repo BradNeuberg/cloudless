@@ -10,7 +10,8 @@ gamma: 0.1
 #stepsize: 100000
 stepsize: 25000
 display: 20
-max_iter: 450000
+#max_iter: 450000
+max_iter: 50000
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
