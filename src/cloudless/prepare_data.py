@@ -3,7 +3,6 @@ import os
 import glob
 import time
 import csv
-import subprocess
 
 from PIL import Image
 import numpy as np
@@ -28,9 +27,6 @@ def prepare_data():
     print "\tSaving prepared data..."
     _generate_leveldb(constants.TRAINING_FILE, train_paths, train_targets)
     _generate_leveldb(constants.VALIDATION_FILE, validation_paths, validation_targets)
-
-    print "\tComputing training set image mean file..."
-    _compute_image_mean()
 
 def _get_landsat_details():
     """
@@ -161,12 +157,3 @@ def _load_numpy_image(image_path):
     data = np.asarray(im)
     data = np.reshape(data, (3, constants.HEIGHT, constants.WIDTH))
     return data
-
-def _compute_image_mean():
-    """
-    AlexNet requires an image mean file for the training file; this produces one.
-    """
-
-    process = subprocess.Popen([constants.CAFFE_HOME + "/build/tools/compute_image_mean",
-        "-backend", "leveldb", constants.TRAINING_FILE, constants.TRAINING_MEAN_FILE],
-        stderr=subprocess.STDOUT)
