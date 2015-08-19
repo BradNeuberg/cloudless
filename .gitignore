@@ -1,6 +1,7 @@
 *.pyc
 *.caffemodel
 *.DS_Store
-data/leveldb/*
+snapshots
+data/leveldb
 data/landsat/images
 data/planetlab/images

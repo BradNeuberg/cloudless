@@ -1,14 +1,18 @@
-net: "models/bvlc_alexnet/train_val.prototxt"
+net: "src/caffe_model/bvlc_alexnet/train_val.prototxt"
 test_iter: 1000
-test_interval: 1000
-base_lr: 0.01
+test_interval: 500
+# Lower the base learning rate to mostly keep AlexNet's trained layers.
+#base_lr: 0.01
+base_lr: 0.001
 lr_policy: "step"
 gamma: 0.1
-stepsize: 100000
+# Lower the step size since we are mostly trained at this point.
+#stepsize: 100000
+stepsize: 25000
 display: 20
 max_iter: 450000
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
-snapshot_prefix: "models/bvlc_alexnet/caffe_alexnet_train"
+snapshot_prefix: "snapshots/bvlc_alexnet"
 solver_mode: GPU

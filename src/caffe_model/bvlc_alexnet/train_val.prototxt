@@ -10,12 +10,11 @@ layer {
   transform_param {
     mirror: true
     crop_size: 227
-    mean_file: "data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "data/imagenet/imagenet_mean.binaryproto"
   }
   data_param {
-    source: "examples/imagenet/ilsvrc12_train_lmdb"
-    batch_size: 256
-    backend: LMDB
+    source: "data/leveldb/train_leveldb"
+    batch_size: 64
   }
 }
 layer {
@@ -29,12 +28,11 @@ layer {
   transform_param {
     mirror: false
     crop_size: 227
-    mean_file: "data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "data/imagenet/imagenet_mean.binaryproto"
   }
   data_param {
-    source: "examples/imagenet/ilsvrc12_val_lmdb"
+    source: "data/leveldb/validation_leveldb"
     batch_size: 50
-    backend: LMDB
   }
 }
 layer {
@@ -43,11 +41,11 @@ layer {
   bottom: "data"
   top: "conv1"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -98,11 +96,11 @@ layer {
   bottom: "pool1"
   top: "conv2"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -154,11 +152,11 @@ layer {
   bottom: "pool2"
   top: "conv3"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -187,11 +185,11 @@ layer {
   bottom: "conv3"
   top: "conv4"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -221,11 +219,11 @@ layer {
   bottom: "conv4"
   top: "conv5"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -341,20 +339,20 @@ layer {
   }
 }
 layer {
-  name: "fc8"
+  name: "fc8_cloudless"
   type: "InnerProduct"
   bottom: "fc7"
-  top: "fc8"
+  top: "fc8_cloudless"
   param {
-    lr_mult: 1
+    lr_mult: 10
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 20
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 1000
+    num_output: 1
     weight_filler {
       type: "gaussian"
       std: 0.01
@@ -368,7 +366,7 @@ layer {
 layer {
   name: "accuracy"
   type: "Accuracy"
-  bottom: "fc8"
+  bottom: "fc8_cloudless"
   bottom: "label"
   top: "accuracy"
   include {
@@ -378,7 +376,7 @@ layer {
 layer {
   name: "loss"
   type: "SoftmaxWithLoss"
-  bottom: "fc8"
+  bottom: "fc8_cloudless"
   bottom: "label"
   top: "loss"
 }

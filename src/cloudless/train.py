@@ -9,35 +9,46 @@ import constants
 import graph
 import predict
 
-def train(output_graphs, data=None, weight_file=None, note=None):
+def train(output_graphs, data=None, note=None):
     print("Training data, generating graphs: %r" % output_graphs)
 
-    run_trainer()
-    generate_parsed_logs()
-    (training_details, validation_details) = parse_logs()
-    # TODO(neuberg): This will need to be adapted against an already trained weight
-    # file that we are fine-tuning.
-    trained_weight_file = get_trained_weight_file()
+    _copy_original_model()
+    _run_trainer()
 
-    if output_graphs:
-        graph.plot_results(training_details, validation_details, note)
+    # TODO(neuberg): Wire all this in.
+    # generate_parsed_logs()
+    # (training_details, validation_details) = parse_logs()
+    # # TODO(neuberg): This will need to be adapted against an already trained weight
+    # # file that we are fine-tuning.
+    # trained_weight_file = get_trained_weight_file()
 
-        # If no weight file is provided by callers to this method, parse out the one we just
-        # trained.
-        if weight_file == None:
-            weight_file = trained_weight_file
-        predict.test_validation(data, weight_file)
+    # if output_graphs:
+    #     graph.plot_results(training_details, validation_details, note)
 
-def run_trainer():
+    #     # If no weight file is provided by callers to this method, parse out the one we just
+    #     # trained.
+    #     if weight_file == None:
+    #         weight_file = trained_weight_file
+    #     predict.test_validation(data, weight_file)
+
+def _copy_original_model():
+    """
+    Copies the non-fine tuned AlexNet model to a new weight file so we can fine tune it, keeping
+    the original unchanged for multiple test runs.
+    """
+
+    print "\tCopying original, non-finetuned weight model over for training..."
+    shutil.rmtree(constants.WEIGHTS_FINETUNED, ignore_errors=True)
+    shutil.copyfile(constants.WEIGHTS_NON_FINETUNED, constants.WEIGHTS_FINETUNED)
+
+def _run_trainer():
     """
     Runs Caffe to train the model.
     """
     print("\tRunning trainer...")
-    # TODO(neuberg): This will need to be adapted against an already trained weight
-    # file that we are fine-tuning.
     with open(constants.OUTPUT_LOG_PATH, "w") as f:
         process = subprocess.Popen([constants.CAFFE_HOME + "/build/tools/caffe", "train",
-            "--solver=" + constants.SOLVER_FILE],
+            "--solver=" + constants.SOLVER_FILE, "--weights=" + constants.WEIGHTS_FINETUNED],
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
         for line in iter(process.stdout.readline, ''):
@@ -125,6 +136,7 @@ def parse_logs():
         }
     )
 
+# TODO(neuberg): We can probably remove this since we are hard coding it.
 def get_trained_weight_file():
     """
     Parses out the file name of the model weight file we just trained.

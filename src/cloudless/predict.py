@@ -1,6 +1,6 @@
 import constants
 
-def test_validation(data=None, weight_file=constants.TRAINED_WEIGHTS):
+def test_validation(data=None):
     """
     Takes validation images and runs them through a trained model to see how
     well they do. Generates statistics like precision and recall, a confusion matrix,

@@ -5,7 +5,7 @@ import random
 
 import constants
 from prepare_data import prepare_data
-import train
+from train import train
 
 def parse_command_line():
     parser = argparse.ArgumentParser(
@@ -16,8 +16,6 @@ def parse_command_line():
     parser.add_argument("-t", "--train", help="""Train classifier. Use --graph to generate quality
         graphs""", action="store_true")
     parser.add_argument("-g", "--graph", help="Generate training graphs.", action="store_true")
-    parser.add_argument("--weights", help="""The trained model weights to use; if not provided
-        defaults to the network that was just trained""", type=str, default=None)
     parser.add_argument("--note", help="Adds extra note onto generated quality graph.", type=str)
 
     args = vars(parser.parse_args())
@@ -33,7 +31,7 @@ def parse_command_line():
     if args["prepare_data"] == True:
         prepare_data()
     if args["train"] == True:
-        train(args["graph"], weight_file=args["weights"], note=args["note"])
+        train(args["graph"], note=args["note"])
 
 if __name__ == "__main__":
     parse_command_line()
