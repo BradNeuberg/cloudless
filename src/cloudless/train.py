@@ -15,12 +15,8 @@ def train(output_graphs, data=None, note=None):
     _copy_original_model()
     _run_trainer()
 
-    # TODO(neuberg): Wire all this in.
-    # generate_parsed_logs()
-    # (training_details, validation_details) = parse_logs()
-    # # TODO(neuberg): This will need to be adapted against an already trained weight
-    # # file that we are fine-tuning.
-    # trained_weight_file = get_trained_weight_file()
+    _generate_parsed_logs()
+    (training_details, validation_details) = _parse_logs()
 
     # if output_graphs:
     #     graph.plot_results(training_details, validation_details, note)
@@ -57,7 +53,7 @@ def _run_trainer():
 
         print("\t\tTraining output saved to %s" % constants.OUTPUT_LOG_PATH)
 
-def generate_parsed_logs():
+def _generate_parsed_logs():
     """
     Takes the raw Caffe output created while training the model in order
     to generate reduced statistics, such as giving iterations vs. test loss.
@@ -102,7 +98,7 @@ def generate_parsed_logs():
     print("\t\tParsed training log saved to %s" % (constants.OUTPUT_LOG_PATH + ".train"))
     print("\t\tParsed validation log saved to %s\n" % (constants.OUTPUT_LOG_PATH + ".validate"))
 
-def parse_logs():
+def _parse_logs():
     """
     Parses our training and validation logs in order to return them in a way we can work with.
     """
@@ -118,13 +114,15 @@ def parse_logs():
 
     validation_iters = []
     validation_loss = []
+    validation_accuracy = []
     for line in csv.reader(open(constants.OUTPUT_LOG_PATH + ".validate"), delimiter="\t",
                             skipinitialspace=True):
         if re.search("Iters", str(line)):
             continue
 
         validation_iters.append(int(float(line[0])))
-        validation_loss.append(float(line[3]))
+        validation_accuracy.append(float(line[3]))
+        validation_loss.append(float(line[4]))
 
     return (
         {
@@ -132,18 +130,7 @@ def parse_logs():
             "loss": training_loss
         }, {
             "iters": validation_iters,
-            "loss": validation_loss
+            "loss": validation_loss,
+            "accuracy": validation_accuracy
         }
     )
-
-# TODO(neuberg): We can probably remove this since we are hard coding it.
-def get_trained_weight_file():
-    """
-    Parses out the file name of the model weight file we just trained.
-    """
-    trained_weight_file = None
-    with open(constants.OUTPUT_LOG_PATH) as f:
-        content = f.read()
-        trained_weight_file = re.findall("Snapshotting to (.*)$", content, re.MULTILINE)[0]
-
-    return trained_weight_file
