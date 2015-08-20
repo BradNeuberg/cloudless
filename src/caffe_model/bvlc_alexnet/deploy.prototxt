@@ -201,6 +201,6 @@ layer {
   bottom: "fc7"
   top: "fc8_cloudless"
   inner_product_param {
-    num_output: 1
+    num_output: 2
   }
 }
