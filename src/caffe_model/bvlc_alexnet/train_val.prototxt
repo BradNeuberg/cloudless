@@ -10,7 +10,6 @@ layer {
   transform_param {
     mirror: true
     crop_size: 227
-    mean_file: "data/imagenet/imagenet_mean.binaryproto"
   }
   data_param {
     source: "data/leveldb/train_leveldb"
@@ -28,7 +27,6 @@ layer {
   transform_param {
     mirror: false
     crop_size: 227
-    mean_file: "data/imagenet/imagenet_mean.binaryproto"
   }
   data_param {
     source: "data/leveldb/validation_leveldb"
