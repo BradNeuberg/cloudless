@@ -103,13 +103,15 @@ def _parse_logs():
     """
     training_iters = []
     training_loss = []
+    training_accuracy = []
     for line in csv.reader(open(constants.OUTPUT_LOG_PATH + ".train"), delimiter="\t",
                             skipinitialspace=True):
         if re.search("Iters", str(line)):
             continue
 
         training_iters.append(int(float(line[0])))
-        training_loss.append(float(line[3]))
+        training_accuracy.append(float(line[3]))
+        training_loss.append(float(line[4]))
 
     validation_iters = []
     validation_loss = []
@@ -126,7 +128,8 @@ def _parse_logs():
     return (
         {
             "iters": training_iters,
-            "loss": training_loss
+            "loss": training_loss,
+            "accuracy": training_accuracy
         }, {
             "iters": validation_iters,
             "loss": validation_loss,

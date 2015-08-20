@@ -13,7 +13,7 @@ def plot_results(training_details, validation_details, note=None):
     """
 
     _plot_loss(training_details, validation_details, note)
-    _plot_accuracy(validation_details, note)
+    _plot_accuracy(training_details, validation_details, note)
 
 def _plot_loss(training_details, validation_details, note=None):
     """
@@ -41,21 +41,33 @@ def _plot_loss(training_details, validation_details, note=None):
     plt.close()
     print("\t\tGraph saved to %s" % filename)
 
-def _plot_accuracy(validation_details, note=None):
+def _plot_accuracy(training_details, validation_details, note=None):
     """
-    Plots validation accuracy over iterations.
+    Plots training/validation accuracy over iterations.
     """
-    print "\tPlotting validation accuracy..."
-    fig, ax = plt.subplots()
-    percentage = [percent * 100 for percent in validation_details["accuracy"]]
-    ax.plot(validation_details["iters"], percentage, "b-")
-    ax.set_xlabel("Iterations")
-    ax.set_ylabel("Validation Accuracy")
-    fmt = '%.2f%%'
-    yticks = mtick.FormatStrFormatter(fmt)
-    ax.yaxis.set_major_formatter(yticks)
+    print "\tPlotting training/validation accuracy..."
 
-    plt.suptitle("Iterations vs. Validation Accuracy", fontsize=14)
+    fmt = '%.1f%%'
+    yticks = mtick.FormatStrFormatter(fmt)
+
+    fig, ax1 = plt.subplots()
+    training_percentage = [percent * 100 for percent in training_details["accuracy"]]
+    ax1.plot(training_details["iters"], training_percentage, "b-")
+    ax1.set_xlabel("Iterations")
+    ax1.set_ylabel("Training Accuracy", color="b")
+    ax1.yaxis.set_major_formatter(yticks)
+    for tl in ax1.get_yticklabels():
+        tl.set_color("b")
+
+    ax2 = ax1.twinx()
+    validation_percentage = [percent * 100 for percent in validation_details["accuracy"]]
+    ax2.plot(validation_details["iters"], validation_percentage, "r-")
+    ax2.set_ylabel("Validation Accuracy", color="r")
+    ax2.yaxis.set_major_formatter(yticks)
+    for tl in ax2.get_yticklabels():
+        tl.set_color("r")
+
+    plt.suptitle("Iterations vs. Training/Validation Accuracy", fontsize=14)
     plt.title(_get_hyperparameter_details(note), style="italic", fontsize=12)
 
     filename = constants.OUTPUT_GRAPH_PATH + ".accuracy.png"
