@@ -374,6 +374,16 @@ layer {
   }
 }
 layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "fc8_cloudless"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TRAIN
+  }
+}
+layer {
   name: "loss"
   type: "SoftmaxWithLoss"
   bottom: "fc8_cloudless"
