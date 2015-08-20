@@ -204,3 +204,9 @@ layer {
     num_output: 2
   }
 }
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "fc8_cloudless"
+  top: "prob"
+}
