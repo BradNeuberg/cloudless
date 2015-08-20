@@ -31,6 +31,7 @@ CAFFE_HOME = os.environ.get("CAFFE_HOME")
 
 MODEL_ROOT = ROOT_DIR + "/src/caffe_model/bvlc_alexnet"
 SOLVER_FILE = MODEL_ROOT + "/solver.prototxt"
+DEPLOY_FILE = MODEL_ROOT + "/deploy.prototxt"
 WEIGHTS_NON_FINETUNED = MODEL_ROOT + "/bvlc_alexnet_orig.caffemodel"
 WEIGHTS_FINETUNED = MODEL_ROOT + "/bvlc_alexnet_finetuned.caffemodel"
 
@@ -40,8 +41,16 @@ VALIDATION_FILE = ROOT_DIR + "/data/leveldb/validation_leveldb"
 # Path to ImageNet's mean file, which AlexNet is trained on and which must be used as a mask.
 TRAINING_MEAN_FILE = ROOT_DIR + "/data/imagenet/imagenet_mean.binaryproto"
 
+# A pickled version of the ImageNet mean file, useful at deploy rather than train time.
+TRAINING_MEAN_PICKLE = ROOT_DIR + "/data/imagenet/imagenet_mean.npy"
+
 WIDTH = 256
 HEIGHT = 256
+
+# The width and height at inference time, which is different then at training time since
+# we have clipping and transformation layers in Caffe.
+INFERENCE_WIDTH = 227
+INFERENCE_HEIGHT = 227
 
 LANDSAT_ROOT = ROOT_DIR + "/data/landsat"
 LANDSAT_IMAGES = LANDSAT_ROOT + "/images"
