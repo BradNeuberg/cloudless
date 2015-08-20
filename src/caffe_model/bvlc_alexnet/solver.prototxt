@@ -2,7 +2,7 @@ net: "src/caffe_model/bvlc_alexnet/train_val.prototxt"
 #test_iter: 1000
 test_iter: 80
 #test_interval: 500
-test_interval: 1000
+test_interval: 500
 # Lower the base learning rate to mostly keep AlexNet's trained layers.
 #base_lr: 0.01
 base_lr: 0.001
