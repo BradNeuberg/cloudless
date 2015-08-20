@@ -3,9 +3,10 @@ import argparse
 import os
 import random
 
-import constants
-from prepare_data import prepare_data
-from train import train
+import train.constants as constants
+import train.predict as predict
+from train.prepare_data import prepare_data
+from train.train import train
 
 def parse_command_line():
     parser = argparse.ArgumentParser(
@@ -16,6 +17,8 @@ def parse_command_line():
     parser.add_argument("-t", "--train", help="""Train classifier. Use --graph to generate quality
         graphs""", action="store_true")
     parser.add_argument("-g", "--graph", help="Generate training graphs.", action="store_true")
+    parser.add_argument("--predict", help="""Make a prediction about a single image.
+        Provide path to image.""", nargs=1, type=str)
     parser.add_argument("--note", help="Adds extra note onto generated quality graph.", type=str)
 
     args = vars(parser.parse_args())
@@ -32,6 +35,9 @@ def parse_command_line():
         prepare_data()
     if args["train"] == True:
         train(args["graph"], note=args["note"])
+    if args["predict"] != None:
+        image_path = args["predict"][0]
+        predict.predict(image_path)
 
 if __name__ == "__main__":
     parse_command_line()
