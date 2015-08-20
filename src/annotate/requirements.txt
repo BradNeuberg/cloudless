@@ -1,6 +1,17 @@
 Django==1.8.4
+GDAL==1.10.0
+appnope==0.1.0
+decorator==4.0.2
 django-extensions==1.5.5
 django-jsonfield==0.9.15
+gnureadline==6.3.3
+ipython==4.0.0
+ipython-genutils==0.1.0
+path.py==7.6.1
+pexpect==3.3
+pickleshare==0.5
 requests==2.7.0
+simplegeneric==0.8.1
 six==1.9.0
+traitlets==4.0.0
 wsgiref==0.1.2
