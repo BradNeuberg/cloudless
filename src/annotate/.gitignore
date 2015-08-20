@@ -1,0 +1,2 @@
+db.sqlite3
+train/static/training_images/*.png
