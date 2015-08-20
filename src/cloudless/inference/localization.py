@@ -5,13 +5,14 @@ sys.path.append(os.environ.get('SELECTIVE_SEARCH'))
 
 from selective_search import *
 from skimage.transform import resize
+import numpy as np
 
 def parse_command_line():
   parser = argparse.ArgumentParser(
       description="""Generate Regions using selective search.""")
   parser.add_argument("-i", "--image", help="input image", default='cat.jpg')
-  parser.add_argument("-d", "--directory", help="output directory",
-                      default='regions')
+  parser.add_argument("-o", "--output", help="output directory",
+                      default='./regions')
   parser.add_argument("-m", "--dimension", help="image dimension to resize crops to",
                       default=(227,227,3))
 
@@ -32,7 +33,7 @@ def gen_regions(image, dims):
   assert(len(dims) == 3)
   img = skimage.io.imread(image)
   start = time.time()
-  regions = selective_search(img)
+  regions = selective_search(img, ks=[100])
   print("Selective search time: %.2f [s]" % (time.time() - start))
 
   resize_t = 0
@@ -50,13 +51,14 @@ def gen_regions(image, dims):
 
 def main(argv):
   args = parse_command_line()
-  assert(os.path.isdir(args.directory))
+  if not os.path.exists(args.output):
+    os.makedirs(args.output)
 
   crops = gen_regions(args.image, args.dimension)
 
   # write out
   for idx, img in enumerate(crops):
-    fname = args.directory + '/img%s.jpg' % idx
+    fname = args.output + '/%s.jpg' % idx
     skimage.io.imsave(fname, img[1])
 
   print("Crops generated: %d" % idx)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-import os, sys, argparse, glob, time
+import os, sys, argparse, glob, time, re, re
 CAFFE_HOME = os.environ.get("CAFFE_HOME")
 sys.path.append(CAFFE_HOME)
 
@@ -8,6 +8,13 @@ os.environ['GLOG_minloglevel'] = '1'
 
 import caffe
 import numpy as np
+from pprint import pprint
+
+def numericalSort(value):
+  numbers = re.compile(r'(\d+)')
+  parts = numbers.split(value)
+  parts[1::2] = map(int, parts[1::2])
+  return parts
 
 def parse_command_line():
   parser = argparse.ArgumentParser(description="Inference script for Caffe")
@@ -41,6 +48,12 @@ def parse_command_line():
       help="Image extension",
       default="jpg"
   )
+  parser.add_argument(
+      "-l",
+      "--classes",
+      help="(optional) File with classes (format: 000 class)",
+      default="imagenet-classes.txt"
+  )
   args = parser.parse_args()
 
   if os.environ.get("CAFFE_HOME") == None:
@@ -61,16 +74,27 @@ def main(argv):
   if args.platform == "gpu":
     caffe.set_mode_gpu()
 
+  classes = {}
+  if os.path.isfile(args.classes):
+    f = open(args.classes, 'r')
+    for line in f: # '001 goldfish'
+      key = int(line.split(" ")[0])
+      value = line.split(" ",1)[1].strip('\n')
+      classes[key] = value
+
+  fnames = []
   if os.path.isdir(args.input):
-    images = glob.glob(args.input + "/*." + args.ext)
+    images = sorted(glob.glob(args.input + "/*." + args.ext), key=numericalSort)
     assert (len(images) > 0)
 
     inp = []
     for fn in images:
       img = caffe.io.load_image(fn)
       inp.append(img)
+      fnames.append(fn)
   else:
     inp = [caffe.io.load_image(args.input)]
+    fnames.append(args.input)
 
   print("Classifying: %d images" % len(inp))
 
@@ -90,7 +114,11 @@ def main(argv):
 
   # Classify.
   predictions = classifier.predict(inp, oversample=False)
-  print(predictions)
+  if classes:
+    for idx,pred in enumerate(predictions):
+      print("{}: {}".format(fnames[idx], classes[int(pred)]))
+  else:
+    print(predictions)
 
 if __name__ == '__main__':
     main(sys.argv)
