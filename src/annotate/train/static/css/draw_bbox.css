@@ -17,6 +17,10 @@
   width: 50%;
 }
 
+.progress {
+  font-style: italic;
+}
+
 .instructions {
   font-weight: bold;
 }

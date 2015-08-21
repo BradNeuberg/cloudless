@@ -28,13 +28,24 @@ def annotate(request):
         image_id = request.POST.get('image_id')
         bboxes = request.POST.getlist('new-bbox')
         img = Image.objects.get(id=image_id)
-        img.annotation = bboxes
-        img.save()
 
+        if request.POST.get('delete') == 'true':
+            img.delete()
+        else:
+            img.annotation = bboxes
+            img.save()
+
+    progress = '%s/%s' % (
+        Image.objects.filter(annotation__isnull=False).count(),
+        Image.objects.count()
+    )
     return render(
         request,
         'train/annotate.html',
-        {'img_data': random_img()}
+        {
+            'img_data': random_img(),
+            'progress': progress
+        }
     )
 
 
