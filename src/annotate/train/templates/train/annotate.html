@@ -2,17 +2,10 @@
 <html>
   <head>
     <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/draw_bbox.css"></link>
+    <link rel="stylesheet" type="text/css" href="/static/css/draw_bbox.css" />
 
     <script>
-      // TODO(max): Tie this in with your data from a Django template variable.
-
-      // Django would write needed variables into here. 'img_url' is the URL we are working with,
-      // while 'image_id'
-      window.annotation_context = {
-        image_id: 1,
-        img_url: "/static/img/sample.png"
-      }
+    window.annotation_context = {{ img_data|safe }};
     </script>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -21,7 +14,8 @@
   </head>
 
   <body>
-    <form method="post" action="/draw_bbox_results">
+    <form method="post" action="">
+      {% csrf_token %}
       <input type="hidden" name="image_id" />
       <main>
         <div class="left">
@@ -51,9 +45,11 @@
             <label for="no-clouds">
               <b>Check here</b> if there are NO clouds in the image.
             </label>
+          </div>
+
+          <button class="done" type="submit">Done</button>
         </div>
 
-        <button class="done" type="submit">Done</button>
       </main>
     </form>
   </body>

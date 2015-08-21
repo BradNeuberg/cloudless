@@ -17,4 +17,4 @@ class Image(models.Model):
         url = self.path
         url = url.replace(settings.BASE_DIR, '').replace('/train/static/', '')
         url = settings.STATIC_URL + url
-        return url
+        return str(url)

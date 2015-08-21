@@ -13,7 +13,7 @@ function init(){
       // of drawing our bounding boxes.
       evt.preventDefault();
     })
-    .attr({src: context.img_url})
+    .attr({src: context.image_url})
     .load(function(){
       on_image_load(context);
     });
@@ -105,9 +105,7 @@ function on_submit(evt){
 
   // TODO: Make sure there are either bounding boxes _or_ one of the checkboxes is selected.
 
-  // TODO(max): Remove once we have a real server.
-  evt.preventDefault();
-  print_debug_form();
+  // print_debug_form();
 }
 
 /**
@@ -145,7 +143,7 @@ function get_image_coords(){
     top: top,
     width: img.width(),
     height: img.height()
-  }
+  };
 }
 
 $(window).ready(init);

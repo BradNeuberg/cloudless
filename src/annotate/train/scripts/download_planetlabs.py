@@ -1,3 +1,4 @@
+import argparse
 import os
 import requests
 
@@ -31,6 +32,7 @@ def download(lat, lng, buff_meters, download_dir='/tmp'):
     downloaded_scenes = []
     for scene_data in data.json()["features"]:
         img_url = scene_data['properties']['links']['full']
+        print 'Downloading image from %s' % img_url
         downloaded_scenes.append(download_image(img_url, download_dir))
 
     return downloaded_scenes
@@ -93,3 +95,24 @@ def download_image(url, download_dir='/tmp'):
                 f.flush()
 
     return local_filename
+
+
+def run(*args):
+    parser = argparse.ArgumentParser(
+        description='Download scenes from Planet'
+    )
+    parser.add_argument('lat', help='Latitude of interest')
+    parser.add_argument('lng', help='Longitude of interest')
+    parser.add_argument(
+        'buffer', type=int, default=200,
+        help='Meters to buffer lat/lng'
+    )
+    parser.add_argument(
+        'dir', default='/tmp', help='Where to download files'
+    )
+    args = parser.parse_args(args)
+
+    downloaded_scenes = download(
+        args.lat, args.lng, args.buffer, args.dir
+    )
+    print '%s downloaded scenes' % len(downloaded_scenes)

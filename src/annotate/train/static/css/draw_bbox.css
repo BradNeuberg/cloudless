@@ -4,6 +4,10 @@
   clear: none;
 }
 
+#annotate-me {
+  border: 1px solid black;
+}
+
 .right {
   float: right;
   padding-right: 1em;
