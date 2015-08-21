@@ -8,6 +8,11 @@ Setup
     ./manage.py migrate
     echo 'PLANET_KEY="SECRET PLANET LABS KEY"' >> $VIRTUAL_ENV/bin/postactivate
 
+Each time
+---------
+
+workon annotate-django
+
 Importing imagery
 -------------------
 1. Choose your lat/lng and buffer distance (meters) you want (this example is for San Fran) and the directory to download to, then run:
