@@ -1,0 +1,51 @@
+.left {
+  float: left;
+  padding-left: 1em;
+  clear: none;
+}
+
+.right {
+  float: right;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  clear: none;
+  font-size: 16pt;
+  width: 50%;
+}
+
+.instructions {
+  font-weight: bold;
+}
+
+.right li {
+  padding-bottom: 0.5em;
+}
+
+.all-image-cloud {
+  padding-top: 0.4em;
+}
+
+.no-clouds {
+  padding-top: 1em;
+}
+
+.done {
+  float: right;
+  margin-top: 2em;
+  font-size: 16pt;
+}
+
+.image-container {
+  position: relative;
+}
+
+.new-bbox {
+  position: absolute !important; /* !important needed to override JQuery's selectable styles. */
+  border: 1px solid red;
+  cursor: move;
+}
+
+.ui-selectable-helper {
+  border-color: red;
+}
+

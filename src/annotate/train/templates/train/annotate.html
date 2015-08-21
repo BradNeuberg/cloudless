@@ -1,11 +1,60 @@
-{% load staticfiles %}
-
+<!DOCTYPE html>
 <html>
-<head>
-  <script src="{% static 'training/js/annotate.js' %}"></script>
-</head>
+  <head>
+    <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/draw_bbox.css"></link>
 
-<body>
-  <p>BRAD CODE GOES HERE</p>
-</body>
+    <script>
+      // TODO(max): Tie this in with your data from a Django template variable.
+
+      // Django would write needed variables into here. 'img_url' is the URL we are working with,
+      // while 'image_id'
+      window.annotation_context = {
+        image_id: 1,
+        img_url: "/static/img/sample.png"
+      }
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/draw_bbox.js"></script>
+  </head>
+
+  <body>
+    <form method="post" action="/draw_bbox_results">
+      <input type="hidden" name="image_id" />
+      <main>
+        <div class="left">
+          <h1>Draw boxes around clouds</h1>
+          <div class="image-container"></div>
+        </div>
+
+        <div class="right">
+          <p class="instructions">Draw bounding boxes around clouds or groups of touching clouds in the image.</p>
+
+          <p class="instructions">Instructions:</p>
+          <ul>
+            <li>Include all visible parts, including any cloud shadows, and draw as tightly as possible on each cloud.</li>
+            <li>If there are multiple clouds and they <b>directly</b> touch, draw the box around the group.</li>
+            <li>You should consider smoke (from fires, factories, etc.) as clouds as well.</li>
+          </ul>
+
+          <div class="all-image-cloud">
+            <input name="all-image-cloud" type="checkbox" value="true" />
+            <label for="all-image-cloud">
+              <b>Check here</b> if the entire image is basically covered in clouds.
+            </label>
+          </div>
+
+          <div class="no-clouds">
+            <input name="no-clouds" type="checkbox" value="true" />
+            <label for="no-clouds">
+              <b>Check here</b> if there are NO clouds in the image.
+            </label>
+        </div>
+
+        <button class="done" type="submit">Done</button>
+      </main>
+    </form>
+  </body>
 </html>
