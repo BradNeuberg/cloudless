@@ -45,3 +45,8 @@ Exporting annotated imagery
 1. Writes out annotated.json and all the annotated images to a specified directory
 
     ./manage.py runscript export --script-args ../../data/planetlab/metadata/
+
+Clearing out database and images
+--------------------------------
+
+    ./manage.py runscript clear
