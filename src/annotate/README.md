@@ -11,7 +11,7 @@ Importing imagery
 -------------------
 1. Choose your lat/lng and buffer distance (meters) you want (this example is for San Fran) and the directory to download to, then run:
 
-    ./manage.py runscript download_planetlabs --script-args=37.796105 -122.461349 --buffer 200 /Users/max/Desktop/raw/
+    python train/scripts/download_planetlabs.py 37.796105 -122.461349 --buffer 200 --dir /Users/max/Desktop/raw/
 
 2. Chop up these raw images into 512x512 pixels and add them to the database
 

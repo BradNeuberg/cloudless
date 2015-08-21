@@ -97,20 +97,20 @@ def download_image(url, download_dir='/tmp'):
     return local_filename
 
 
-def run(*args):
+if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Download scenes from Planet'
     )
     parser.add_argument('lat', help='Latitude of interest')
     parser.add_argument('lng', help='Longitude of interest')
     parser.add_argument(
-        'buffer', type=int, default=200,
+        '--buffer', type=int, default=200,
         help='Meters to buffer lat/lng'
     )
     parser.add_argument(
-        'dir', default='/tmp', help='Where to download files'
+        '--dir', default='/tmp', help='Where to download files'
     )
-    args = parser.parse_args(args)
+    args = parser.parse_args()
 
     downloaded_scenes = download(
         args.lat, args.lng, args.buffer, args.dir
