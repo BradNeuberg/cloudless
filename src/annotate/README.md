@@ -1,6 +1,7 @@
 Setup
 -----------
     brew install gdal
+    Install virtualenv and virtualenvwrapper: https://jamie.curle.io/posts/installing-pip-virtualenv-and-virtualenvwrapper-on-os-x/
     mkvirtualenv annotate-django
     cd src/annotate
     pip install -r requirements.txt
