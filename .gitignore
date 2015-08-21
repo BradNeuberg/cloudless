@@ -5,3 +5,4 @@ snapshots
 data/leveldb
 data/landsat/images
 data/planetlab/images
+data/planetlab/metadata
