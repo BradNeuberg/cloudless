@@ -31,7 +31,7 @@ Annotating imagery
 
 2. Go to http://127.0.0.1:8000/train/annotate
 
-3. Draw bounding boxes on the image.  Note - the checkboxes are ignored.  Max believes they are superfluous.
+3. Draw bounding boxes on the image.
 
 4. Hit the "Done" button to submit results to the server
 
