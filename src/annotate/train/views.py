@@ -5,6 +5,9 @@ from .models import Image
 
 
 def annotate(request):
+    if request.method == 'POST':
+        # TODO save form data
+        pass
     return render(request, 'train/annotate.html')
 
 
