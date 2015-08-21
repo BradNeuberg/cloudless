@@ -25,11 +25,15 @@
   padding-bottom: 0.5em;
 }
 
-
-.done {
+.done,
+.delete {
   float: right;
   margin-top: 2em;
   font-size: 16pt;
+}
+
+.delete {
+  margin-right: 1em;
 }
 
 .image-container {

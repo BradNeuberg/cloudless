@@ -27,6 +27,7 @@ function on_image_load(context){
 
   var x_begin, y_begin, x_end, y_end;
 
+  $('.delete').on('click', on_delete);
   $('form').on('submit', on_submit);
 
   // Piggy-back on JQuery's selectable behavior to detect selection boxes.
@@ -86,6 +87,11 @@ function on_image_load(context){
       $('.image-container').append(box);
     }
   });
+}
+
+function on_delete(evt){
+  var delete_me = $('<input type="hidden" name="delete" value="true" />');
+  $('form').append(delete_me);
 }
 
 function on_submit(evt){
