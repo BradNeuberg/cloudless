@@ -16,7 +16,7 @@ Importing imagery
 
 2. Chop up these raw images into 512x512 pixels and add them to the database
 
-   ./manage.py runscript populate_db --script-args /Users/max/Desktop/raw/ 512
+   ./manage.py runscript populate_db --script-args ../../data/planetlab/images/ 512
 
 Annotating imagery
 --------------------
