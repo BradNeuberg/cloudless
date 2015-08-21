@@ -2,6 +2,9 @@
 
 Project as part of Dropbox's Hack Week to provide a classifier for detecting clouds in remote sensing data using deep learning.
 
+TODO(brad): Setup virtualenv for training and inference boundary box code.
+TODO(brad): Consolidate all the README files and clean up this file.
+
 # Details
 
 Preprocessed datasets are in data/landsat/images and data/planetlab/images; however, these are not checked in due to possible licensing issues. Metadata that we've added via annotation in order to label the data _is_ checked in and is in data/landsat/metadata and data/planetlab/metadata. Data that has been processed into training and validation datasets are saved as LevelDB files into data/leveldb.
