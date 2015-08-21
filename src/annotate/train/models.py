@@ -12,3 +12,9 @@ class Image(models.Model):
         'train/static/training_images'
     ))
     annotation = jsonfield.JSONField(blank=True, null=True)
+
+    def url(self):
+        url = self.path
+        url = url.replace(settings.BASE_DIR, '').replace('/train/static/', '')
+        url = settings.STATIC_URL + url
+        return url
