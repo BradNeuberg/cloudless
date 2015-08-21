@@ -105,7 +105,7 @@ function on_submit(evt){
 
   // TODO: Make sure there are either bounding boxes _or_ one of the checkboxes is selected.
 
-  // TODO(neuberg): Remove once we have a real server.
+  // TODO(max): Remove once we have a real server.
   evt.preventDefault();
   print_debug_form();
 }
