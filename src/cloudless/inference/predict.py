@@ -70,6 +70,7 @@ def main(argv):
   Output: classifies all images in folder
   """
   args = parse_command_line()
+  batch = 20
 
   if args.platform == "gpu":
     caffe.set_mode_gpu()
@@ -92,6 +93,8 @@ def main(argv):
       img = caffe.io.load_image(fn)
       inp.append(img)
       fnames.append(fn)
+      # if len(fnames) == batch:
+      #   break
   else:
     inp = [caffe.io.load_image(args.input)]
     fnames.append(args.input)
@@ -116,7 +119,11 @@ def main(argv):
   predictions = classifier.predict(inp, oversample=False)
   if classes:
     for idx,pred in enumerate(predictions):
-      print("{}: {}".format(fnames[idx], classes[int(pred)]))
+      print("{}: class: {} prob: {}".format(fnames[idx],
+                                            classes[np.argmax(pred)],
+                                            predictions[idx][np.argmax(pred)]
+                                           )
+           )
   else:
     print(predictions)
 
