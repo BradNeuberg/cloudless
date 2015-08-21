@@ -56,6 +56,13 @@ LANDSAT_ROOT = ROOT_DIR + "/data/landsat"
 LANDSAT_IMAGES = LANDSAT_ROOT + "/images"
 LANDSAT_METADATA = LANDSAT_ROOT + "/metadata/training-validation-set.csv"
 
+PLANETLAB_ROOT = ROOT_DIR + "/data/planetlab"
+# TODO(brad): Update the annotation image generation code to be able to dump the cropped images in
+# one place and the metadata file in another.
+PLANETLAB_UNBOUNDED_IMAGES = PLANETLAB_ROOT + "/metadata"
+PLANETLAB_BOUNDED_IMAGES = PLANETLAB_ROOT + "/images/bounded"
+PLANETLAB_METADATA = PLANETLAB_ROOT + "/metadata/annotated.json"
+
 # Architecture string that will appear on graphs; good for relatively stable
 # hyperparameter tuning.
 ARCHITECTURE = "AlexNet fine tune - freeze convolution; Landsat data"

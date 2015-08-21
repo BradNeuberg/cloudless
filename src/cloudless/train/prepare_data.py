@@ -2,6 +2,7 @@ import shutil
 import os
 import time
 import csv
+import json
 
 from PIL import Image
 import numpy as np
@@ -19,13 +20,55 @@ def prepare_data():
     """
     print "Preparing data..."
 
-    details = _get_landsat_details()
+    print "\tParsing Planet Labs data into independent cropped bounding boxes..."
+    #details = _get_landsat_details()
+    details = _crop_planetlab_images(_get_planetlab_details())
+
+    print "\t\tClass details before balancing (balancing not implemented yet):"
     _print_input_details(details)
+
+    # TODO(brad): Balance classes.
+    #_balance_classes(details)
+
     (train_paths, validation_paths, train_targets, validation_targets) = _split_data_sets(details)
 
     print "\tSaving prepared data..."
     _generate_leveldb(constants.TRAINING_FILE, train_paths, train_targets)
     _generate_leveldb(constants.VALIDATION_FILE, validation_paths, validation_targets)
+
+def _get_planetlab_details():
+    """
+    Loads available image paths and image filenames for landsat, along with any bounding boxes
+    that might be present for clouds in them.
+    """
+    print "location: %s" % constants.PLANETLAB_METADATA
+
+    with open(constants.PLANETLAB_METADATA) as data_file:
+        details = json.load(data_file)
+
+    for entry in details:
+        entry["image_path"] = os.path.join(constants.PLANETLAB_UNBOUNDED_IMAGES,
+            entry["image_name"])
+        entry["target"] = 0
+        if len(entry["image_annotation"]):
+            entry["target"] = 1
+
+        bboxes = []
+        for bbox in entry["image_annotation"]:
+            bbox = bbox.split(",")
+            x = int(bbox[0])
+            y = int(bbox[1])
+            width = int(bbox[2])
+            height = int(bbox[3])
+            bboxes.append({
+                "left": x,
+                "upper": y,
+                "right": x + width,
+                "lower": y + height
+            })
+        entry["image_annotation"] = bboxes
+
+    return details
 
 def _get_landsat_details():
     """
@@ -55,6 +98,57 @@ def _get_landsat_details():
         "targets": targets,
     }
 
+def _crop_planetlab_images(details):
+    """
+    Generates cropped cloud and non-cloud images from our annotated bounding boxes, dumping
+    them into the file system and returning their full image paths with whether they are targets
+    or not.
+    """
+
+    image_paths = []
+    targets = []
+
+    # Remove the directory to ensure we don't get old data runs included.
+    shutil.rmtree(constants.PLANETLAB_BOUNDED_IMAGES, ignore_errors=True)
+    os.makedirs(constants.PLANETLAB_BOUNDED_IMAGES)
+
+    for entry in details:
+        if entry["target"] == 0:
+            # Nothing to crop, but remove the alpha channel.
+            new_path = os.path.join(constants.PLANETLAB_BOUNDED_IMAGES, entry["image_name"])
+
+            im = Image.open(entry["image_path"])
+            im = _rgba_to_rgb(im)
+            im.save(new_path)
+
+            image_paths.append(new_path)
+            targets.append(entry["target"])
+            print "\t\tProcessed non-cloud image %s" % new_path
+        elif entry["target"] == 1:
+            (root, ext) = os.path.splitext(entry["image_name"])
+
+            cloud_num = 1
+            for bbox in entry["image_annotation"]:
+                new_path = os.path.join(constants.PLANETLAB_BOUNDED_IMAGES,
+                    "%s_cloud_%03d%s" % (root, cloud_num, ext))
+
+                im = Image.open(entry["image_path"])
+                im = im.crop((bbox["left"], bbox["upper"], bbox["right"], bbox["lower"]))
+                im = _rgba_to_rgb(im)
+                im.save(new_path)
+
+                image_paths.append(new_path)
+                targets.append(1)
+
+                print "\t\tProcessed cloud cropped image %s" % new_path
+
+                cloud_num += 1
+
+    return {
+        "image_paths": image_paths,
+        "targets": targets,
+    }
+
 def _print_input_details(details):
     """
     Prints out statistics about our input data.
@@ -68,10 +162,17 @@ def _print_input_details(details):
         else:
             negative_cloud_class = negative_cloud_class + 1
 
-    print "\tInput data details:"
-    print "\t\tTotal number of input images: %d" % len(details["image_paths"])
-    print "\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
-    print "\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
+    print "\t\tInput data details:"
+    print "\t\t\tTotal number of input images: %d" % len(details["image_paths"])
+    print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
+    print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
+    # TODO(brad): Print out ratio of positive to negative.
+
+# def _balance_classes(details):
+#     """
+#     Ensures we have the same number of positive and negative cloud/not cloud classes.
+#     """
+
 
 def _split_data_sets(details):
     """
@@ -152,7 +253,13 @@ def _load_numpy_image(image_path):
 
     im = Image.open(image_path)
     # Scale the image to the size required by our neural network.
-    im.thumbnail((constants.WIDTH, constants.HEIGHT), Image.ANTIALIAS)
+    im = im.resize((constants.WIDTH, constants.HEIGHT))
     data = np.asarray(im)
     data = np.reshape(data, (3, constants.HEIGHT, constants.WIDTH))
     return data
+
+def _rgba_to_rgb(im):
+    """
+    Drops the alpha channel in an RGB image.
+    """
+    return im.convert('RGB')
