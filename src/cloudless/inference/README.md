@@ -17,6 +17,7 @@ There are two scripts:
 
 ## Steps
 - Set env vars CAFFE_HOME and SELECTIVE_SEARCH
+- Remove argmax layer from prototxt
 ```
 ./localization.py --input cat.jpg --directory regions #generates folder of regions
 ./predict.py --config alexnet.prototxt --weights alexnet.caffemodel --input regions/
