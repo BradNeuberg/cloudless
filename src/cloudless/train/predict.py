@@ -16,9 +16,9 @@ def predict(image_path):
 
     print "Generating prediction for %s..." % image_path
 
-    _initialize_caffe()
+    net, transformer = _initialize_caffe()
     im = caffe.io.load_image(image_path)
-    prob = _predict_image(im)
+    prob = _predict_image(im, net, transformer)
     print "Probability this image has a cloud: {}%".format(prob)
 
 def test_validation():
@@ -101,13 +101,15 @@ def _initialize_caffe():
     # Deal with only a single image to predict.
     net.blobs["data"].reshape(1, 3, constants.INFERENCE_HEIGHT, constants.INFERENCE_WIDTH)
 
+    return (net, transformer)
+
 def _run_through_caffe(validation_data):
     """
     Runs our validation images through Caffe.
     """
     # TODO: Run through all the results using Caffe, then return their actual values.
 
-def _predict_image(im):
+def _predict_image(im, net, transformer):
     """
     Given a caffe.io.load_image, returns the probability that it contains a cloud.
     """
