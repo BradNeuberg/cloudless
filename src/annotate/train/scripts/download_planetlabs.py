@@ -42,6 +42,7 @@ def reproject(geom, from_epsg, to_epsg):
     """
     Reproject the given geometry from the given EPSG code to another
     """
+    # Note: this is currently only accurate for the U.S.
     source = osr.SpatialReference()
     source.ImportFromEPSG(from_epsg)
 
