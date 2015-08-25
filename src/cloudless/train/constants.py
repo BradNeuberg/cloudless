@@ -65,4 +65,4 @@ PLANETLAB_METADATA = PLANETLAB_ROOT + "/metadata/annotated.json"
 
 # Architecture string that will appear on graphs; good for relatively stable
 # hyperparameter tuning.
-ARCHITECTURE = "AlexNet fine tune - freeze convolution; Landsat data"
+ARCHITECTURE = "AlexNet fine tune - freeze convolution; Planet Labs data"
