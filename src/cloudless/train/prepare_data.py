@@ -129,20 +129,25 @@ def _crop_planetlab_images(details):
 
             cloud_num = 1
             for bbox in entry["image_annotation"]:
-                new_path = os.path.join(constants.PLANETLAB_BOUNDED_IMAGES,
-                    "%s_cloud_%03d%s" % (root, cloud_num, ext))
+                try:
+                    new_path = os.path.join(constants.PLANETLAB_BOUNDED_IMAGES,
+                        "%s_cloud_%03d%s" % (root, cloud_num, ext))
 
-                im = Image.open(entry["image_path"])
-                im = im.crop((bbox["left"], bbox["upper"], bbox["right"], bbox["lower"]))
-                im = _rgba_to_rgb(im)
-                im.save(new_path)
+                    im = Image.open(entry["image_path"])
+                    im = im.crop((bbox["left"], bbox["upper"], bbox["right"], bbox["lower"]))
+                    im = _rgba_to_rgb(im)
+                    im.save(new_path)
 
-                image_paths.append(new_path)
-                targets.append(1)
+                    image_paths.append(new_path)
+                    targets.append(1)
 
-                print "\t\tProcessed cloud cropped image %s" % new_path
+                    print "\t\tProcessed cloud cropped image %s" % new_path
 
-                cloud_num += 1
+                    cloud_num += 1
+                except:
+                    # TODO(brad): Modify the annotation UI to not be able to produce invalid
+                    # crop values.
+                    print "\t\tInvalid crop value"
 
     return {
         "image_paths": image_paths,
