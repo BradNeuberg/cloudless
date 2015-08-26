@@ -12,25 +12,15 @@ import predict
 def train(output_graphs, data=None, note=None):
     print("Training data, generating graphs: %r" % output_graphs)
 
-    _copy_original_model()
     _run_trainer()
 
     _generate_parsed_logs()
     (training_details, validation_details) = _parse_logs()
+    _move_trained_weight_file()
 
     if output_graphs:
         graph.plot_results(training_details, validation_details, note)
         #predict.test_validation()
-
-def _copy_original_model():
-    """
-    Copies the non-fine tuned AlexNet model to a new weight file so we can fine tune it, keeping
-    the original unchanged for multiple test runs.
-    """
-
-    print "\tCopying original, non-finetuned weight model over for training..."
-    shutil.rmtree(constants.WEIGHTS_FINETUNED, ignore_errors=True)
-    shutil.copyfile(constants.WEIGHTS_NON_FINETUNED, constants.WEIGHTS_FINETUNED)
 
 def _run_trainer():
     """
@@ -39,7 +29,7 @@ def _run_trainer():
     print("\tRunning trainer...")
     with open(constants.OUTPUT_LOG_PATH, "w") as f:
         process = subprocess.Popen([constants.CAFFE_HOME + "/build/tools/caffe", "train",
-            "--solver=" + constants.SOLVER_FILE, "--weights=" + constants.WEIGHTS_FINETUNED],
+            "--solver=" + constants.SOLVER_FILE, "--weights=" + constants.WEIGHTS_NON_FINETUNED],
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
         for line in iter(process.stdout.readline, ''):
@@ -132,3 +122,25 @@ def _parse_logs():
             "accuracy": validation_accuracy
         }
     )
+
+def _move_trained_weight_file():
+    """
+    By default Caffe doesn't change the weight file we pass in. Instead it dumps the trained model
+    over into the snapshots/ directory. This file moves the trained weight file over to a standard
+    location so we can work with it during prediction.
+    """
+    trained_weight_file = _get_trained_weight_file()
+    print "\tMoving trained weight file from %s to %s" % \
+        (trained_weight_file, constants.WEIGHTS_FINETUNED)
+    shutil.copyfile(trained_weight_file, constants.WEIGHTS_FINETUNED)
+
+def _get_trained_weight_file():
+    """
+    Parses out the file name of the model weight file we just trained.
+    """
+    trained_weight_file = None
+    with open(constants.OUTPUT_LOG_PATH) as f:
+        content = f.read()
+        trained_weight_file = re.findall("Snapshotting to (.*)$", content, re.MULTILINE)[-1]
+
+    return trained_weight_file

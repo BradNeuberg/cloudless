@@ -32,7 +32,7 @@ CAFFE_HOME = os.environ.get("CAFFE_HOME")
 MODEL_ROOT = ROOT_DIR + "/src/caffe_model/bvlc_alexnet"
 SOLVER_FILE = MODEL_ROOT + "/solver.prototxt"
 DEPLOY_FILE = MODEL_ROOT + "/deploy.prototxt"
-WEIGHTS_NON_FINETUNED = MODEL_ROOT + "/bvlc_alexnet_orig.caffemodel"
+WEIGHTS_NON_FINETUNED = MODEL_ROOT + "/bvlc_alexnet.caffemodel"
 WEIGHTS_FINETUNED = MODEL_ROOT + "/bvlc_alexnet_finetuned.caffemodel"
 
 TRAINING_FILE = ROOT_DIR + "/data/leveldb/train_leveldb"
