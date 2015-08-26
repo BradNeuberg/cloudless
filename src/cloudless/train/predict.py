@@ -19,7 +19,7 @@ def predict(image_path):
     net, transformer = _initialize_caffe()
     im = caffe.io.load_image(image_path)
     prob = _predict_image(im, net, transformer)
-    print "Probability this image has a cloud: {}%".format(prob)
+    print "Probability this image has a cloud: {0:.2f}%".format(prob)
 
 def test_validation():
     """
@@ -117,7 +117,7 @@ def _predict_image(im, net, transformer):
     out = net.forward()
 
     probs = out["prob"][0]
-    prob_cloud = probs[0] * 100.0
+    prob_cloud = probs[1] * 100.0
     return prob_cloud
 
 def _calculate_positives_negatives(target_details):
