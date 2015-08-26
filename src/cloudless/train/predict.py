@@ -1,7 +1,10 @@
 import os
 
-import numpy as np
+# Suppress annoying output from Caffe; this has to be done _before_ importing Caffe.
+os.environ['GLOG_minloglevel'] = '1'
+
 import caffe
+import numpy as np
 import plyvel
 import skimage
 from caffe_pb2 import Datum
