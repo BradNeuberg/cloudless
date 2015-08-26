@@ -19,3 +19,4 @@ weight_decay: 0.0005
 snapshot: 10000
 snapshot_prefix: "snapshots/bvlc_alexnet"
 solver_mode: GPU
+#debug_info: true
