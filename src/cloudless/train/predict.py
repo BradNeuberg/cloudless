@@ -64,8 +64,8 @@ def _load_validation_data():
         datum = Datum()
         datum.ParseFromString(value)
 
-        # TODO: Make sure this works.
         data = np.fromstring(datum.data, dtype=np.uint8)
+        # TODO: Do I need to do BGR/RGB transformations here?
         data = np.reshape(data, (3, constants.HEIGHT, constants.WIDTH))
         data = skimage.img_as_float(data).astype(np.float32)
 
@@ -91,6 +91,7 @@ def _initialize_caffe():
     # input preprocessing: 'data' is the name of the input blob == net.inputs[0]
     transformer = caffe.io.Transformer({"data": net.blobs["data"].data.shape})
     # PIL.Image loads the data with the channel last.
+    # TODO: Think through whether these should be BGR during training and validation.
     transformer.set_transpose("data", (2, 0, 1))
     # Mean pixel.
     transformer.set_mean("data", np.load(constants.TRAINING_MEAN_PICKLE).mean(1).mean(1))
