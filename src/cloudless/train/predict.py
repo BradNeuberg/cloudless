@@ -57,8 +57,7 @@ def _load_validation_data():
     input_vectors = []
     expected_targets = []
 
-    # TODO: Change this back to validation_file.
-    db = plyvel.DB(constants.TRAINING_FILE)
+    db = plyvel.DB(constants.VALIDATION_FILE)
     for key, value in db:
         datum = Datum()
         datum.ParseFromString(value)
