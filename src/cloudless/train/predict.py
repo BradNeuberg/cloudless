@@ -29,25 +29,33 @@ def test_validation():
     well they do. Generates statistics like precision and recall, F1, and a confusion matrix,
     in order to gauge progress.
     """
-    print "Testing trained model against validation data..."
+    print "Generating predictions for validation images..."
 
     validation_data = _load_validation_data()
-    results = _run_through_caffe(validation_data)
+    target_details = _run_through_caffe(validation_data)
+    statistics = _calculate_positives_negatives(target_details)
+
+    accuracy = _calculate_accuracy(statistics)
+    precision = _calculate_precision(statistics)
+    recall = _calculate_recall(statistics)
+    f1 = _calculate_f1(precision, recall)
 
     # TODO: Write these out to a file as well as the screen.
-    # statistics = _calculate_positives_negatives(results)
+    results = ""
+    results += "\n"
+    results += "\nStatistics on validation dataset:"
+    results += "\n\tAccuracy: {0:.2f}%".format(accuracy)
+    results += "\n\tPrecision: %.2f" % precision
+    results += "\n\tRecall: %.2f" % recall
+    results += "\n\tF1 Score: %.2f" % f1
 
-    # accuracy = _calculate_accuracy(statistics)
-    # precision = _calculate_precision(statistics)
-    # recall = _calculate_recall(statistics)
-    # f1 = _calculate_f1(statistics)
+    results += "\n"
+    results += _print_confusion_matrix(statistics)
 
-    # print "Accuracy: %f" % accuracy
-    # print "Precision: %f" % precision
-    # print "Recall: %f" % recall
-    # print "F1 Score: %f" % f1_score
+    print results
 
-    # _draw_confusion_matrix(statistics)
+    with open(constants.OUTPUT_LOG_PREFIX + ".statistics.txt", "w") as f:
+        f.write(results)
 
 def _load_validation_data():
     """
@@ -65,20 +73,21 @@ def _load_validation_data():
         datum.ParseFromString(value)
 
         data = np.fromstring(datum.data, dtype=np.uint8)
-        # TODO: Do I need to do BGR/RGB transformations here?
         data = np.reshape(data, (3, constants.HEIGHT, constants.WIDTH))
-        data = skimage.img_as_float(data).astype(np.float32)
+        # Move the color channel to the end to match what Caffe wants.
+        data = np.swapaxes(data, 0, 2) # Swap channel with width.
+        data = np.swapaxes(data, 0, 1) # Swap width with height, to yield final h x w x channel.
 
         input_vectors.append(data)
         expected_targets.append(datum.label)
 
     db.close()
 
-    print "\tValidation data has %d images" % len(input_vectors)
+    print "\t\tValidation data has %d images" % len(input_vectors)
 
     return {
-        "input_vectors": np.array(input_vectors),
-        "expected_targets": np.array(expected_targets)
+        "input_vectors": np.asarray(input_vectors),
+        "expected_targets": np.asarray(expected_targets)
     }
 
 def _initialize_caffe():
@@ -100,7 +109,6 @@ def _initialize_caffe():
     # The reference model has channels in BGR order instead of RGB.
     transformer.set_channel_swap("data", (2, 1, 0))
 
-    # Deal with only a single image to predict.
     net.blobs["data"].reshape(1, 3, constants.INFERENCE_HEIGHT, constants.INFERENCE_WIDTH)
 
     return (net, transformer)
@@ -109,7 +117,25 @@ def _run_through_caffe(validation_data):
     """
     Runs our validation images through Caffe.
     """
-    # TODO: Run through all the results using Caffe, then return their actual values.
+
+    print "\tInitializing Caffe..."
+    net, transformer = _initialize_caffe()
+
+    print "\tComputing probabilities using Caffe..."
+    results = []
+    for idx in range(len(validation_data["input_vectors"])):
+        im = validation_data["input_vectors"][idx]
+        prob = _predict_image(im, net, transformer)
+        expected_target = validation_data["expected_targets"][idx]
+        predicted_target = 0
+        if prob >= constants.THRESHOLD:
+            predicted_target = 1
+        results.append({
+            "expected_target": expected_target,
+            "predicted_target": predicted_target
+        })
+
+    return results
 
 def _predict_image(im, net, transformer):
     """
@@ -129,32 +155,60 @@ def _calculate_positives_negatives(target_details):
     including the actual correct # of positive and negative values.
     """
 
-    # TODO
+    true_positive = 0
+    true_negative = 0
+    false_negative = 0
+    false_positive = 0
+    actual_positive = 0
+    actual_negative = 0
+    for idx in range(len(target_details)):
+        predicted_target = target_details[idx]["predicted_target"]
+        expected_target = target_details[idx]["expected_target"]
+
+        if expected_target == 1:
+            actual_positive = actual_positive + 1
+        else:
+            actual_negative = actual_negative + 1
+
+        if predicted_target == 1 and expected_target == 1:
+            true_positive = true_positive + 1
+        elif predicted_target == 0 and expected_target == 0:
+            true_negative = true_negative + 1
+        elif predicted_target == 1 and expected_target == 0:
+            false_positive = false_positive + 1
+        elif predicted_target == 0 and expected_target == 1:
+            false_negative = false_negative + 1
 
     return {
-        "positive": {
-            "true": float(true_positive),
-            "false": float(false_positive),
-            "actual": float(actual_positive)
-        },
-        "negative": {
-            "true": float(true_negative),
-            "false": float(false_negative),
-            "actual": float(actual_negative)
-        }
+        "true_positive": float(true_positive),
+        "false_positive": float(false_positive),
+        "actual_positive": float(actual_positive),
+
+        "true_negative": float(true_negative),
+        "false_negative": float(false_negative),
+        "actual_negative": float(actual_negative),
     }
 
-# def _calculate_accuracy(statistics):
-#     # TODO
+def _calculate_accuracy(s):
+    top = (s["true_positive"] + s["true_negative"])
+    bottom = (s["actual_positive"] + s["actual_negative"])
+    return (top / bottom) * 100.0
 
-# def _calculate_precision(statistics):
-#     # TODO
+def _calculate_precision(s):
+    return s["true_positive"] / (s["true_positive"] + s["false_positive"])
 
-# def _calculate_recall(statistics):
-#     # TODO
+def _calculate_recall(s):
+    return s["true_positive"] / (s["true_positive"] + s["false_negative"])
 
-# def _calculate_f1(statistics):
-#     # TODO
+def _calculate_f1(precision, recall):
+    return 2.0 * ((precision * recall) / (precision + recall))
 
-# def _generate_confusion_matrix(statistics):
-#     # TODO
+def _print_confusion_matrix(s):
+    results = ""
+    results += "\nConfusion matrix:"
+    results += "\n\t\t\t\tPositive\t\tNegative"
+    results += "\nPositive (%d)\t\t\tTrue Positive (%d)\tFalse Positive (%d)" % \
+        (s["actual_positive"], s["true_positive"], s["false_positive"])
+    results += "\nNegative (%d)\t\t\tFalse Negative (%d)\tTrue Negative (%d)" % \
+        (s["actual_negative"], s["false_negative"], s["true_negative"])
+    return results

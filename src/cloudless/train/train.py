@@ -20,7 +20,7 @@ def train(output_graphs, data=None, note=None):
 
     if output_graphs:
         graph.plot_results(training_details, validation_details, note)
-        #predict.test_validation()
+        predict.test_validation()
 
 def _run_trainer():
     """
