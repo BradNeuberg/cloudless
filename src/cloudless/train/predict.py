@@ -1,8 +1,5 @@
 import os
 
-# Suppress annoying output from Caffe; this has to be done _before_ importing Caffe.
-os.environ['GLOG_minloglevel'] = '1'
-
 import caffe
 import numpy as np
 import plyvel
