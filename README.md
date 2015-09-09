@@ -1,6 +1,8 @@
 # Introduction
 
-This project provides a classifier for detecting clouds in remote sensing data using deep learning. It has three parts:
+This project provides a classifier for detecting clouds in satellite remote sensing data using deep learning. Startups like [Planet Labs](https://www.planet.com/) are launching fleets of nanosats to image much of the earth daily; detecting clouds in these images to ignore or eliminate them is an important pre-processing step to doing interesting work nanosat imagery.
+
+This project has three parts:
 
 * An annotation tool that takes data from the [Planet Labs API](https://www.planet.com/docs/) and allows users to draw bounding boxes around clouds.
 * A training pipeline that takes annotated data, runs it on EC2 on GPU boxes to fine tune an AlexNet trained model, and then generates validation statistics to relate how well the trained model performs.
