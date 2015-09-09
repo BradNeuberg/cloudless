@@ -1,17 +1,26 @@
 # Introduction
 
-Project as part of Dropbox's Hack Week to provide a classifier for detecting clouds in remote sensing data using deep learning.
+This project provides a classifier for detecting clouds in remote sensing data using deep learning. It has three parts:
 
-TODO(brad): Setup virtualenv for training and inference boundary box code.
-TODO(brad): Consolidate all the README files and clean up this file.
+* An annotation tool that takes data from the [Planet Labs API](https://www.planet.com/docs/) and allows users to draw bounding boxes around clouds.
+* A training pipeline that takes annotated data, runs it on EC2 on GPU boxes to fine tune an AlexNet trained model, and then generates validation statistics to relate how well the trained model performs.
+* A bounding box system that takes the trained cloud classifier and attempts to draw bounding boxes on orbital satellite data.
 
-# Details
+This project and its trained model are available under an Apache 2 license; see the license.txt file for details.
 
-Preprocessed datasets are in data/landsat/images and data/planetlab/images; however, these are not checked in due to possible licensing issues. Metadata that we've added via annotation in order to label the data _is_ checked in and is in data/landsat/metadata and data/planetlab/metadata. Data that has been processed into training and validation datasets are saved as LevelDB files into data/leveldb.
+# Data
 
-Preparing the data, training, and generating graphs to know how we are doing is via a single command-line tool, cloudless.py.
+Preprocessed datasets are in data/planetlab/images while metadata added via annotation is in data/planetlab/metadata; however, these are not checked in due to possible licensing issues. Data that has been processed into training and validation datasets are saved as LevelDB files into data/leveldb; these are also not checked in due to size and licensing issues.
 
-To setup this tool, you must have CAFFE_HOME defined and have Caffe installed.
+# Annotation Tool
+
+This currently has its own README file at [src/annotate/README.md](src/annotate/README.md).
+
+# Training Pipeline
+
+Preparing the data, training, and generating graphs to know how we are doing is via a single command-line tool, cloudless.py, located in src/cloudless/train.
+
+To setup this tool, you must have CAFFE_HOME defined and have Caffe installed with the Caffe Python bindings setup.
 
 Second, ensure you have all Python requirements installed by going into the cloudless root directory and running:
 
@@ -30,19 +39,18 @@ We currently have pretrained weights from the BVLC AlexNet Caffe Model Zoo, in s
 
 Note that the trained AlexNet file is much too large to check into Github (it's about 350MB). You will have to download the file from [here](http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel) and copy it to src/caffe_model/bvlc_alexnet/bvlc_alexnet.caffemodel.
 
-The scripts to prepare the Landsat data are [here](https://github.com/max-nova/cloudless).
-
-The zip file is the raw imagery stuff pulled down from USGS.
-
-The training-set.csv has 5 columns:
- * Image Name
- * Clouds - 1 if there are clouds
- * Edge - 1 if the image is partially nulled out
- * Blank - 1 if the image is totally nulled out
- * Comments - any random comments I had
-
-Download the cropped images (not the raw zip file) and place them into data/landsat/images, and copy the training-set.csv file to data/landsat/metadata/training-validation-set.csv.
+A trained, fine tuned model is available on S3 [here](https://s3.amazonaws.com/cloudless-data/bvlc_alexnet_finetuned.caffemodel). Download this and place it into src/caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel. It's current accuracy is 62.50%, while its F1 score is 0.65. See [logs/output0003.statistics.txt](logs/output003.statistics.txt) for full accuracy details.
 
 Once you've prepped your datasets, the first step is to preprocess the data into the format required by Caffe, LevelDB:
 
 ./src/cloudless/cloudless.py -p
+
+Then you can train and generate validation statistics and logs:
+
+./src/cloudless/cloudless.py -t -g
+
+This will output various graphs into the logs/ directory, in increasing numbers (i.e. output0003.log, output0004.log, etc.).
+
+# Bounding Box System
+
+This currently has its own README file in [src/cloudless/inference/README.md](src/cloudless/inference/README.md).
