@@ -14,10 +14,6 @@ filename=caffe-results-`date +"%m-%d-%y"`-host-`hostname`-time-`date +%s`.tar.gz
   echo "Sending results to S3 with filename..." && \
   aws s3 cp /tmp/`echo $filename` s3://cloudless-data/ --region us-east-1
 if [[ $terminate == "--terminate" ]] ; then
-  echo "Cleaning up data we don't need on EBS volumes..."
-  rm -fr /data/cloudless/data/leveldb/*
-  rm -fr /data/planetlab/images/bounded/*
-  rm /data/cloudless/snapshots/*
   shutdown -h now
 fi
 
