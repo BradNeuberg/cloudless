@@ -40,7 +40,7 @@ def test_validation():
     # TODO: Write these out to a file as well as the screen.
     results = ""
     results += "\n"
-    results += "\nStatistics on validation dataset:"
+    results += "\nStatistics on validation dataset using threshold %f:" % constants.THRESHOLD
     results += "\n\tAccuracy: {0:.2f}%".format(accuracy)
     results += "\n\tPrecision: %.2f" % precision
     results += "\n\tRecall: %.2f" % recall
