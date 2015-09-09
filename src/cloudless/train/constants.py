@@ -68,4 +68,4 @@ THRESHOLD = 75.0
 
 # Architecture string that will appear on graphs; good for relatively stable
 # hyperparameter tuning.
-ARCHITECTURE = "AlexNet fine tune; Planet Labs data (~700 samples); 64 batch EC2"
+ARCHITECTURE = "AlexNet; Planet Labs (~700 images); 64 batch EC2"
