@@ -11,7 +11,7 @@ filename=caffe-results-`date +"%m-%d-%y"`-host-`hostname`-time-`date +%s`.tar.gz
 ./src/cloudless/cloudless.py -p -t -g && \
   echo "Tarring up results..." && \
   tar -cvzf /tmp/`echo $filename` snapshots/ logs/output0003* && \
-  echo "Sending results to S3 with filename..." && \
+  echo "Sending results to S3..." && \
   aws s3 cp /tmp/`echo $filename` s3://cloudless-data/ --region us-east-1
 if [[ $terminate == "--terminate" ]] ; then
   shutdown -h now
