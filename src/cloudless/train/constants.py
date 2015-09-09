@@ -63,8 +63,9 @@ PLANETLAB_UNBOUNDED_IMAGES = PLANETLAB_ROOT + "/metadata"
 PLANETLAB_BOUNDED_IMAGES = PLANETLAB_ROOT + "/images/bounded"
 PLANETLAB_METADATA = PLANETLAB_ROOT + "/metadata/annotated.json"
 
-# The percentage threshold over which we assume something is a cloud.
-THRESHOLD = 75.0
+# The percentage threshold over which we assume something is a cloud. Note that this value is from
+# 0.0 to 100.0
+THRESHOLD = 0.1
 
 # Architecture string that will appear on graphs; good for relatively stable
 # hyperparameter tuning.
