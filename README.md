@@ -24,14 +24,14 @@ To setup this tool, you must have CAFFE_HOME defined and have Caffe installed wi
 
 Second, ensure you have all Python requirements installed by going into the cloudless root directory and running:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Third, ensure you have ./src in your PYTHONPATH as well as the Python bindings for Caffe compiled and in your PYTHONPATH as well:
-export PYTHONPATH=$PYTHONPATH:/usr/local/caffe/python:./src
+    export PYTHONPATH=$PYTHONPATH:/usr/local/caffe/python:./src
 
 Run the following to see options:
 
-./src/cloudless/cloudless.py --help
+    ./src/cloudless/cloudless.py --help
 
 Training info and graphs go into logs/.
 
@@ -43,11 +43,11 @@ A trained, fine tuned model is available on S3 [here](https://s3.amazonaws.com/c
 
 Once you've prepped your datasets, the first step is to preprocess the data into the format required by Caffe, LevelDB:
 
-./src/cloudless/cloudless.py -p
+    ./src/cloudless/cloudless.py -p
 
 Then you can train and generate validation statistics and logs:
 
-./src/cloudless/cloudless.py -t -g
+    ./src/cloudless/cloudless.py -t -g
 
 This will output various graphs into the logs/ directory, in increasing numbers (i.e. output0003.log, output0004.log, etc.).
 
