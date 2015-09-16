@@ -10,6 +10,11 @@ This project has three parts:
 
 This project and its trained model are available under an Apache 2 license; see the license.txt file for details.
 
+Parts of the Cloudless project started as part of Dropbox's Hack Week. Contributors:
+* Johann Hauswald
+* Max Nova
+* Brad Neuberg
+
 # Data
 
 Preprocessed datasets are in data/planetlab/images while metadata added via annotation is in data/planetlab/metadata; however, these are not checked in due to possible licensing issues. Data that has been processed into training and validation datasets are saved as LevelDB files into data/leveldb; these are also not checked in due to size and licensing issues.
