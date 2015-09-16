@@ -15,13 +15,13 @@ There are two scripts:
 - [Selective Search](https://github.com/belltailjp/selective_search_py)
 - [Caffe](https://github.com/BVLC/caffe)
 
-You will need to setup both python 2 and python 3 on the same system. Details on doing this for Mac OS X: http://joebergantine.com/blog/2015/apr/30/installing-python-2-and-python-3-alongside-each-ot/
+You will need to setup both python 2 and python 3 on the same system. Details on doing this for Mac OS X using brew: http://stackoverflow.com/questions/18671253/how-can-i-use-homebrew-to-install-both-python-2-and-3-on-mac-mountain-lion
 
 ## Steps
 - Set env vars CAFFE_HOME and SELECTIVE_SEARCH
 - Remove argmax layer from prototxt
 ```
-./localization.py --input cat.jpg --directory regions #generates folder of regions
+./localization.py -i cat.jpg -o regions #generates folder of regions
 ./predict.py --config alexnet.prototxt --weights alexnet.caffemodel --input regions/
 ```
 
