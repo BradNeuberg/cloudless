@@ -1,6 +1,7 @@
 *.pyc
 *.caffemodel
 *.DS_Store
+.python-version
 snapshots
 data/leveldb
 data/landsat/images
