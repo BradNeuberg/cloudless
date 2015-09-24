@@ -22,7 +22,7 @@ You will need to setup both python 2 and python 3 on the same system. Details on
 - Remove argmax layer from prototxt
 ```
 ./localization.py -i cat.jpg -o regions #generates folder of regions
-./predict.py --config alexnet.prototxt --weights alexnet.caffemodel --input regions/
+./predict.py --classes cloud-classes.txt --config alexnet.prototxt --weights alexnet.caffemodel --input regions/
 ```
 
 ## TODO
