@@ -34,3 +34,4 @@ rm -fr regions/
 
 ## TODO
 - Rank results by classification probability
+- Actually use generated results to determine segmentation or bounding boxes
