@@ -17,9 +17,19 @@ There are two scripts:
 - Remove argmax layer from prototxt
 ```
 cd src/cloudless/inference
+rm -fr regions/
 ./resize.sh cloud_test.jpg 227
 ./localization.py -i cloud_test-227.jpg -o regions #generates folder of regions
 ./predict.py --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel --input regions/
+```
+
+Testing against imagenet (not cloudless) for debugging:
+```
+cd src/cloudless/inference
+rm -fr regions/
+./resize.sh cat.jpg 227
+./localization.py -i cat-227.jpg -o regions
+./predict.py --classes imagenet-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box_imagenet.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet.caffemodel --input regions/
 ```
 
 ## TODO
