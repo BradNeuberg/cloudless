@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/env python
 import sys, time, os, argparse
 sys.path.append(os.environ.get('SELECTIVE_SEARCH'))
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import os, sys, argparse, glob, time, re, re
 CAFFE_HOME = os.environ.get("CAFFE_HOME")
 sys.path.append(CAFFE_HOME)
