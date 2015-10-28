@@ -1,0 +1,50 @@
+[
+    {
+        "class_idx": 285,
+        "coords": [
+            258,
+            13,
+            372,
+            117
+        ],
+        "class": "Egyptian cat",
+        "fname": "bbox-regions/30.jpg",
+        "prob": 15.72493
+    },
+    {
+        "class_idx": 283,
+        "coords": [
+            292,
+            97,
+            381,
+            176
+        ],
+        "class": "Persian cat",
+        "fname": "bbox-regions/92.jpg",
+        "prob": 14.79311
+    },
+    {
+        "class_idx": 281,
+        "coords": [
+            310,
+            22,
+            370,
+            132
+        ],
+        "class": "tabby, tabby cat",
+        "fname": "bbox-regions/24.jpg",
+        "prob": 13.91602
+    },
+    {
+        "class_idx": 207,
+        "coords": [
+            108,
+            5,
+            217,
+            196
+        ],
+        "class": "golden retriever",
+        "fname": "bbox-regions/21.jpg",
+        "prob": 12.97154
+    }
+]
