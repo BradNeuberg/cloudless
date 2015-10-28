@@ -174,10 +174,10 @@ def classify(images, config, weights):
     # Classify.
     return classifier.predict(images, oversample=False)
 
-def load_classes(classes):
+def load_classes(class_file):
     classes = {}
-    if os.path.isfile(classes):
-        f = open(args.classes, 'r')
+    if os.path.isfile(class_file):
+        f = open(class_file, 'r')
         for line in f: # '001 goldfish'
             key = int(line.split(" ")[0])
             value = line.split(" ",1)[1].strip('\n')
@@ -190,8 +190,8 @@ def sort_predictions(classes, predictions, bboxes):
     results = []
     for idx, pred in enumerate(predictions):
         results.append({
-            "class": classes[np.argmax(predictions)],
-            "prob": predictions[np.argmax(predictions)],
+            "class": classes[np.argmax(pred)],
+            "prob": pred[np.argmax(pred)],
             "fname": get_region_filename(idx),
             "coords": bboxes[idx],
         })
@@ -218,7 +218,7 @@ def main(argv):
     if args.dump_regions:
         dump_regions(crops)
 
-    images = [entry[2] for entry in crops]
+    images = [entry[1] for entry in crops]
     classes = load_classes(args.classes)
     predictions = classify(images, args.config, args.weights)
 
