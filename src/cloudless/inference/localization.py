@@ -34,7 +34,7 @@ def gen_regions(image, dims, pad):
   assert(len(dims) == 3)
   img = skimage.io.imread(image)
   start = time.time()
-  regions = selective_search(img, ks=[100])
+  regions = selective_search(img, ks=[300])
   print("Selective search time: %.2f [s]" % (time.time() - start))
 
   resize_t = 0
