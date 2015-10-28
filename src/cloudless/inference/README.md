@@ -14,10 +14,15 @@ There are two scripts:
 
 ## Steps
 - Set env vars CAFFE_HOME and SELECTIVE_SEARCH
+
 ```
 cd src/cloudless/inference
-./localization.py -i cloud_test.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel
+./localization.py -i cloud_test.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel --ks 100 --max_regions 30 --only_for_class 1
 ```
+
+![cloud detection boxes](cloud_test-regions.png "Areas with yellow boxes are clouds")
+
+![normal image for comparison](cloud_test.jpg "Normal cloud image for comparison")
 
 Testing against imagenet (not cloudless) for debugging:
 ```
@@ -25,5 +30,7 @@ cd src/cloudless/inference
 ./localization.py -i cat.jpg --classes imagenet-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box_imagenet.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet.caffemodel --ks 125 --max_regions 4
 open cat-regions.png
 ```
+
+![ImageNet detection boxes](cat-regions.png "Multi-class bounding boxes detected from ImageNet")
 
 This will write out the image with bounding boxes drawn on it, including a JSON file with machine readable info on the top bounding boxes.
