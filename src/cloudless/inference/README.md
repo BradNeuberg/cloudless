@@ -14,19 +14,16 @@ There are two scripts:
 
 ## Steps
 - Set env vars CAFFE_HOME and SELECTIVE_SEARCH
-- Remove argmax layer from prototxt
 ```
 cd src/cloudless/inference
-rm -fr regions/
 ./localization.py -i cloud_test.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel
 ```
 
 Testing against imagenet (not cloudless) for debugging:
 ```
 cd src/cloudless/inference
-rm -fr regions/
-./localization.py -i cat.jpg --classes imagenet-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box_imagenet.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet.caffemodel
+./localization.py -i cat.jpg --classes imagenet-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box_imagenet.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet.caffemodel --ks 125 --max_regions 4
+open cat-regions.png
 ```
 
-## TODO
-- Actually use generated results to determine segmentation or bounding boxes
+This will write out the image with bounding boxes drawn on it, including a JSON file with machine readable info on the top bounding boxes.
