@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 import os, sys, argparse, glob, time, re, re
+from operator import itemgetter
+from pprint import pprint
+
 CAFFE_HOME = os.environ.get("CAFFE_HOME")
 sys.path.append(CAFFE_HOME)
 
@@ -8,7 +11,6 @@ os.environ['GLOG_minloglevel'] = '1'
 
 import caffe
 import numpy as np
-from pprint import pprint
 
 def numericalSort(value):
   numbers = re.compile(r'(\d+)')
@@ -117,13 +119,25 @@ def main(argv):
 
   # Classify.
   predictions = classifier.predict(inp, oversample=False)
+
+  # Sort by most probable regions.
+  results = []
+  for idx, pred in enumerate(predictions):
+    results.append({
+      "class": classes[np.argmax(pred)],
+      "prob": pred[np.argmax(pred)],
+      "fname": fnames[idx],
+    })
+  results.sort(key=itemgetter("prob"), reverse=True)
+
   if classes:
-    for idx,pred in enumerate(predictions):
-      print("{}: class: {} prob: {}".format(fnames[idx],
-                                            classes[np.argmax(pred)],
-                                            predictions[idx][np.argmax(pred)]
+    for idx, pred in enumerate(results):
+      print("prob: {}, class: {} file: {}".format(
+                                            results[idx]["prob"],
+                                            results[idx]["class"],
+                                            results[idx]["fname"],
                                            )
-           )
+      )
   else:
     print(predictions)
 
