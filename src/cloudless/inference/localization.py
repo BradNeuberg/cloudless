@@ -238,13 +238,13 @@ def print_predictions(classes, predictions):
 
 def draw_bounding_boxes(image_path, image, classes, predictions, only_for_class=None):
     image = Image.fromarray(numpy.uint8(image))
-    dr = ImageDraw.Draw(image)
+    dr = ImageDraw.Draw(image, "RGBA")
 
     colors = {}
     for idx, pred in enumerate(predictions):
         x0, y0, x1, y1 = pred["coords"]
 
-        color = "red"
+        color = (255, 255, 0, 60)
         # If we want to display multiple classes, randomly generate a color for it.
         if not only_for_class:
             class_idx = pred["class_idx"]
@@ -253,8 +253,10 @@ def draw_bounding_boxes(image_path, image, classes, predictions, only_for_class=
                 color = colors[class_idx]
             colors[class_idx] = color
 
-        dr.rectangle(((x0, y0), (x1, y1)), fill=None, outline=color)
-        dr.text((x0, y0), pred["class"], fill=color)
+        dr.rectangle(((x0, y0), (x1, y1)), fill=color)
+
+        if not only_for_class:
+            dr.text((x0, y0), pred["class"], fill=color)
 
     filename = os.path.splitext(image_path)[0] + "-regions.png"
     image.save(filename)
