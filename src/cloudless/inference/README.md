@@ -17,7 +17,7 @@ There are two scripts:
 
 ```
 cd src/cloudless/inference
-./localization.py -i cloud_test.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel --ks 100 --max_regions 30 --only_for_class 1
+./localization.py -i cloud_test.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel --ks 25 --max_regions 200 --only_for_class 1 --platform gpu
 ```
 
 ![cloud detection boxes](cloud_test-regions.png "Areas with yellow boxes are clouds")
