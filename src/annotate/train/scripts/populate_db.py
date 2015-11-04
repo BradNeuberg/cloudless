@@ -5,6 +5,7 @@ import shutil
 
 from osgeo import gdal
 from PIL import Image as pImage
+import numpy as np
 
 from django.apps import apps
 from django.conf import settings
@@ -26,8 +27,12 @@ def import_images(dirname, chunk_size=256):
     for f in glob.glob(os.path.join(dirname, '*.tif')):
         print 'Processing %s' % f
         for chunk_f in chunk(f, chunk_size):
-            converted_f = convert(chunk_f)
+            chunk_img = pImage.open(chunk_f)
+            converted_f = convert(chunk_img, chunk_f)
             os.remove(chunk_f)
+            if incomplete_image(chunk_img):
+                os.remove(converted_f)
+                continue
             new_f = os.path.join(static_dir, os.path.basename(converted_f))
             shutil.move(converted_f, new_f)
             i = Image.objects.create(path=new_f)
@@ -49,7 +54,6 @@ def chunk(raster_filename, chunk_size=256, chunk_dir='/tmp/'):
     numPixelsWide, numPixelsHigh = ds.RasterXSize, ds.RasterYSize
     for x in range(0, numPixelsWide-chunk_size-1, chunk_size):
         for y in range(0, numPixelsHigh-chunk_size-1, chunk_size):
-            # TODO -make sure we don't have edge case issues
             chunk_filename = os.path.join(
                 chunk_dir, '%s-%s-%s.tif' % (base, x, y)
             )
@@ -59,7 +63,7 @@ def chunk(raster_filename, chunk_size=256, chunk_dir='/tmp/'):
             yield chunk_filename
 
 
-def convert(filename):
+def convert(chunk_img, filename):
     """
     Converts a geotiff to a PNG in the same directory
     """
@@ -67,10 +71,22 @@ def convert(filename):
         os.path.dirname(filename),
         os.path.basename(filename).replace('.tif', '.png')
     )
-    i = pImage.open(filename)
-    i.save(new_f)
+    chunk_img.save(new_f)
     return new_f
 
+def incomplete_image(chunk_img):
+    """
+    Detects if this chunked image is incomplete in some way, such as if it was near
+    the edge of the cropped image ending up with incomplete white areas.
+    """
+    # HACK(neuberg): If we detect pixels with full transparency we know
+    # that this chunk has incomplete areas on it.
+    pixels = np.array(chunk_img)
+    for channel in pixels:
+        for pixel in channel:
+            if pixel[3] == 0:
+                return True
+    return False
 
 def run(*args):
     parser = argparse.ArgumentParser(
