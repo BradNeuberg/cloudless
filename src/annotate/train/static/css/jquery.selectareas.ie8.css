@@ -1,0 +1,21 @@
+.select-areas-overlay {
+	background: none;
+}
+.select-areas-outline {
+	background: none;
+	visibility: hidden;
+}
+.select-areas-outline {
+	visibility: hidden;
+}
+.select-areas-background-area {
+	background: none !important;
+	margin: -1px 0 0 -1px;
+	border: 2px solid green;
+}
+.blurred {
+	filter: none;
+	-webkit-filter: none;
+	-moz-filter: none;
+	-o-filter: none;
+}
