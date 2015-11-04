@@ -21,17 +21,11 @@ function init(){
 }
 
 function on_image_load(context){
-  $('.delete').on('click', on_delete);
   $('form').on('submit', on_submit);
 
   $('#annotate-me').selectAreas({
     overlayOpacity: 0.0
   });
-}
-
-function on_delete(evt){
-  var delete_me = $('<input type="hidden" name="delete" value="true" />');
-  $('form').append(delete_me);
 }
 
 function on_submit(evt){
