@@ -43,14 +43,3 @@
 .image-container {
   position: relative;
 }
-
-.new-bbox {
-  position: absolute !important; /* !important needed to override JQuery's selectable styles. */
-  border: 1px solid red;
-  cursor: move;
-}
-
-.ui-selectable-helper {
-  border-color: red;
-}
-

@@ -3,16 +3,19 @@
 	overflow: hidden;
 	position: absolute;
 }
-.blurred {
-	filter: url("/filters.svg#blur3px");
+
+/** We don't want to blur for our image annotations. */
+/*.blurred {
+	filter: url("/static/img/filters.svg#blur3px");
 	-webkit-filter: blur(3px);
 	-moz-filter: blur(3px);
 	-o-filter: blur(3px);
 	filter: blur(3px);
 }
+*/
 
 .select-areas-outline {
-	background: #fff url('outline.gif');
+	background: #fff url('/static/img/outline.gif');
 	overflow: hidden;
 }
 
@@ -25,7 +28,7 @@
 }
 
 .select-areas-delete-area {
-	background: url('bt-delete.png');
+	background: url('/static/img/bt-delete.png');
 	cursor: pointer;
 	height: 16px;
 	width: 16px;
