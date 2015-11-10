@@ -10,7 +10,7 @@ This project has three parts:
 
 This project and its trained model are available under an Apache 2 license; see the license.txt file for details.
 
-Parts of the Cloudless project started as part of Dropbox's Hack Week. Contributors:
+Parts of the Cloudless project started as part of Dropbox's Hack Week, with continued work post-Hack Week by Brad Neuberg. Contributors:
 * Johann Hauswald
 * Max Nova
 * Brad Neuberg
