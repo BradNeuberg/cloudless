@@ -73,10 +73,10 @@ def download_results(results_url, params, downloaded_scenes, download_dir, image
                 if image_type == 'rapideye':
                     # RapidEye images are 16-bit non-color corrected images by default.
                     image_filename = from_analytic_to_visual(image_filename, download_dir)
+
+                finished = True
             except:
                 print "Unexpected error dealing with image:", sys.exc_info()[0]
-
-            finished = True
 
         downloaded_scenes.append(image_filename)
 
