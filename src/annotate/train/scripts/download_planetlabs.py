@@ -96,7 +96,7 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
     # % (input, output)
 
     # Unfortunately gdalwarp looks like it has a bug passing the alpha channel through when a
-    # transformation happens, so commented out for now. Not applying the projection doesn't seem
+    # projection happens, so commented out for now. Not applying the projection doesn't seem
     # to hurt anything.
     #GDAL_WARP = 'gdalwarp -co photometric=RGB -co tfw=yes -t_srs EPSG:3857 %s %s'
     # % (input, output)
@@ -106,7 +106,6 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
 
     base = os.path.basename(os.path.splitext(analytic_filename)[0])
 
-    # Extract the RGB bands.
     print "Extracting RGB bands..."
     translate_filename = os.path.join(
         download_dir, '%s-rgb.tif' % (base)
@@ -115,7 +114,6 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
         analytic_filename, translate_filename
     ))
 
-    # # Project the image.
     # print "Projecting image..."
     # proj_filename = os.path.join(
     #     download_dir, '%s-proj.tif' % (base)
@@ -124,7 +122,6 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
     #     translate_filename, proj_filename
     # ))
 
-    # Convert it to a color scheme that is friendlier for people.
     print "Converting to visual color scheme..."
     bright_filename = os.path.join(
         download_dir, '%s-bright.tif' % base
