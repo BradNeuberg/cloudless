@@ -137,9 +137,10 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
     print "Cleaning up..."
     shutil.move(bright_filename, analytic_filename)
     os.remove(translate_filename)
-    #os.remove(proj_filename)
-    os.remove(os.path.join(download_dir, '%s-proj.tfw' % (base)))
     os.remove(os.path.join(download_dir, '%s-rgb.tif.aux.xml' % (base)))
+    # No output from gdal_warp for now.
+    #os.remove(proj_filename)
+    #os.remove(os.path.join(download_dir, '%s-proj.tfw' % (base)))
 
 def fix_alpha_channel(filename):
     """
@@ -153,6 +154,11 @@ def fix_alpha_channel(filename):
     data = np.array([entry * 255 for entry in data])
     mask.WriteArray(data)
     mask.FlushCache()
+
+    # Close the dataset
+    img = None
+    data = None
+    mask = None
 
 def reproject(geom, from_epsg, to_epsg):
     """
