@@ -144,7 +144,7 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
     os.remove(os.path.join(download_dir, '%s-proj.tfw' % (base)))
     os.remove(os.path.join(download_dir, '%s-rgb.tif.aux.xml' % (base)))
 
-def fix_alpha_channel(fiename):
+def fix_alpha_channel(filename):
     """
     Imagemagick's 'convert' command converts all channels to 8-bits, including the alpha channel.
     Unfortunately it converts the alpha value 255 to 1 when it does this. This is a hack to restore
