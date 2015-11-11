@@ -88,13 +88,13 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
     shift the image visually to be more friendly for people (they are fairly dark by default).
     Process adapted from: https://www.mapbox.com/blog/processing-rapideye-imagery/
     """
-    GDAL_TRANSLATE = 'gdal_translate -b 3 -b 2 -b 1 %s %s'
+    GDAL_TRANSLATE = 'gdal_translate -b 3 -b 2 -b 1 -mask 6 -co ALPHA=YES %s %s'
     # % (input, output)
 
-    GDAL_WARP = 'gdalwarp -co photometric=RGB -co tfw=yes -t_srs EPSG:3857 %s %s'
+    GDAL_WARP = 'gdalwarp -co photometric=RGB -co ALPHA=YES -co tfw=yes -t_srs EPSG:3857 %s %s'
     # % (input, output)
 
-    CONVERT = 'convert -sigmoidal-contrast 20x5%% -depth 8 %s %s'
+    CONVERT = 'convert -sigmoidal-contrast 20x5%% -depth 8 -alpha on %s %s'
     # % (input, output)
 
     base = os.path.basename(os.path.splitext(analytic_filename)[0])
