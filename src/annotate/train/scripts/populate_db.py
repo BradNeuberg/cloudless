@@ -31,6 +31,7 @@ def import_images(dirname, chunk_size=256):
             converted_f = convert(chunk_img, chunk_f)
             os.remove(chunk_f)
             if incomplete_image(chunk_img):
+                print '\tImage has blackfill, ignoring %s' % chunk_f
                 os.remove(converted_f)
                 continue
             new_f = os.path.join(static_dir, os.path.basename(converted_f))
@@ -45,7 +46,7 @@ def chunk(raster_filename, chunk_size=256, chunk_dir='/tmp/'):
     Given a raster, a chunk size, and a directory to write into...
     Break the raster up into chunks of the appropriate size.
     """
-    CROP_CMD = 'gdal_translate -srcwin %s %s %s %s %s %s'
+    CROP_CMD = 'gdal_translate -co ALPHA=YES -co PHOTOMETRIC=RGB -srcwin %s %s %s %s %s %s'
     # % (xoff, yoff, xsize, ysize, src, dst)
 
     base = os.path.basename(os.path.splitext(raster_filename)[0])

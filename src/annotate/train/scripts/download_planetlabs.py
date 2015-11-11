@@ -6,6 +6,10 @@ import shutil
 from urlparse import urlparse
 
 from osgeo import ogr, osr
+import gdal
+import numpy as np
+from gdalconst import *
+
 
 PLANET_KEY = os.environ.get('PLANET_KEY')
 if not PLANET_KEY:
@@ -88,10 +92,13 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
     shift the image visually to be more friendly for people (they are fairly dark by default).
     Process adapted from: https://www.mapbox.com/blog/processing-rapideye-imagery/
     """
-    GDAL_TRANSLATE = 'gdal_translate -b 3 -b 2 -b 1 -mask 6 -co ALPHA=YES %s %s'
+    GDAL_TRANSLATE = 'gdal_translate -b 3 -b 2 -b 1 -b 6 -co ALPHA=YES -co PHOTOMETRIC=RGB %s %s'
     # % (input, output)
 
-    GDAL_WARP = 'gdalwarp -co photometric=RGB -co ALPHA=YES -co tfw=yes -t_srs EPSG:3857 %s %s'
+    # Unfortunately gdalwarp looks like it has a bug passing the alpha channel through when a
+    # transformation happens, so commented out for now. Not applying the projection doesn't seem
+    # to hurt anything.
+    #GDAL_WARP = 'gdalwarp -co photometric=RGB -co tfw=yes -t_srs EPSG:3857 %s %s'
     # % (input, output)
 
     CONVERT = 'convert -sigmoidal-contrast 20x5%% -depth 8 -alpha on %s %s'
@@ -108,14 +115,14 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
         analytic_filename, translate_filename
     ))
 
-    # Project the image.
-    print "Projecting image..."
-    proj_filename = os.path.join(
-        download_dir, '%s-proj.tif' % (base)
-    )
-    os.system(GDAL_WARP % (
-        translate_filename, proj_filename
-    ))
+    # # Project the image.
+    # print "Projecting image..."
+    # proj_filename = os.path.join(
+    #     download_dir, '%s-proj.tif' % (base)
+    # )
+    # os.system(GDAL_WARP % (
+    #     translate_filename, proj_filename
+    # ))
 
     # Convert it to a color scheme that is friendlier for people.
     print "Converting to visual color scheme..."
@@ -123,16 +130,32 @@ def from_analytic_to_visual(analytic_filename, download_dir='/tmp'):
         download_dir, '%s-bright.tif' % base
     )
     os.system(CONVERT % (
-        proj_filename, bright_filename
+        translate_filename, bright_filename
     ))
+
+    print "Fixing alpha channel..."
+    fix_alpha_channel(bright_filename)
 
     # Cleanup
     print "Cleaning up..."
     shutil.move(bright_filename, analytic_filename)
     os.remove(translate_filename)
-    os.remove(proj_filename)
+    #os.remove(proj_filename)
     os.remove(os.path.join(download_dir, '%s-proj.tfw' % (base)))
     os.remove(os.path.join(download_dir, '%s-rgb.tif.aux.xml' % (base)))
+
+def fix_alpha_channel(fiename):
+    """
+    Imagemagick's 'convert' command converts all channels to 8-bits, including the alpha channel.
+    Unfortunately it converts the alpha value 255 to 1 when it does this. This is a hack to restore
+    full transparency values to 255 in the alpha channel.
+    """
+    img = gdal.Open(filename, GA_Update)
+    mask = img.GetRasterBand(4)
+    data = mask.ReadAsArray(0, 0, mask.XSize, mask.YSize)
+    data = np.array([entry * 255 for entry in data])
+    mask.WriteArray(data)
+    mask.FlushCache()
 
 def reproject(geom, from_epsg, to_epsg):
     """
