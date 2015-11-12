@@ -31,13 +31,17 @@ function on_image_load(context){
 function on_submit(evt){
   var areas = $('#annotate-me').selectAreas('relativeAreas');
 
-  areas.forEach(function(box) {
+  if ($('input.all-cloud').prop('checked')) {
     var input = $('<input type="hidden" name="new-bbox" />');
-    input.val([box.x, box.y, box.width, box.height].join(','));
+    input.val([0, 0, 512, 512].join(','));
     $('form').append(input);
-  });
-
-  // TODO: Make sure there are either bounding boxes _or_ one of the checkboxes is selected.
+  } else {
+    areas.forEach(function(box) {
+      var input = $('<input type="hidden" name="new-bbox" />');
+      input.val([box.x, box.y, box.width, box.height].join(','));
+      $('form').append(input);
+    });
+  }
 
   // Uncomment for debugging:
   //evt.preventDefault();

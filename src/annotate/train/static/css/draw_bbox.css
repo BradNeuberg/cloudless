@@ -29,15 +29,25 @@
   padding-bottom: 0.5em;
 }
 
-.done,
-.delete {
+.done {
   float: right;
-  margin-top: 2em;
   font-size: 16pt;
+  display: block;
+  clear: both;
 }
 
-.delete {
-  margin-right: 1em;
+.all-cloud-container {
+  border: 1px solid black;
+  width: 6em;
+  padding: 4px;
+  float: right;
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.all-cloud {
+  position: relative;
+  top: -2px;
 }
 
 .image-container {

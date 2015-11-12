@@ -37,9 +37,14 @@
           <p class="instructions">Instructions:</p>
           <ul>
             <li><b>Only mark an item as a cloud if you are sure it is a cloud.</b></li>
-            <li>Include all visible parts, including any cloud shadows, and draw as tightly as possible on each cloud.</li>
-            <li>If there are multiple clouds and they <b>directly</b> touch, draw the box around the group. If the entire image is basically covered in a cloud simply draw the box around the entire image.</li>
+            <li>Include all visible parts, including any cloud shadows, and draw as tightly as possible on each cloud. It's okay for bounding boxes to overlap.</li>
+            <li>If there are multiple clouds and they <b>directly</b> touch, draw the box around the group. If the entire image is basically covered in a cloud select the "All Cloud" checkbox below then press "Done".</li>
           </ul>
+
+          <div class="all-cloud-container">
+            <label for="all-cloud">All Cloud</label>
+            <input type="checkbox" class="all-cloud" name="all-cloud" />
+          </div>
 
           <button class="done" type="submit">Done</button>
         </div>
