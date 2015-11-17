@@ -37,9 +37,6 @@ Annotating imagery
 
 5. Upon successful submission, the browser will load a new image to annotate
 
-NOTE: If the image shows up as all white - that's an artifact of us not doing
-a good job of eliminating blank image chunks.  Just reload the browser to get a new image
-
 Exporting annotated imagery
 -----------------------------
 1. Writes out annotated.json and all the annotated images to a specified directory
