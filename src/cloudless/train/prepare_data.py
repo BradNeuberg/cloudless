@@ -110,10 +110,14 @@ def _get_planetlab_details(input_metadata, input_images):
 #     Loads available image paths and image filenames for landsat, along with their target values if
 #     they contain clouds or not (1 if there is a cloud, 0 otherwise).
 #     """
-
+#
+#     LANDSAT_ROOT = ROOT_DIR + "/data/landsat"
+#     LANDSAT_IMAGES = LANDSAT_ROOT + "/images"
+#     LANDSAT_METADATA = LANDSAT_ROOT + "/metadata/training-validation-set.csv"
+#
 #     image_paths = []
 #     targets = []
-#     with open(constants.LANDSAT_METADATA, 'r') as csvfile:
+#     with open(LANDSAT_METADATA, 'r') as csvfile:
 #       entryreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 #       firstline = True
 #       for row in entryreader:
@@ -125,7 +129,7 @@ def _get_planetlab_details(input_metadata, input_images):
 #         if row[1] == "1":
 #           has_cloud = 1
 
-#         image_paths.append(os.path.join(constants.LANDSAT_IMAGES, filename))
+#         image_paths.append(os.path.join(LANDSAT_IMAGES, filename))
 #         targets.append(has_cloud)
 
 #     return {
