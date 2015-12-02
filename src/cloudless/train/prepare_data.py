@@ -247,7 +247,7 @@ def _generate_leveldb(file_path, image_paths, targets, width, height):
       key = utils.get_key(idx)
 
       # Do common normalization that might happen across both testing and validation.
-      image = _preprocess_data(_load_numpy_image(image_paths[idx]))
+      image = _preprocess_data(_load_numpy_image(image_paths[idx], width, height))
 
       # Each entry in the leveldb is a Caffe protobuffer "Datum" object containing details.
       datum = Datum()
@@ -288,16 +288,16 @@ def _preprocess_data(data):
 
     return data
 
-def _load_numpy_image(image_path):
+def _load_numpy_image(image_path, width, height):
     """
     Turns one of our testing image paths into an actual image, converted into a numpy array.
     """
 
     im = Image.open(image_path)
     # Scale the image to the size required by our neural network.
-    im = im.resize((constants.WIDTH, constants.HEIGHT))
+    im = im.resize((width, height))
     data = np.asarray(im)
-    data = np.reshape(data, (3, constants.HEIGHT, constants.WIDTH))
+    data = np.reshape(data, (3, height, width))
     return data
 
 def _rgba_to_rgb(im):
