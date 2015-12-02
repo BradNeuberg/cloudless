@@ -39,6 +39,7 @@
             <li><b>Only mark an item as a cloud if you are sure it is a cloud.</b></li>
             <li>Include all visible parts, including any cloud shadows, and draw as tightly as possible on each cloud. It's okay for bounding boxes to overlap.</li>
             <li>If there are multiple clouds and they <b>directly</b> touch, draw the box around the group. If the entire image is basically covered in a cloud select the "All Cloud" checkbox below then press "Done".</li>
+            <li>If the image has lens flare or the colors are smeared across RGB, press the "Delete" button.</li>
           </ul>
 
           <div class="all-cloud-container">
@@ -46,7 +47,10 @@
             <input type="checkbox" class="all-cloud" name="all-cloud" />
           </div>
 
-          <button class="done" type="submit">Done</button>
+          <div class="submit-button-container">
+            <button class="delete" type="submit">Delete</button>
+            <button class="done" type="submit">Done</button>
+          </div>
         </div>
 
       </main>

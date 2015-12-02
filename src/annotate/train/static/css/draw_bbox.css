@@ -29,11 +29,16 @@
   padding-bottom: 0.5em;
 }
 
-.done {
-  float: right;
-  font-size: 16pt;
-  display: block;
+.submit-button-container {
   clear: both;
+  float: right;
+}
+
+.delete,
+.done {
+  margin-left: 1em;
+  font-size: 16pt;
+  display: inline-block;
 }
 
 .all-cloud-container {
