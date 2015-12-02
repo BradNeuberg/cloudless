@@ -8,7 +8,7 @@
             376
         ],
         "class": "cloud",
-        "fname": "bbox-regions/951.jpg",
+        "fname": "bbox-regions/1100.jpg",
         "prob": 14.48607
     },
     {
@@ -20,7 +20,7 @@
             393
         ],
         "class": "cloud",
-        "fname": "bbox-regions/987.jpg",
+        "fname": "bbox-regions/732.jpg",
         "prob": 14.34313
     },
     {
@@ -32,7 +32,7 @@
             371
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1066.jpg",
+        "fname": "bbox-regions/462.jpg",
         "prob": 14.30378
     },
     {
@@ -44,7 +44,7 @@
             415
         ],
         "class": "cloud",
-        "fname": "bbox-regions/599.jpg",
+        "fname": "bbox-regions/640.jpg",
         "prob": 14.27631
     },
     {
@@ -56,7 +56,7 @@
             382
         ],
         "class": "cloud",
-        "fname": "bbox-regions/60.jpg",
+        "fname": "bbox-regions/296.jpg",
         "prob": 14.20949
     },
     {
@@ -68,7 +68,7 @@
             225
         ],
         "class": "cloud",
-        "fname": "bbox-regions/665.jpg",
+        "fname": "bbox-regions/135.jpg",
         "prob": 14.0605
     },
     {
@@ -80,7 +80,7 @@
             429
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1094.jpg",
+        "fname": "bbox-regions/12.jpg",
         "prob": 13.96035
     },
     {
@@ -92,7 +92,7 @@
             392
         ],
         "class": "cloud",
-        "fname": "bbox-regions/741.jpg",
+        "fname": "bbox-regions/848.jpg",
         "prob": 13.87897
     },
     {
@@ -104,7 +104,7 @@
             344
         ],
         "class": "cloud",
-        "fname": "bbox-regions/750.jpg",
+        "fname": "bbox-regions/488.jpg",
         "prob": 13.82742
     },
     {
@@ -116,7 +116,7 @@
             366
         ],
         "class": "cloud",
-        "fname": "bbox-regions/903.jpg",
+        "fname": "bbox-regions/1115.jpg",
         "prob": 13.72202
     },
     {
@@ -128,7 +128,7 @@
             105
         ],
         "class": "cloud",
-        "fname": "bbox-regions/138.jpg",
+        "fname": "bbox-regions/136.jpg",
         "prob": 13.65331
     },
     {
@@ -140,7 +140,7 @@
             374
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1158.jpg",
+        "fname": "bbox-regions/274.jpg",
         "prob": 13.62356
     },
     {
@@ -152,7 +152,7 @@
             221
         ],
         "class": "cloud",
-        "fname": "bbox-regions/146.jpg",
+        "fname": "bbox-regions/663.jpg",
         "prob": 13.54646
     },
     {
@@ -164,7 +164,7 @@
             351
         ],
         "class": "cloud",
-        "fname": "bbox-regions/254.jpg",
+        "fname": "bbox-regions/733.jpg",
         "prob": 13.24083
     },
     {
@@ -176,7 +176,7 @@
             114
         ],
         "class": "cloud",
-        "fname": "bbox-regions/306.jpg",
+        "fname": "bbox-regions/502.jpg",
         "prob": 13.22111
     },
     {
@@ -188,7 +188,7 @@
             384
         ],
         "class": "cloud",
-        "fname": "bbox-regions/167.jpg",
+        "fname": "bbox-regions/190.jpg",
         "prob": 13.17901
     },
     {
@@ -200,7 +200,7 @@
             488
         ],
         "class": "cloud",
-        "fname": "bbox-regions/510.jpg",
+        "fname": "bbox-regions/945.jpg",
         "prob": 13.15579
     },
     {
@@ -212,7 +212,7 @@
             253
         ],
         "class": "cloud",
-        "fname": "bbox-regions/759.jpg",
+        "fname": "bbox-regions/766.jpg",
         "prob": 13.15178
     },
     {
@@ -224,7 +224,7 @@
             408
         ],
         "class": "cloud",
-        "fname": "bbox-regions/696.jpg",
+        "fname": "bbox-regions/679.jpg",
         "prob": 13.07814
     },
     {
@@ -236,7 +236,7 @@
             294
         ],
         "class": "cloud",
-        "fname": "bbox-regions/152.jpg",
+        "fname": "bbox-regions/924.jpg",
         "prob": 13.02406
     },
     {
@@ -248,7 +248,7 @@
             303
         ],
         "class": "cloud",
-        "fname": "bbox-regions/968.jpg",
+        "fname": "bbox-regions/379.jpg",
         "prob": 13.00272
     },
     {
@@ -260,7 +260,7 @@
             470
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1205.jpg",
+        "fname": "bbox-regions/1278.jpg",
         "prob": 12.997
     },
     {
@@ -272,7 +272,7 @@
             319
         ],
         "class": "cloud",
-        "fname": "bbox-regions/922.jpg",
+        "fname": "bbox-regions/569.jpg",
         "prob": 12.97955
     },
     {
@@ -284,7 +284,7 @@
             338
         ],
         "class": "cloud",
-        "fname": "bbox-regions/709.jpg",
+        "fname": "bbox-regions/1075.jpg",
         "prob": 12.967
     },
     {
@@ -296,7 +296,7 @@
             484
         ],
         "class": "cloud",
-        "fname": "bbox-regions/238.jpg",
+        "fname": "bbox-regions/1307.jpg",
         "prob": 12.96443
     },
     {
@@ -308,7 +308,7 @@
             361
         ],
         "class": "cloud",
-        "fname": "bbox-regions/628.jpg",
+        "fname": "bbox-regions/364.jpg",
         "prob": 12.94968
     },
     {
@@ -320,7 +320,7 @@
             360
         ],
         "class": "cloud",
-        "fname": "bbox-regions/797.jpg",
+        "fname": "bbox-regions/317.jpg",
         "prob": 12.8991
     },
     {
@@ -332,7 +332,7 @@
             484
         ],
         "class": "cloud",
-        "fname": "bbox-regions/721.jpg",
+        "fname": "bbox-regions/1052.jpg",
         "prob": 12.89556
     },
     {
@@ -344,7 +344,7 @@
             352
         ],
         "class": "cloud",
-        "fname": "bbox-regions/711.jpg",
+        "fname": "bbox-regions/761.jpg",
         "prob": 12.86327
     },
     {
@@ -356,7 +356,7 @@
             370
         ],
         "class": "cloud",
-        "fname": "bbox-regions/976.jpg",
+        "fname": "bbox-regions/712.jpg",
         "prob": 12.79549
     },
     {
@@ -368,7 +368,7 @@
             451
         ],
         "class": "cloud",
-        "fname": "bbox-regions/310.jpg",
+        "fname": "bbox-regions/1107.jpg",
         "prob": 12.78489
     },
     {
@@ -380,7 +380,7 @@
             480
         ],
         "class": "cloud",
-        "fname": "bbox-regions/690.jpg",
+        "fname": "bbox-regions/731.jpg",
         "prob": 12.77957
     },
     {
@@ -392,7 +392,7 @@
             286
         ],
         "class": "cloud",
-        "fname": "bbox-regions/294.jpg",
+        "fname": "bbox-regions/505.jpg",
         "prob": 12.73193
     },
     {
@@ -404,7 +404,7 @@
             501
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1118.jpg",
+        "fname": "bbox-regions/771.jpg",
         "prob": 12.71616
     },
     {
@@ -416,7 +416,7 @@
             468
         ],
         "class": "cloud",
-        "fname": "bbox-regions/109.jpg",
+        "fname": "bbox-regions/1111.jpg",
         "prob": 12.67785
     },
     {
@@ -428,7 +428,7 @@
             408
         ],
         "class": "cloud",
-        "fname": "bbox-regions/802.jpg",
+        "fname": "bbox-regions/673.jpg",
         "prob": 12.65937
     },
     {
@@ -440,7 +440,7 @@
             404
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1109.jpg",
+        "fname": "bbox-regions/770.jpg",
         "prob": 12.65403
     },
     {
@@ -452,7 +452,7 @@
             219
         ],
         "class": "cloud",
-        "fname": "bbox-regions/259.jpg",
+        "fname": "bbox-regions/255.jpg",
         "prob": 12.64443
     },
     {
@@ -464,7 +464,7 @@
             268
         ],
         "class": "cloud",
-        "fname": "bbox-regions/186.jpg",
+        "fname": "bbox-regions/954.jpg",
         "prob": 12.63351
     },
     {
@@ -476,7 +476,7 @@
             361
         ],
         "class": "cloud",
-        "fname": "bbox-regions/991.jpg",
+        "fname": "bbox-regions/23.jpg",
         "prob": 12.62505
     },
     {
@@ -488,7 +488,7 @@
             424
         ],
         "class": "cloud",
-        "fname": "bbox-regions/751.jpg",
+        "fname": "bbox-regions/1103.jpg",
         "prob": 12.623
     },
     {
@@ -500,7 +500,7 @@
             221
         ],
         "class": "cloud",
-        "fname": "bbox-regions/549.jpg",
+        "fname": "bbox-regions/585.jpg",
         "prob": 12.56966
     },
     {
@@ -512,7 +512,7 @@
             357
         ],
         "class": "cloud",
-        "fname": "bbox-regions/806.jpg",
+        "fname": "bbox-regions/252.jpg",
         "prob": 12.56772
     },
     {
@@ -524,7 +524,7 @@
             289
         ],
         "class": "cloud",
-        "fname": "bbox-regions/830.jpg",
+        "fname": "bbox-regions/449.jpg",
         "prob": 12.56473
     },
     {
@@ -536,7 +536,7 @@
             293
         ],
         "class": "cloud",
-        "fname": "bbox-regions/480.jpg",
+        "fname": "bbox-regions/921.jpg",
         "prob": 12.56158
     },
     {
@@ -548,7 +548,7 @@
             345
         ],
         "class": "cloud",
-        "fname": "bbox-regions/375.jpg",
+        "fname": "bbox-regions/98.jpg",
         "prob": 12.54665
     },
     {
@@ -560,7 +560,7 @@
             328
         ],
         "class": "cloud",
-        "fname": "bbox-regions/874.jpg",
+        "fname": "bbox-regions/1020.jpg",
         "prob": 12.54488
     },
     {
@@ -572,7 +572,7 @@
             372
         ],
         "class": "cloud",
-        "fname": "bbox-regions/28.jpg",
+        "fname": "bbox-regions/271.jpg",
         "prob": 12.53477
     },
     {
@@ -584,7 +584,7 @@
             392
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1149.jpg",
+        "fname": "bbox-regions/937.jpg",
         "prob": 12.5324
     },
     {
@@ -596,7 +596,7 @@
             368
         ],
         "class": "cloud",
-        "fname": "bbox-regions/963.jpg",
+        "fname": "bbox-regions/1033.jpg",
         "prob": 12.51886
     },
     {
@@ -608,7 +608,7 @@
             450
         ],
         "class": "cloud",
-        "fname": "bbox-regions/708.jpg",
+        "fname": "bbox-regions/459.jpg",
         "prob": 12.51191
     },
     {
@@ -620,7 +620,7 @@
             393
         ],
         "class": "cloud",
-        "fname": "bbox-regions/657.jpg",
+        "fname": "bbox-regions/1112.jpg",
         "prob": 12.5097
     },
     {
@@ -632,7 +632,7 @@
             330
         ],
         "class": "cloud",
-        "fname": "bbox-regions/603.jpg",
+        "fname": "bbox-regions/642.jpg",
         "prob": 12.50377
     },
     {
@@ -644,7 +644,7 @@
             297
         ],
         "class": "cloud",
-        "fname": "bbox-regions/965.jpg",
+        "fname": "bbox-regions/348.jpg",
         "prob": 12.50206
     },
     {
@@ -656,7 +656,7 @@
             328
         ],
         "class": "cloud",
-        "fname": "bbox-regions/898.jpg",
+        "fname": "bbox-regions/512.jpg",
         "prob": 12.50054
     },
     {
@@ -668,7 +668,7 @@
             252
         ],
         "class": "cloud",
-        "fname": "bbox-regions/794.jpg",
+        "fname": "bbox-regions/907.jpg",
         "prob": 12.41658
     },
     {
@@ -680,7 +680,7 @@
             59
         ],
         "class": "cloud",
-        "fname": "bbox-regions/99.jpg",
+        "fname": "bbox-regions/105.jpg",
         "prob": 12.4064
     },
     {
@@ -692,7 +692,7 @@
             448
         ],
         "class": "cloud",
-        "fname": "bbox-regions/772.jpg",
+        "fname": "bbox-regions/636.jpg",
         "prob": 12.39044
     },
     {
@@ -704,7 +704,7 @@
             81
         ],
         "class": "cloud",
-        "fname": "bbox-regions/214.jpg",
+        "fname": "bbox-regions/137.jpg",
         "prob": 12.37665
     },
     {
@@ -716,7 +716,7 @@
             434
         ],
         "class": "cloud",
-        "fname": "bbox-regions/720.jpg",
+        "fname": "bbox-regions/239.jpg",
         "prob": 12.37256
     },
     {
@@ -728,7 +728,7 @@
             365
         ],
         "class": "cloud",
-        "fname": "bbox-regions/151.jpg",
+        "fname": "bbox-regions/323.jpg",
         "prob": 12.33547
     },
     {
@@ -740,7 +740,7 @@
             399
         ],
         "class": "cloud",
-        "fname": "bbox-regions/853.jpg",
+        "fname": "bbox-regions/584.jpg",
         "prob": 12.30986
     },
     {
@@ -752,7 +752,7 @@
             406
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1010.jpg",
+        "fname": "bbox-regions/908.jpg",
         "prob": 12.27896
     },
     {
@@ -764,7 +764,7 @@
             193
         ],
         "class": "cloud",
-        "fname": "bbox-regions/504.jpg",
+        "fname": "bbox-regions/166.jpg",
         "prob": 12.23852
     },
     {
@@ -776,7 +776,7 @@
             398
         ],
         "class": "cloud",
-        "fname": "bbox-regions/724.jpg",
+        "fname": "bbox-regions/1182.jpg",
         "prob": 12.21558
     },
     {
@@ -788,7 +788,7 @@
             277
         ],
         "class": "cloud",
-        "fname": "bbox-regions/231.jpg",
+        "fname": "bbox-regions/746.jpg",
         "prob": 12.2105
     },
     {
@@ -800,7 +800,7 @@
             429
         ],
         "class": "cloud",
-        "fname": "bbox-regions/239.jpg",
+        "fname": "bbox-regions/157.jpg",
         "prob": 12.20249
     },
     {
@@ -812,7 +812,7 @@
             309
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1055.jpg",
+        "fname": "bbox-regions/1010.jpg",
         "prob": 12.175
     },
     {
@@ -824,7 +824,7 @@
             322
         ],
         "class": "cloud",
-        "fname": "bbox-regions/561.jpg",
+        "fname": "bbox-regions/1109.jpg",
         "prob": 12.13549
     },
     {
@@ -836,7 +836,7 @@
             336
         ],
         "class": "cloud",
-        "fname": "bbox-regions/222.jpg",
+        "fname": "bbox-regions/554.jpg",
         "prob": 12.12684
     },
     {
@@ -848,7 +848,7 @@
             414
         ],
         "class": "cloud",
-        "fname": "bbox-regions/718.jpg",
+        "fname": "bbox-regions/1012.jpg",
         "prob": 12.1204
     },
     {
@@ -860,7 +860,7 @@
             399
         ],
         "class": "cloud",
-        "fname": "bbox-regions/607.jpg",
+        "fname": "bbox-regions/480.jpg",
         "prob": 12.11235
     },
     {
@@ -872,7 +872,7 @@
             420
         ],
         "class": "cloud",
-        "fname": "bbox-regions/354.jpg",
+        "fname": "bbox-regions/208.jpg",
         "prob": 12.10558
     },
     {
@@ -884,7 +884,7 @@
             409
         ],
         "class": "cloud",
-        "fname": "bbox-regions/870.jpg",
+        "fname": "bbox-regions/959.jpg",
         "prob": 12.10015
     },
     {
@@ -896,7 +896,7 @@
             181
         ],
         "class": "cloud",
-        "fname": "bbox-regions/147.jpg",
+        "fname": "bbox-regions/575.jpg",
         "prob": 12.09337
     },
     {
@@ -908,7 +908,7 @@
             315
         ],
         "class": "cloud",
-        "fname": "bbox-regions/846.jpg",
+        "fname": "bbox-regions/893.jpg",
         "prob": 12.09302
     },
     {
@@ -920,7 +920,7 @@
             484
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1025.jpg",
+        "fname": "bbox-regions/401.jpg",
         "prob": 12.09276
     },
     {
@@ -932,7 +932,7 @@
             449
         ],
         "class": "cloud",
-        "fname": "bbox-regions/355.jpg",
+        "fname": "bbox-regions/1221.jpg",
         "prob": 12.0883
     },
     {
@@ -944,7 +944,7 @@
             391
         ],
         "class": "cloud",
-        "fname": "bbox-regions/803.jpg",
+        "fname": "bbox-regions/1039.jpg",
         "prob": 12.08016
     },
     {
@@ -956,7 +956,7 @@
             511
         ],
         "class": "cloud",
-        "fname": "bbox-regions/199.jpg",
+        "fname": "bbox-regions/113.jpg",
         "prob": 12.07933
     },
     {
@@ -968,7 +968,7 @@
             340
         ],
         "class": "cloud",
-        "fname": "bbox-regions/621.jpg",
+        "fname": "bbox-regions/880.jpg",
         "prob": 12.06866
     },
     {
@@ -980,7 +980,7 @@
             407
         ],
         "class": "cloud",
-        "fname": "bbox-regions/601.jpg",
+        "fname": "bbox-regions/818.jpg",
         "prob": 12.0409
     },
     {
@@ -992,7 +992,7 @@
             464
         ],
         "class": "cloud",
-        "fname": "bbox-regions/653.jpg",
+        "fname": "bbox-regions/624.jpg",
         "prob": 12.03134
     },
     {
@@ -1004,7 +1004,7 @@
             309
         ],
         "class": "cloud",
-        "fname": "bbox-regions/877.jpg",
+        "fname": "bbox-regions/910.jpg",
         "prob": 12.03038
     },
     {
@@ -1016,7 +1016,7 @@
             256
         ],
         "class": "cloud",
-        "fname": "bbox-regions/782.jpg",
+        "fname": "bbox-regions/786.jpg",
         "prob": 12.01941
     },
     {
@@ -1028,7 +1028,7 @@
             466
         ],
         "class": "cloud",
-        "fname": "bbox-regions/218.jpg",
+        "fname": "bbox-regions/1191.jpg",
         "prob": 12.00005
     },
     {
@@ -1040,7 +1040,7 @@
             446
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1256.jpg",
+        "fname": "bbox-regions/1249.jpg",
         "prob": 11.99992
     },
     {
@@ -1052,7 +1052,7 @@
             38
         ],
         "class": "cloud",
-        "fname": "bbox-regions/18.jpg",
+        "fname": "bbox-regions/50.jpg",
         "prob": 11.97959
     },
     {
@@ -1064,7 +1064,7 @@
             358
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1078.jpg",
+        "fname": "bbox-regions/884.jpg",
         "prob": 11.96641
     },
     {
@@ -1076,7 +1076,7 @@
             399
         ],
         "class": "cloud",
-        "fname": "bbox-regions/910.jpg",
+        "fname": "bbox-regions/1179.jpg",
         "prob": 11.96268
     },
     {
@@ -1088,7 +1088,7 @@
             316
         ],
         "class": "cloud",
-        "fname": "bbox-regions/103.jpg",
+        "fname": "bbox-regions/529.jpg",
         "prob": 11.96014
     },
     {
@@ -1100,7 +1100,7 @@
             497
         ],
         "class": "cloud",
-        "fname": "bbox-regions/595.jpg",
+        "fname": "bbox-regions/831.jpg",
         "prob": 11.95917
     },
     {
@@ -1112,7 +1112,7 @@
             354
         ],
         "class": "cloud",
-        "fname": "bbox-regions/777.jpg",
+        "fname": "bbox-regions/988.jpg",
         "prob": 11.95625
     },
     {
@@ -1124,7 +1124,7 @@
             256
         ],
         "class": "cloud",
-        "fname": "bbox-regions/754.jpg",
+        "fname": "bbox-regions/978.jpg",
         "prob": 11.93754
     },
     {
@@ -1136,7 +1136,7 @@
             357
         ],
         "class": "cloud",
-        "fname": "bbox-regions/509.jpg",
+        "fname": "bbox-regions/816.jpg",
         "prob": 11.92931
     },
     {
@@ -1148,7 +1148,7 @@
             125
         ],
         "class": "cloud",
-        "fname": "bbox-regions/319.jpg",
+        "fname": "bbox-regions/331.jpg",
         "prob": 11.92833
     },
     {
@@ -1160,7 +1160,7 @@
             491
         ],
         "class": "cloud",
-        "fname": "bbox-regions/675.jpg",
+        "fname": "bbox-regions/885.jpg",
         "prob": 11.88371
     },
     {
@@ -1172,7 +1172,7 @@
             229
         ],
         "class": "cloud",
-        "fname": "bbox-regions/769.jpg",
+        "fname": "bbox-regions/544.jpg",
         "prob": 11.87712
     },
     {
@@ -1184,7 +1184,7 @@
             482
         ],
         "class": "cloud",
-        "fname": "bbox-regions/506.jpg",
+        "fname": "bbox-regions/309.jpg",
         "prob": 11.86702
     },
     {
@@ -1196,7 +1196,7 @@
             325
         ],
         "class": "cloud",
-        "fname": "bbox-regions/246.jpg",
+        "fname": "bbox-regions/451.jpg",
         "prob": 11.86445
     },
     {
@@ -1208,7 +1208,7 @@
             428
         ],
         "class": "cloud",
-        "fname": "bbox-regions/488.jpg",
+        "fname": "bbox-regions/520.jpg",
         "prob": 11.85395
     },
     {
@@ -1220,7 +1220,7 @@
             319
         ],
         "class": "cloud",
-        "fname": "bbox-regions/760.jpg",
+        "fname": "bbox-regions/72.jpg",
         "prob": 11.85113
     },
     {
@@ -1232,7 +1232,7 @@
             472
         ],
         "class": "cloud",
-        "fname": "bbox-regions/705.jpg",
+        "fname": "bbox-regions/774.jpg",
         "prob": 11.84335
     },
     {
@@ -1244,7 +1244,7 @@
             308
         ],
         "class": "cloud",
-        "fname": "bbox-regions/460.jpg",
+        "fname": "bbox-regions/339.jpg",
         "prob": 11.83428
     },
     {
@@ -1256,7 +1256,7 @@
             486
         ],
         "class": "cloud",
-        "fname": "bbox-regions/847.jpg",
+        "fname": "bbox-regions/675.jpg",
         "prob": 11.82557
     },
     {
@@ -1268,7 +1268,7 @@
             419
         ],
         "class": "cloud",
-        "fname": "bbox-regions/928.jpg",
+        "fname": "bbox-regions/650.jpg",
         "prob": 11.82485
     },
     {
@@ -1280,7 +1280,7 @@
             371
         ],
         "class": "cloud",
-        "fname": "bbox-regions/940.jpg",
+        "fname": "bbox-regions/616.jpg",
         "prob": 11.79826
     },
     {
@@ -1292,7 +1292,7 @@
             224
         ],
         "class": "cloud",
-        "fname": "bbox-regions/583.jpg",
+        "fname": "bbox-regions/920.jpg",
         "prob": 11.79789
     },
     {
@@ -1304,7 +1304,7 @@
             176
         ],
         "class": "cloud",
-        "fname": "bbox-regions/183.jpg",
+        "fname": "bbox-regions/279.jpg",
         "prob": 11.79393
     },
     {
@@ -1316,7 +1316,7 @@
             476
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1157.jpg",
+        "fname": "bbox-regions/1202.jpg",
         "prob": 11.77705
     },
     {
@@ -1328,7 +1328,7 @@
             496
         ],
         "class": "cloud",
-        "fname": "bbox-regions/565.jpg",
+        "fname": "bbox-regions/1029.jpg",
         "prob": 11.77642
     },
     {
@@ -1340,7 +1340,7 @@
             308
         ],
         "class": "cloud",
-        "fname": "bbox-regions/862.jpg",
+        "fname": "bbox-regions/999.jpg",
         "prob": 11.76418
     },
     {
@@ -1352,7 +1352,7 @@
             33
         ],
         "class": "cloud",
-        "fname": "bbox-regions/20.jpg",
+        "fname": "bbox-regions/78.jpg",
         "prob": 11.75424
     },
     {
@@ -1364,7 +1364,7 @@
             303
         ],
         "class": "cloud",
-        "fname": "bbox-regions/779.jpg",
+        "fname": "bbox-regions/611.jpg",
         "prob": 11.75037
     },
     {
@@ -1376,7 +1376,7 @@
             285
         ],
         "class": "cloud",
-        "fname": "bbox-regions/745.jpg",
+        "fname": "bbox-regions/987.jpg",
         "prob": 11.74573
     },
     {
@@ -1388,7 +1388,7 @@
             270
         ],
         "class": "cloud",
-        "fname": "bbox-regions/440.jpg",
+        "fname": "bbox-regions/704.jpg",
         "prob": 11.744
     },
     {
@@ -1400,7 +1400,7 @@
             506
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1031.jpg",
+        "fname": "bbox-regions/356.jpg",
         "prob": 11.73965
     },
     {
@@ -1412,7 +1412,7 @@
             451
         ],
         "class": "cloud",
-        "fname": "bbox-regions/749.jpg",
+        "fname": "bbox-regions/561.jpg",
         "prob": 11.72966
     },
     {
@@ -1424,7 +1424,7 @@
             445
         ],
         "class": "cloud",
-        "fname": "bbox-regions/942.jpg",
+        "fname": "bbox-regions/1135.jpg",
         "prob": 11.72825
     },
     {
@@ -1436,7 +1436,7 @@
             492
         ],
         "class": "cloud",
-        "fname": "bbox-regions/323.jpg",
+        "fname": "bbox-regions/1046.jpg",
         "prob": 11.72731
     },
     {
@@ -1448,7 +1448,7 @@
             428
         ],
         "class": "cloud",
-        "fname": "bbox-regions/669.jpg",
+        "fname": "bbox-regions/235.jpg",
         "prob": 11.72033
     },
     {
@@ -1460,7 +1460,7 @@
             415
         ],
         "class": "cloud",
-        "fname": "bbox-regions/467.jpg",
+        "fname": "bbox-regions/45.jpg",
         "prob": 11.71994
     },
     {
@@ -1472,7 +1472,7 @@
             261
         ],
         "class": "cloud",
-        "fname": "bbox-regions/604.jpg",
+        "fname": "bbox-regions/582.jpg",
         "prob": 11.71652
     },
     {
@@ -1484,7 +1484,7 @@
             282
         ],
         "class": "cloud",
-        "fname": "bbox-regions/462.jpg",
+        "fname": "bbox-regions/231.jpg",
         "prob": 11.71558
     },
     {
@@ -1496,7 +1496,7 @@
             436
         ],
         "class": "cloud",
-        "fname": "bbox-regions/538.jpg",
+        "fname": "bbox-regions/1058.jpg",
         "prob": 11.68613
     },
     {
@@ -1508,7 +1508,7 @@
             78
         ],
         "class": "cloud",
-        "fname": "bbox-regions/26.jpg",
+        "fname": "bbox-regions/75.jpg",
         "prob": 11.6789
     },
     {
@@ -1520,7 +1520,7 @@
             390
         ],
         "class": "cloud",
-        "fname": "bbox-regions/130.jpg",
+        "fname": "bbox-regions/294.jpg",
         "prob": 11.67055
     },
     {
@@ -1532,7 +1532,7 @@
             86
         ],
         "class": "cloud",
-        "fname": "bbox-regions/336.jpg",
+        "fname": "bbox-regions/394.jpg",
         "prob": 11.63974
     },
     {
@@ -1544,7 +1544,7 @@
             351
         ],
         "class": "cloud",
-        "fname": "bbox-regions/656.jpg",
+        "fname": "bbox-regions/670.jpg",
         "prob": 11.63523
     },
     {
@@ -1556,7 +1556,7 @@
             63
         ],
         "class": "cloud",
-        "fname": "bbox-regions/67.jpg",
+        "fname": "bbox-regions/84.jpg",
         "prob": 11.62414
     },
     {
@@ -1568,7 +1568,7 @@
             427
         ],
         "class": "cloud",
-        "fname": "bbox-regions/204.jpg",
+        "fname": "bbox-regions/1225.jpg",
         "prob": 11.62276
     },
     {
@@ -1580,7 +1580,7 @@
             220
         ],
         "class": "cloud",
-        "fname": "bbox-regions/773.jpg",
+        "fname": "bbox-regions/534.jpg",
         "prob": 11.61754
     },
     {
@@ -1592,7 +1592,7 @@
             485
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1124.jpg",
+        "fname": "bbox-regions/864.jpg",
         "prob": 11.61513
     },
     {
@@ -1604,7 +1604,7 @@
             431
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1156.jpg",
+        "fname": "bbox-regions/612.jpg",
         "prob": 11.61101
     },
     {
@@ -1616,7 +1616,7 @@
             261
         ],
         "class": "cloud",
-        "fname": "bbox-regions/626.jpg",
+        "fname": "bbox-regions/293.jpg",
         "prob": 11.57671
     },
     {
@@ -1628,7 +1628,7 @@
             224
         ],
         "class": "cloud",
-        "fname": "bbox-regions/771.jpg",
+        "fname": "bbox-regions/723.jpg",
         "prob": 11.56546
     },
     {
@@ -1640,7 +1640,7 @@
             369
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1067.jpg",
+        "fname": "bbox-regions/798.jpg",
         "prob": 11.5634
     },
     {
@@ -1652,7 +1652,7 @@
             251
         ],
         "class": "cloud",
-        "fname": "bbox-regions/807.jpg",
+        "fname": "bbox-regions/301.jpg",
         "prob": 11.55779
     },
     {
@@ -1664,7 +1664,7 @@
             448
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1225.jpg",
+        "fname": "bbox-regions/1215.jpg",
         "prob": 11.5566
     },
     {
@@ -1676,7 +1676,7 @@
             418
         ],
         "class": "cloud",
-        "fname": "bbox-regions/918.jpg",
+        "fname": "bbox-regions/736.jpg",
         "prob": 11.55389
     },
     {
@@ -1688,7 +1688,7 @@
             468
         ],
         "class": "cloud",
-        "fname": "bbox-regions/473.jpg",
+        "fname": "bbox-regions/1189.jpg",
         "prob": 11.53918
     },
     {
@@ -1700,7 +1700,7 @@
             61
         ],
         "class": "cloud",
-        "fname": "bbox-regions/8.jpg",
+        "fname": "bbox-regions/119.jpg",
         "prob": 11.53077
     },
     {
@@ -1712,7 +1712,7 @@
             83
         ],
         "class": "cloud",
-        "fname": "bbox-regions/128.jpg",
+        "fname": "bbox-regions/87.jpg",
         "prob": 11.51936
     },
     {
@@ -1724,7 +1724,7 @@
             276
         ],
         "class": "cloud",
-        "fname": "bbox-regions/840.jpg",
+        "fname": "bbox-regions/668.jpg",
         "prob": 11.51384
     },
     {
@@ -1736,7 +1736,7 @@
             124
         ],
         "class": "cloud",
-        "fname": "bbox-regions/129.jpg",
+        "fname": "bbox-regions/382.jpg",
         "prob": 11.50378
     },
     {
@@ -1748,7 +1748,7 @@
             260
         ],
         "class": "cloud",
-        "fname": "bbox-regions/815.jpg",
+        "fname": "bbox-regions/154.jpg",
         "prob": 11.50253
     },
     {
@@ -1760,7 +1760,7 @@
             359
         ],
         "class": "cloud",
-        "fname": "bbox-regions/543.jpg",
+        "fname": "bbox-regions/244.jpg",
         "prob": 11.50241
     },
     {
@@ -1772,7 +1772,7 @@
             302
         ],
         "class": "cloud",
-        "fname": "bbox-regions/100.jpg",
+        "fname": "bbox-regions/889.jpg",
         "prob": 11.50145
     },
     {
@@ -1784,7 +1784,7 @@
             76
         ],
         "class": "cloud",
-        "fname": "bbox-regions/95.jpg",
+        "fname": "bbox-regions/330.jpg",
         "prob": 11.48811
     },
     {
@@ -1796,7 +1796,7 @@
             223
         ],
         "class": "cloud",
-        "fname": "bbox-regions/832.jpg",
+        "fname": "bbox-regions/803.jpg",
         "prob": 11.48433
     },
     {
@@ -1808,7 +1808,7 @@
             451
         ],
         "class": "cloud",
-        "fname": "bbox-regions/967.jpg",
+        "fname": "bbox-regions/407.jpg",
         "prob": 11.46626
     },
     {
@@ -1820,7 +1820,7 @@
             400
         ],
         "class": "cloud",
-        "fname": "bbox-regions/672.jpg",
+        "fname": "bbox-regions/1088.jpg",
         "prob": 11.46303
     },
     {
@@ -1832,7 +1832,7 @@
             498
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1278.jpg",
+        "fname": "bbox-regions/878.jpg",
         "prob": 11.44791
     },
     {
@@ -1844,7 +1844,7 @@
             332
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1087.jpg",
+        "fname": "bbox-regions/185.jpg",
         "prob": 11.44041
     },
     {
@@ -1856,7 +1856,7 @@
             69
         ],
         "class": "cloud",
-        "fname": "bbox-regions/208.jpg",
+        "fname": "bbox-regions/266.jpg",
         "prob": 11.43661
     },
     {
@@ -1868,7 +1868,7 @@
             203
         ],
         "class": "cloud",
-        "fname": "bbox-regions/664.jpg",
+        "fname": "bbox-regions/396.jpg",
         "prob": 11.4246
     },
     {
@@ -1880,7 +1880,7 @@
             428
         ],
         "class": "cloud",
-        "fname": "bbox-regions/961.jpg",
+        "fname": "bbox-regions/197.jpg",
         "prob": 11.39303
     },
     {
@@ -1892,7 +1892,7 @@
             213
         ],
         "class": "cloud",
-        "fname": "bbox-regions/173.jpg",
+        "fname": "bbox-regions/324.jpg",
         "prob": 11.39112
     },
     {
@@ -1904,7 +1904,7 @@
             323
         ],
         "class": "cloud",
-        "fname": "bbox-regions/541.jpg",
+        "fname": "bbox-regions/491.jpg",
         "prob": 11.38581
     },
     {
@@ -1916,7 +1916,7 @@
             273
         ],
         "class": "cloud",
-        "fname": "bbox-regions/616.jpg",
+        "fname": "bbox-regions/872.jpg",
         "prob": 11.38233
     },
     {
@@ -1928,7 +1928,7 @@
             438
         ],
         "class": "cloud",
-        "fname": "bbox-regions/501.jpg",
+        "fname": "bbox-regions/13.jpg",
         "prob": 11.36487
     },
     {
@@ -1940,7 +1940,7 @@
             338
         ],
         "class": "cloud",
-        "fname": "bbox-regions/864.jpg",
+        "fname": "bbox-regions/497.jpg",
         "prob": 11.36057
     },
     {
@@ -1952,7 +1952,7 @@
             61
         ],
         "class": "cloud",
-        "fname": "bbox-regions/11.jpg",
+        "fname": "bbox-regions/106.jpg",
         "prob": 11.35608
     },
     {
@@ -1964,7 +1964,7 @@
             40
         ],
         "class": "cloud",
-        "fname": "bbox-regions/110.jpg",
+        "fname": "bbox-regions/48.jpg",
         "prob": 11.35356
     },
     {
@@ -1976,7 +1976,7 @@
             310
         ],
         "class": "cloud",
-        "fname": "bbox-regions/157.jpg",
+        "fname": "bbox-regions/97.jpg",
         "prob": 11.34399
     },
     {
@@ -1988,7 +1988,7 @@
             316
         ],
         "class": "cloud",
-        "fname": "bbox-regions/425.jpg",
+        "fname": "bbox-regions/730.jpg",
         "prob": 11.34044
     },
     {
@@ -2000,7 +2000,7 @@
             221
         ],
         "class": "cloud",
-        "fname": "bbox-regions/466.jpg",
+        "fname": "bbox-regions/648.jpg",
         "prob": 11.32787
     },
     {
@@ -2012,7 +2012,7 @@
             494
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1125.jpg",
+        "fname": "bbox-regions/1271.jpg",
         "prob": 11.31784
     },
     {
@@ -2024,7 +2024,7 @@
             507
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1051.jpg",
+        "fname": "bbox-regions/1199.jpg",
         "prob": 11.30453
     },
     {
@@ -2036,7 +2036,7 @@
             236
         ],
         "class": "cloud",
-        "fname": "bbox-regions/663.jpg",
+        "fname": "bbox-regions/691.jpg",
         "prob": 11.2832
     },
     {
@@ -2048,7 +2048,7 @@
             366
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1028.jpg",
+        "fname": "bbox-regions/976.jpg",
         "prob": 11.2811
     },
     {
@@ -2060,7 +2060,7 @@
             254
         ],
         "class": "cloud",
-        "fname": "bbox-regions/733.jpg",
+        "fname": "bbox-regions/69.jpg",
         "prob": 11.28035
     },
     {
@@ -2072,7 +2072,7 @@
             46
         ],
         "class": "cloud",
-        "fname": "bbox-regions/14.jpg",
+        "fname": "bbox-regions/64.jpg",
         "prob": 11.27829
     },
     {
@@ -2084,7 +2084,7 @@
             351
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1000.jpg",
+        "fname": "bbox-regions/71.jpg",
         "prob": 11.26161
     },
     {
@@ -2096,7 +2096,7 @@
             238
         ],
         "class": "cloud",
-        "fname": "bbox-regions/280.jpg",
+        "fname": "bbox-regions/604.jpg",
         "prob": 11.23608
     },
     {
@@ -2108,7 +2108,7 @@
             193
         ],
         "class": "cloud",
-        "fname": "bbox-regions/286.jpg",
+        "fname": "bbox-regions/272.jpg",
         "prob": 11.23608
     },
     {
@@ -2120,7 +2120,7 @@
             474
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1132.jpg",
+        "fname": "bbox-regions/1003.jpg",
         "prob": 11.23404
     },
     {
@@ -2132,7 +2132,7 @@
             365
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1115.jpg",
+        "fname": "bbox-regions/985.jpg",
         "prob": 11.21961
     },
     {
@@ -2144,7 +2144,7 @@
             383
         ],
         "class": "cloud",
-        "fname": "bbox-regions/748.jpg",
+        "fname": "bbox-regions/149.jpg",
         "prob": 11.19658
     },
     {
@@ -2156,7 +2156,7 @@
             397
         ],
         "class": "cloud",
-        "fname": "bbox-regions/615.jpg",
+        "fname": "bbox-regions/1004.jpg",
         "prob": 11.19369
     },
     {
@@ -2168,7 +2168,7 @@
             502
         ],
         "class": "cloud",
-        "fname": "bbox-regions/1308.jpg",
+        "fname": "bbox-regions/1168.jpg",
         "prob": 11.18806
     },
     {
@@ -2180,7 +2180,7 @@
             294
         ],
         "class": "cloud",
-        "fname": "bbox-regions/267.jpg",
+        "fname": "bbox-regions/270.jpg",
         "prob": 11.18153
     },
     {
@@ -2192,7 +2192,7 @@
             443
         ],
         "class": "cloud",
-        "fname": "bbox-regions/786.jpg",
+        "fname": "bbox-regions/1102.jpg",
         "prob": 11.15265
     },
     {
@@ -2204,7 +2204,7 @@
             343
         ],
         "class": "cloud",
-        "fname": "bbox-regions/796.jpg",
+        "fname": "bbox-regions/10.jpg",
         "prob": 11.14901
     },
     {
@@ -2216,7 +2216,7 @@
             132
         ],
         "class": "cloud",
-        "fname": "bbox-regions/127.jpg",
+        "fname": "bbox-regions/501.jpg",
         "prob": 11.1368
     },
     {
@@ -2228,7 +2228,7 @@
             437
         ],
         "class": "cloud",
-        "fname": "bbox-regions/713.jpg",
+        "fname": "bbox-regions/639.jpg",
         "prob": 11.11443
     },
     {
@@ -2240,7 +2240,7 @@
             242
         ],
         "class": "cloud",
-        "fname": "bbox-regions/856.jpg",
+        "fname": "bbox-regions/626.jpg",
         "prob": 11.1088
     },
     {
@@ -2252,7 +2252,7 @@
             463
         ],
         "class": "cloud",
-        "fname": "bbox-regions/974.jpg",
+        "fname": "bbox-regions/896.jpg",
         "prob": 11.10637
     },
     {
@@ -2264,7 +2264,7 @@
             462
         ],
         "class": "cloud",
-        "fname": "bbox-regions/46.jpg",
+        "fname": "bbox-regions/53.jpg",
         "prob": 11.10458
     },
     {
@@ -2276,7 +2276,7 @@
             511
         ],
         "class": "cloud",
-        "fname": "bbox-regions/416.jpg",
+        "fname": "bbox-regions/425.jpg",
         "prob": 11.10417
     },
     {
@@ -2288,7 +2288,7 @@
             76
         ],
         "class": "cloud",
-        "fname": "bbox-regions/185.jpg",
+        "fname": "bbox-regions/312.jpg",
         "prob": 11.09027
     },
     {
@@ -2300,7 +2300,7 @@
             426
         ],
         "class": "cloud",
-        "fname": "bbox-regions/892.jpg",
+        "fname": "bbox-regions/362.jpg",
         "prob": 11.08947
     },
     {
@@ -2312,7 +2312,7 @@
             210
         ],
         "class": "cloud",
-        "fname": "bbox-regions/389.jpg",
+        "fname": "bbox-regions/184.jpg",
         "prob": 11.07577
     },
     {
@@ -2324,7 +2324,7 @@
             248
         ],
         "class": "cloud",
-        "fname": "bbox-regions/370.jpg",
+        "fname": "bbox-regions/21.jpg",
         "prob": 11.07323
     },
     {
@@ -2336,7 +2336,7 @@
             399
         ],
         "class": "cloud",
-        "fname": "bbox-regions/808.jpg",
+        "fname": "bbox-regions/258.jpg",
         "prob": 11.03
     },
     {
@@ -2348,7 +2348,7 @@
             276
         ],
         "class": "cloud",
-        "fname": "bbox-regions/207.jpg",
+        "fname": "bbox-regions/161.jpg",
         "prob": 11.02026
     },
     {
@@ -2360,7 +2360,7 @@
             106
         ],
         "class": "cloud",
-        "fname": "bbox-regions/200.jpg",
+        "fname": "bbox-regions/376.jpg",
         "prob": 11.01469
     },
     {
@@ -2372,7 +2372,7 @@
             366
         ],
         "class": "cloud",
-        "fname": "bbox-regions/895.jpg",
+        "fname": "bbox-regions/286.jpg",
         "prob": 11.00484
     },
     {
@@ -2384,7 +2384,7 @@
             256
         ],
         "class": "cloud",
-        "fname": "bbox-regions/339.jpg",
+        "fname": "bbox-regions/665.jpg",
         "prob": 10.99441
     },
     {
@@ -2396,7 +2396,7 @@
             131
         ],
         "class": "cloud",
-        "fname": "bbox-regions/445.jpg",
+        "fname": "bbox-regions/546.jpg",
         "prob": 10.96359
     }
 ]
