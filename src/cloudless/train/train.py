@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 import argparse
-import os
 import shutil
 import subprocess
 import sys
-import csv
 import fileinput
 import re
 import random
+
+import utils
 
 def parse_command_line():
     parser = argparse.ArgumentParser(description="Trains Caffe model against prepared data")
@@ -27,19 +27,14 @@ def parse_command_line():
 
     args = vars(parser.parse_args())
 
-    caffe_home = os.environ.get("CAFFE_HOME")
-    if caffe_home == None:
-        print "You must set CAFFE_HOME to point to where Caffe is installed. Example:"
-        print "export CAFFE_HOME=/usr/local/caffe"
-        exit(1)
+    caffe_home = utils.assert_caffe_setup()
 
     # Ensure the random number generator always starts from the same place for consistent tests.
     random.seed(0)
 
     log_path = args["log_path"]
-    output_ending = "%04d" % (args["log_num"])
-    output_log_prefix = os.path.join(log_path, "output" + output_ending)
-    output_log_file = output_log_prefix + ".log"
+    log_num = args["log_num"]
+    (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
 
     train(caffe_home, log_path, output_log_file, args["solver"], args["input_weight_file"],
         args["output_weight_file"])
@@ -51,7 +46,7 @@ def train(caffe_home, log_path, output_log_file, solver, input_weight_file, outp
     _run_trainer(caffe_home, log_path, output_log_file, solver, input_weight_file)
 
     _generate_parsed_logs(caffe_home, log_path, output_log_file)
-    (training_details, validation_details) = _parse_logs(log_path, output_log_file)
+    (training_details, validation_details) = utils.parse_logs(log_path, output_log_file)
     _move_trained_weight_file(log_path, output_log_file, output_weight_file)
 
     print "Finished training!"
@@ -114,45 +109,6 @@ def _generate_parsed_logs(caffe_home, log_path, output_log_file):
 
     print("\t\tParsed training log saved to %s" % (output_log_file + ".train"))
     print("\t\tParsed validation log saved to %s\n" % (output_log_file + ".validate"))
-
-def _parse_logs(log_path, output_log_file):
-    """
-    Parses our training and validation logs in order to return them in a way we can work with.
-    """
-    training_iters = []
-    training_loss = []
-    training_accuracy = []
-    for line in csv.reader(open(output_log_file + ".train"), delimiter="\t", skipinitialspace=True):
-        if re.search("Iters", str(line)):
-            continue
-
-        training_iters.append(int(float(line[0])))
-        training_accuracy.append(float(line[3]))
-        training_loss.append(float(line[4]))
-
-    validation_iters = []
-    validation_loss = []
-    validation_accuracy = []
-    for line in csv.reader(open(output_log_file + ".validate"), delimiter="\t",
-                            skipinitialspace=True):
-        if re.search("Iters", str(line)):
-            continue
-
-        validation_iters.append(int(float(line[0])))
-        validation_accuracy.append(float(line[3]))
-        validation_loss.append(float(line[4]))
-
-    return (
-        {
-            "iters": training_iters,
-            "loss": training_loss,
-            "accuracy": training_accuracy
-        }, {
-            "iters": validation_iters,
-            "loss": validation_loss,
-            "accuracy": validation_accuracy
-        }
-    )
 
 def _move_trained_weight_file(log_path, output_log_file, output_weight_file):
     """

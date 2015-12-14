@@ -34,10 +34,7 @@ def parse_command_line():
 
     args = vars(parser.parse_args())
 
-    if os.environ.get("CAFFE_HOME") == None:
-        print "You must set CAFFE_HOME to point to where Caffe is installed. Example:"
-        print "export CAFFE_HOME=/usr/local/caffe"
-        exit(1)
+    utils.assert_caffe_setup()
 
     # Ensure the random number generator always starts from the same place for consistent tests.
     random.seed(0)
