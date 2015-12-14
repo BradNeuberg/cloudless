@@ -1,4 +1,9 @@
+#!/usr/bin/env python
+import argparse
 import os
+
+# Suppress annoying output from Caffe.
+os.environ['GLOG_minloglevel'] = '1'
 
 import caffe
 import numpy as np
@@ -6,21 +11,43 @@ import plyvel
 import skimage
 from caffe_pb2 import Datum
 
-import constants
+def parse_command_line():
+    parser = argparse.ArgumentParser(description="""Predicts for a single image using the trained
+        model whether it has a cloud or not""")
+    parser.add_argument("--image", help="""The image to attempt to predict""", default="")
+    parser.add_argument("--deploy", help="""Path to our Caffe deploy/inference time prototxt file""",
+        type=str, default="src/caffe_model/bvlc_alexnet/deploy.prototxt")
+    parser.add_argument("--input_weight_file", help="""The trained and fine-tuned Caffe model that
+        we will be testing; defaults to the last trained model from train.py""", type=str,
+        default="logs/latest_bvlc_alexnet_finetuned.caffemodel")
+    parser.add_argument("--training_mean_pickle", help="Path to pickled mean values", type=str,
+        default="data/imagenet/imagenet_mean.npy")
+    parser.add_argument("--inference_width", help="Width of image during training", type=int,
+        default=227)
+    parser.add_argument("--inference_height", help="Height of image during training", type=int,
+        default=227)
 
-def predict(image_path):
+    args = vars(parser.parse_args())
+
+    predict(args["image"], args["deploy"], args["input_weight_file"], args["training_mean_pickle"],
+        args["inference_width"], args["inference_height"])
+
+def predict(image_path, deploy_file, input_weight_file, training_mean_pickle, inference_width,
+        inference_height):
     """
     Takes a single image, and makes a prediction whether it has a cloud or not.
     """
 
     print "Generating prediction for %s..." % image_path
 
-    net, transformer = _initialize_caffe()
+    net, transformer = _initialize_caffe(deploy_file, input_weight_file, training_mean_pickle,
+            inference_width, inference_height)
     im = caffe.io.load_image(image_path)
     prob = _predict_image(im, net, transformer)
     print "Probability this image has a cloud: {0:.2f}%".format(prob)
 
-def test_validation():
+def test_validation(threshold, output_log_prefix, validation_leveldb, deploy_file, width, height,
+            inference_width, inference_height, input_weight_file, training_mean_pickle):
     """
     Takes validation images and runs them through a trained model to see how
     well they do. Generates statistics like precision and recall, F1, and a confusion matrix,
@@ -28,8 +55,9 @@ def test_validation():
     """
     print "Generating predictions for validation images..."
 
-    validation_data = _load_validation_data()
-    target_details = _run_through_caffe(validation_data)
+    validation_data = _load_validation_data(validation_leveldb, width, height)
+    target_details = _run_through_caffe(validation_data, deploy_file, input_weight_file, threshold,
+            training_mean_pickle, inference_width, inference_height)
     statistics = _calculate_positives_negatives(target_details)
 
     accuracy = _calculate_accuracy(statistics)
@@ -40,7 +68,7 @@ def test_validation():
     # TODO: Write these out to a file as well as the screen.
     results = ""
     results += "\n"
-    results += "\nStatistics on validation dataset using threshold %f:" % constants.THRESHOLD
+    results += "\nStatistics on validation dataset using threshold %f:" % threshold
     results += "\n\tAccuracy: {0:.2f}%".format(accuracy)
     results += "\n\tPrecision: %.2f" % precision
     results += "\n\tRecall: %.2f" % recall
@@ -51,10 +79,10 @@ def test_validation():
 
     print results
 
-    with open(constants.OUTPUT_LOG_PREFIX + ".statistics.txt", "w") as f:
+    with open(output_log_prefix + ".statistics.txt", "w") as f:
         f.write(results)
 
-def _load_validation_data():
+def _load_validation_data(validation_leveldb, width, height):
     """
     Loads all of our validation data from our leveldb database, producing unrolled numpy input
     vectors ready to test along with their correct, expected target values.
@@ -64,13 +92,13 @@ def _load_validation_data():
     input_vectors = []
     expected_targets = []
 
-    db = plyvel.DB(constants.VALIDATION_FILE)
+    db = plyvel.DB(validation_leveldb)
     for key, value in db:
         datum = Datum()
         datum.ParseFromString(value)
 
         data = np.fromstring(datum.data, dtype=np.uint8)
-        data = np.reshape(data, (3, constants.HEIGHT, constants.WIDTH))
+        data = np.reshape(data, (3, height, width))
         # Move the color channel to the end to match what Caffe wants.
         data = np.swapaxes(data, 0, 2) # Swap channel with width.
         data = np.swapaxes(data, 0, 1) # Swap width with height, to yield final h x w x channel.
@@ -87,12 +115,13 @@ def _load_validation_data():
         "expected_targets": np.asarray(expected_targets)
     }
 
-def _initialize_caffe():
+def _initialize_caffe(deploy_file, input_weight_file, training_mean_pickle, inference_width,
+            inference_height):
     """
     Initializes Caffe to prepare to run some data through the model for inference.
     """
     caffe.set_mode_gpu()
-    net = caffe.Net(constants.DEPLOY_FILE, constants.WEIGHTS_FINETUNED, caffe.TEST)
+    net = caffe.Net(deploy_file, input_weight_file, caffe.TEST)
 
     # input preprocessing: 'data' is the name of the input blob == net.inputs[0]
     transformer = caffe.io.Transformer({"data": net.blobs["data"].data.shape})
@@ -100,23 +129,25 @@ def _initialize_caffe():
     # TODO: Think through whether these should be BGR during training and validation.
     transformer.set_transpose("data", (2, 0, 1))
     # Mean pixel.
-    transformer.set_mean("data", np.load(constants.TRAINING_MEAN_PICKLE).mean(1).mean(1))
+    transformer.set_mean("data", np.load(training_mean_pickle).mean(1).mean(1))
     # The reference model operates on images in [0, 255] range instead of [0, 1].
     transformer.set_raw_scale("data", 255)
     # The reference model has channels in BGR order instead of RGB.
     transformer.set_channel_swap("data", (2, 1, 0))
 
-    net.blobs["data"].reshape(1, 3, constants.INFERENCE_HEIGHT, constants.INFERENCE_WIDTH)
+    net.blobs["data"].reshape(1, 3, inference_height, inference_width)
 
     return (net, transformer)
 
-def _run_through_caffe(validation_data):
+def _run_through_caffe(validation_data, deploy_file, input_weight_file, threshold,
+            training_mean_pickle, inference_width, inference_height):
     """
     Runs our validation images through Caffe.
     """
 
     print "\tInitializing Caffe..."
-    net, transformer = _initialize_caffe()
+    net, transformer = _initialize_caffe(deploy_file, input_weight_file, training_mean_pickle,
+            inference_width, inference_height)
 
     print "\tComputing probabilities using Caffe..."
     results = []
@@ -125,7 +156,7 @@ def _run_through_caffe(validation_data):
         prob = _predict_image(im, net, transformer)
         expected_target = validation_data["expected_targets"][idx]
         predicted_target = 0
-        if prob >= constants.THRESHOLD:
+        if prob >= threshold:
             predicted_target = 1
         results.append({
             "expected_target": expected_target,
@@ -209,3 +240,6 @@ def _print_confusion_matrix(s):
     results += "\nNegative (%d)\t\t\tFalse Negative (%d)\tTrue Negative (%d)" % \
         (s["actual_negative"], s["false_negative"], s["true_negative"])
     return results
+
+if __name__ == "__main__":
+    parse_command_line()
