@@ -25,20 +25,45 @@ This currently has its own README file at [src/annotate/README.md](src/annotate/
 
 # Training Pipeline
 
-Preparing the data, training, and generating graphs to know how we are doing is via a single command-line tool, cloudless.py, located in src/cloudless/train.
+There are a series of Python programs to aid in preparing data for training, doing the actual training, and then seeing how well the trained model performs via graphs and statistics, all located in src/cloudless/train.
 
-To setup this tool, you must have CAFFE_HOME defined and have Caffe installed with the Caffe Python bindings setup.
+To setup these tools, you must have CAFFE_HOME defined and have Caffe installed with the Caffe Python bindings setup.
 
 Second, ensure you have all Python requirements installed by going into the cloudless root directory and running:
 
     pip install -r requirements.txt
 
 Third, ensure you have ./src in your PYTHONPATH as well as the Python bindings for Caffe compiled and in your PYTHONPATH as well:
+
     export PYTHONPATH=$PYTHONPATH:/usr/local/caffe/python:./src
 
-Run the following to see options:
+Note: for any of the data preparation, training, or graphing Python scripts below you can add `--help` to see what command-line options are available to override defaults.
 
-    ./src/cloudless/cloudless.py --help
+To prepare data that has been labelled via the [annotation tool](src/annotate/README.md), first run the following from the root directory:
+
+    ./src/cloudless/train/prepare_data.py --input_metadata data/planetlab/metadata/annotated.json --input_images data/planetlab/metadata --output_images data/planetlab/metadata/bounded --output_leveldb data/leveldb
+
+TODO: Have a command line option to do data augmentation.
+
+To train using the prepared data, run the following from the root directory:
+
+    ./src/cloudless/train/train.py --log_num 1
+
+You can keep incrementing the `--log_num` option while doing test runs in order to have log output get saved for each session for later analysis. By default this will place the trained, fine-tuned model into `logs/latest_bvlc_alexnet_finetuned.caffemodel`; this can be changed via the `--output_weight_file` option.
+
+To generate graphs and verify how well the trained model is performing (note that you should set the log number to be the same as what you set it for `train.py`):
+
+    ./src/cloudless/train/test.py --log_num 1 --note "This will get added to graph"
+
+Use the `--note` property to add extra info to the quality graphs, such as various details on hyperparameter settings, so you can reference them in the future.
+
+You can also predict how well the trained classifier is doing on a single image via the `predict.py` script:
+
+    ./src/cloudless/train/predict.py --image examples/cloud.png
+    ./src/cloudless/train/predict.py --image examples/no_cloud.png
+
+The four scripts above all have further options to customize them; add `--help` as an option when running them.
+
 
 Training info and graphs go into logs/.
 
@@ -46,17 +71,8 @@ We currently have pretrained weights from the BVLC AlexNet Caffe Model Zoo, in s
 
 Note that the trained AlexNet file is much too large to check into Github (it's about 350MB). You will have to download the file from [here](http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel) and copy it to src/caffe_model/bvlc_alexnet/bvlc_alexnet.caffemodel.
 
+
 A trained, fine tuned model is available on S3 [here](https://s3.amazonaws.com/cloudless-data/bvlc_alexnet_finetuned.caffemodel). Download this and place it into src/caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel. It's current accuracy is 62.50%, while its F1 score is 0.65. See [logs/output0003.statistics.txt](logs/output003.statistics.txt) for full accuracy details.
-
-Once you've prepped your datasets, the first step is to preprocess the data into the format required by Caffe, LevelDB:
-
-    ./src/cloudless/cloudless.py -p
-
-Then you can train and generate validation statistics and logs:
-
-    ./src/cloudless/cloudless.py -t -g
-
-This will output various graphs into the logs/ directory, in increasing numbers (i.e. output0003.log, output0004.log, etc.).
 
 # Bounding Box System
 
