@@ -17,6 +17,8 @@ def parse_command_line():
     parser.add_argument("--log_num", help="""Number that will be appended to log files; this will
         be automatically padded and added with zeros, such as output00001.log""", type=int,
         default=1)
+    parser.add_argument("--note", help="Adds extra note into training logs.", type=str,
+        default=None)
     parser.add_argument("--solver", help="The path to our Caffe solver prototxt file",
         type=str, default="src/caffe_model/bvlc_alexnet/solver.prototxt")
     parser.add_argument("--input_weight_file", help="""A pre-trained Caffe model that we will use
@@ -37,13 +39,13 @@ def parse_command_line():
     (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
 
     train(caffe_home, log_path, output_log_file, args["solver"], args["input_weight_file"],
-        args["output_weight_file"])
+        args["output_weight_file"], args["note"])
 
-def train(caffe_home, log_path, output_log_file, solver, input_weight_file, output_weight_file):
+def train(caffe_home, log_path, output_log_file, solver, input_weight_file, output_weight_file, note):
     """ Trains Caffe finetuning the given model. """
     print("Training using data")
 
-    _run_trainer(caffe_home, log_path, output_log_file, solver, input_weight_file)
+    _run_trainer(caffe_home, log_path, output_log_file, solver, input_weight_file, note)
 
     _generate_parsed_logs(caffe_home, log_path, output_log_file)
     (training_details, validation_details) = utils.parse_logs(log_path, output_log_file)
@@ -51,7 +53,7 @@ def train(caffe_home, log_path, output_log_file, solver, input_weight_file, outp
 
     print "Finished training!"
 
-def _run_trainer(caffe_home, log_path, output_log_file, solver, input_weight_file):
+def _run_trainer(caffe_home, log_path, output_log_file, solver, input_weight_file, note):
     """
     Runs Caffe to train the model.
     """
@@ -60,6 +62,9 @@ def _run_trainer(caffe_home, log_path, output_log_file, solver, input_weight_fil
         process = subprocess.Popen([caffe_home + "/build/tools/caffe", "train",
             "--solver=" + solver, "--weights=" + input_weight_file],
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+        if note != None:
+            sys.stdout.write("Details for this training run: {}\n".format(note))
 
         for line in iter(process.stdout.readline, ''):
             sys.stdout.write(line)
