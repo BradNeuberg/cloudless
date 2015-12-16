@@ -5,4 +5,13 @@
 # your own machine to copy resources over.
 EC2_KEYPAIR="$1"
 LOCATION="$2"
-cd .. && rsync -rave "ssh -i $EC2_KEYPAIR" -ar --exclude .git/ --exclude snapshots/ --exclude data/planetlab/images/bounded --exclude logs/ --exclude src/caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel cloudless/ ubuntu@$LOCATION:/data/cloudless
+cd .. && rsync -rave "ssh -i $EC2_KEYPAIR" -ar \
+    --exclude .git/ \
+    --exclude snapshots/ \
+    --exclude data/landsat/ \
+    --exclude data/planetlab/ \
+    --exclude src/annotate/train/static/ \
+    --exclude src/cloudless/inference/bbox-regions/ \
+    --exclude logs/ \
+    --exclude src/caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel \
+    cloudless/ ubuntu@$LOCATION:/data/cloudless
