@@ -11,9 +11,9 @@ This project has three parts:
 This project and its trained model are available under an Apache 2 license; see the license.txt file for details.
 
 Parts of the Cloudless project started as part of Dropbox's Hack Week, with continued work post-Hack Week by Brad Neuberg. Contributors:
+* Brad Neuberg
 * Johann Hauswald
 * Max Nova
-* Brad Neuberg
 
 # Data
 
@@ -73,6 +73,63 @@ Note that the trained AlexNet file is much too large to check into Github (it's 
 
 
 A trained, fine tuned model is available on S3 [here](https://s3.amazonaws.com/cloudless-data/bvlc_alexnet_finetuned.caffemodel). Download this and place it into src/caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel. It's current accuracy is 62.50%, while its F1 score is 0.65. See [logs/output0003.statistics.txt](logs/output003.statistics.txt) for full accuracy details.
+
+# Training on AWS
+
+The code base includes scripts for training on Amazon Web Services (AWS) machines that have GPUs.
+
+To use, first make sure you provision an S3 bucket named `cloudless-data`. Training results will be dumped into there.
+
+Next, you will need to get an AMI (Amazon Machine Image) that is configured with Caffe and CUDA. You can get a publicly available one from here based on Ubuntu:
+
+https://github.com/BVLC/caffe/wiki/Caffe-on-EC2-Ubuntu-14.04-Cuda-7
+
+Next, launce an instance using your AMI; I suggest an g2.2xlarge instance that has a GPU but which is cheaper than a full g2.8xlarge which isn't really needed for cloudless currently. When you launch the instance make sure to also add EBS storage so that your data can persist between runs. This is useful so you don't have to re-upload all your data and configure cloudless for each training run of the model.
+
+Make sure you can SSH into your new instance; it's beyond the scope of this document to describe how to do this. Also make sure to setup the [EC2 CLI tools](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html).
+
+Set `EC2_KEYPAIR` to where the PEM keypair is for your EC2 instance and `EC2_HOST_NAME` to the public host name of your launched instance:
+
+    export EC2_KEYPAIR=/Users/bradneuberg/Dropbox/AWS/ami-generated-keypair-2.pem
+    export EC2_HOST_NAME=ec2-52-90-165-78.compute-1.amazonaws.com
+
+The first time you setup your instance you will need to copy cloudless and your training data over onto your EBS volume. Before you do, make sure you've already prepared your data into leveldb databases as detailed earlier in this document for the `prepare_data.py` script _outside_ of your VM.
+
+Next, _outside_ your AWS instance go into your `cloudless/` directory checkout of the git source and run the following to copy over the cloudless source and all your training data in `data/planetlab` (assuming you have generated annotated training data, which is not bundled with the git repo due to the raw data belonging to Planet Lab):
+
+    ./src/aws_scripts/aws_rsync.sh $EC2_KEYPAIR $EC2_HOST_NAME
+
+Now SSH into your AWS instance and configure it so that we can shutdown the instance without using sudo, which will be needed later for the `--terminate` option to work on the `train.sh` script below:
+
+    ssh -i $EC2_KEYPAIR ubuntu@$EC2_HOST_NAME
+    sudo chmod a+s /sbin/shutdown
+
+You can now train the model on your AWS instance, using the `screen` command to ensure training will last even if you quit SSH:
+
+    screen -S training_session_1
+    cd /data/cloudless
+    ./src/aws_scripts/train.sh --log_num 1 --note "Testing training run" --terminate
+    # Press control-a d to leave screen session running
+
+Change the `--log_num` value to the number you want appended to log output. `--note` is required and will be printed into the log file; it's an appropriate place to put details such as hyperparameters being experimented with for this training run. `--terminate` is optional, and if present will shut down the AWS instance when training is finished in order to save money.
+
+You can re-connect to a screen session to see how training is going:
+    ssh -i $EC2_KEYPAIR ubuntu@$EC2_HOST_NAME
+    screen -x training_session_1
+
+Note: The `train.sh` script is currently hard-coded to use S3 instances in the `us-east-1` region; change `S3_REGION` inside the script if your setup differs.
+
+When training is finished the results will end up in the `cloudless-data` bucket on S3, tarred and gzipped. You can download this and run it locally on your host against the test validation scripts to see how well training went. On your own machine _outside_ aws run:
+
+    aws s3 ls cloudless-data
+
+The result should be the latest GZIP file; if you are running several tests in parallel make sure to look at the private instance IP address in the GZIP file name to match it up with your particular run.
+
+Run the following to generate validation graphs (with example GZIP filename), from your `cloudless` checked out directory _outside_ the AWS instance:
+    aws s3 cp s3://cloudless-data/caffe-results-12-16-15-host-ip-172-31-6-33-time-1450242072.tar.gz ~/tmp
+    gunzip ~/tmp/caffe-results-12-16-15-host-ip-172-31-6-33-time-1450242072.tar.gz
+    tar -xvf ~/tmp/caffe-results-12-16-15-host-ip-172-31-6-33-time-1450242072.tar
+    ./src/cloudless/train/test.py --log_num 1 --note "Testing training run"
 
 # Bounding Box System
 
