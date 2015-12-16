@@ -64,7 +64,6 @@ You can also predict how well the trained classifier is doing on a single image 
 
 The four scripts above all have further options to customize them; add `--help` as an option when running them.
 
-
 Training info and graphs go into logs/.
 
 We currently have pretrained weights from the BVLC AlexNet Caffe Model Zoo, in src/caffe_model/bvlc_alexnet. This is trained on ILSVRC 2012, almost exactly as described in [ImageNet classification with deep convolutional neural networks](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks) by Krizhevsky et al. in NIPS 2012.
