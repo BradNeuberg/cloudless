@@ -143,12 +143,15 @@ def _crop_planetlab_images(details, output_images):
     """
     image_paths = []
     targets = []
+    raw_input_images_count = 0
+
 
     # Remove the directory to ensure we don't get old data runs included.
     shutil.rmtree(output_images, ignore_errors=True)
     os.makedirs(output_images)
 
     for entry in details:
+        raw_input_images_count = raw_input_images_count + 1
         if entry["target"] == 0:
             # Nothing to crop, but remove the alpha channel.
             new_path = os.path.join(output_images, entry["image_name"])
@@ -185,6 +188,7 @@ def _crop_planetlab_images(details, output_images):
     return {
         "image_paths": image_paths,
         "targets": targets,
+        "raw_input_images_count": raw_input_images_count,
     }
 
 def _print_input_details(details):
@@ -202,7 +206,8 @@ def _print_input_details(details):
     ratio = min(float(positive_cloud_class), float(negative_cloud_class)) / \
             max(float(positive_cloud_class), float(negative_cloud_class))
     print "\t\tInput data details:"
-    print "\t\t\tTotal number of input images: %d" % len(details["image_paths"])
+    print "\t\t\tTotal number of raw input images: %d" % details["raw_input_images_count"]
+    print "\t\t\tTotal number of generated bounding box images: %d" % len(details["image_paths"])
     print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
     print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
     print "\t\t\tRatio: %.2f" % ratio
