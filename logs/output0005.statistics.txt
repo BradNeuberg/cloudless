@@ -1,12 +1,12 @@
 
 
-Statistics on validation dataset using threshold 0.100000:
-	Accuracy: 65.84%
-	Precision: 0.62
-	Recall: 1.00
-	F1 Score: 0.77
+Statistics on validation dataset using threshold 9.000000:
+	Accuracy: 89.77%
+	Precision: 0.89
+	Recall: 0.93
+	F1 Score: 0.91
 
 Confusion matrix:
 				Positive		Negative
-Positive (680)			True Positive (680)	False Positive (414)
-Negative (532)			False Negative (0)	True Negative (118)
+Positive (680)			True Positive (634)	False Positive (78)
+Negative (532)			False Negative (46)	True Negative (454)
