@@ -141,7 +141,6 @@ def _crop_planetlab_images(details, output_images):
     them into the file system and returning their full image paths with whether they are targets
     or not.
     """
-
     image_paths = []
     targets = []
 
@@ -192,7 +191,6 @@ def _print_input_details(details):
     """
     Prints out statistics about our input data.
     """
-
     positive_cloud_class = 0
     negative_cloud_class = 0
     for entry in details["targets"]:
@@ -211,7 +209,6 @@ def _print_input_details(details):
 #     """
 #     Ensures we have the same number of positive and negative cloud/not cloud classes.
 #     """
-
 
 def _split_data_sets(details):
     """
@@ -306,7 +303,6 @@ def _load_numpy_image(image_path, width, height):
     """
     Turns one of our testing image paths into an actual image, converted into a numpy array.
     """
-
     im = Image.open(image_path)
     # Scale the image to the size required by our neural network.
     im = im.resize((width, height))
