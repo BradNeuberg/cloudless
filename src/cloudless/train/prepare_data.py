@@ -31,6 +31,11 @@ def parse_command_line():
         type=int, default=256)
     parser.add_argument("--height", help="Height of image at training time (it will be scaled to this)",
         type=int, default=256)
+    parser.add_argument("--log_path", help="The path to where to place log files",
+        type=str, default="logs")
+    parser.add_argument("--log_num", help="""Number that will be appended to log files; this will
+        be automatically padded and added with zeros, such as output00001.log""", type=int,
+        default=1)
 
     args = vars(parser.parse_args())
 
@@ -39,10 +44,14 @@ def parse_command_line():
     # Ensure the random number generator always starts from the same place for consistent tests.
     random.seed(0)
 
-    prepare_data(args["input_metadata"], args["input_images"], args["output_images"],
-        args["output_leveldb"], args["width"], args["height"])
+    log_path = args["log_path"]
+    log_num = args["log_num"]
+    (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
 
-def prepare_data(input_metadata, input_images, output_images, output_leveldb, width, height):
+    prepare_data(args["input_metadata"], args["input_images"], args["output_images"],
+        args["output_leveldb"], args["width"], args["height"], output_log_prefix)
+
+def prepare_data(input_metadata, input_images, output_images, output_leveldb, width, height, output_log_prefix):
     """
     Prepares our training and validation data sets for use by Caffe.
     """
@@ -51,8 +60,7 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     print "\tParsing Planet Labs data into independent cropped bounding boxes using %s..." % input_metadata
     details = _crop_planetlab_images(_get_planetlab_details(input_metadata, input_images), output_images)
 
-    print "\t\tClass details before balancing (balancing not implemented yet):"
-    _print_input_details(details)
+    _print_input_details(details, output_log_prefix)
 
     # TODO(brad): Balance classes.
     #_balance_classes(details)
@@ -191,7 +199,7 @@ def _crop_planetlab_images(details, output_images):
         "raw_input_images_count": raw_input_images_count,
     }
 
-def _print_input_details(details):
+def _print_input_details(details, output_log_prefix):
     """
     Prints out statistics about our input data.
     """
@@ -205,12 +213,30 @@ def _print_input_details(details):
 
     ratio = min(float(positive_cloud_class), float(negative_cloud_class)) / \
             max(float(positive_cloud_class), float(negative_cloud_class))
-    print "\t\tInput data details:"
-    print "\t\t\tTotal number of raw input images: %d" % details["raw_input_images_count"]
-    print "\t\t\tTotal number of generated bounding box images: %d" % len(details["image_paths"])
-    print "\t\t\tPositive cloud count (# of images with clouds): %d" % positive_cloud_class
-    print "\t\t\tNegative cloud count (# of images without clouds): %d" % negative_cloud_class
-    print "\t\t\tRatio: %.2f" % ratio
+
+    statistics = """\t\tClass details before balancing (balancing not implemented yet):
+        \t\tInput preparation data details:
+        \t\t\tTotal number of raw input images: %d
+        \t\t\tTotal number of generated bounding box images: %d
+        \t\t\tPositive cloud count (# of images with clouds): %d
+        \t\t\tNegative cloud count (# of images without clouds): %d
+        \t\t\tRatio: %.2f
+        \t\t\tBalanced classes: no
+        \t\t\tData augmentation: no
+        \t\t\tAdding inference bounding boxes into training data: no""" \
+        % ( \
+            details["raw_input_images_count"],
+            len(details["image_paths"]),
+            positive_cloud_class,
+            negative_cloud_class,
+            ratio,
+    )
+    print statistics
+
+    statistics_log_file = output_log_prefix + ".preparation_statistics.txt"
+    print "\t\tSaving preparation statistics to %s..." % statistics_log_file
+    with open(statistics_log_file, "w") as f:
+        f.write(statistics)
 
 # def _balance_classes(details):
 #     """

@@ -41,7 +41,9 @@ Note: for any of the data preparation, training, or graphing Python scripts belo
 
 To prepare data that has been labelled via the [annotation tool](src/annotate/README.md), first run the following from the root directory:
 
-    ./src/cloudless/train/prepare_data.py --input_metadata data/planetlab/metadata/annotated.json --input_images data/planetlab/metadata --output_images data/planetlab/metadata/bounded --output_leveldb data/leveldb
+    ./src/cloudless/train/prepare_data.py --input_metadata data/planetlab/metadata/annotated.json --input_images data/planetlab/metadata --output_images data/planetlab/metadata/bounded --output_leveldb data/leveldb --log_num 1
+
+You can keep incrementing the `--log_num` option while doing data preparation and test runs in order to have log output get saved for each session for later analysis.
 
 TODO: Have a command line option to do data augmentation.
 
@@ -49,7 +51,7 @@ To train using the prepared data, run the following from the root directory:
 
     ./src/cloudless/train/train.py --log_num 1
 
-You can keep incrementing the `--log_num` option while doing test runs in order to have log output get saved for each session for later analysis. By default this will place the trained, fine-tuned model into `logs/latest_bvlc_alexnet_finetuned.caffemodel`; this can be changed via the `--output_weight_file` option.
+By default this will place the trained, fine-tuned model into `logs/latest_bvlc_alexnet_finetuned.caffemodel`; this can be changed via the `--output_weight_file` option.
 
 To generate graphs and verify how well the trained model is performing (note that you should set the log number to be the same as what you set it for `train.py`):
 
