@@ -313,7 +313,7 @@ def _rgba_to_rgb(im):
     """
     Drops the alpha channel in an RGB image.
     """
-    return im.convert('RGB')
+    return im.convert("RGB")
 
 if __name__ == "__main__":
     parse_command_line()
