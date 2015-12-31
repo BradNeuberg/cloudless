@@ -1,0 +1,10 @@
+		Class details before balancing (balancing not implemented yet):
+        		Input preparation data details:
+        			Total number of raw input images: 3896
+        			Total number of generated bounding box images: 6060
+        			Positive cloud count (# of images with clouds): 3491
+        			Negative cloud count (# of images without clouds): 2569
+        			Ratio: 0.74
+        			Balanced classes: no
+        			Data augmentation: no
+        			Adding inference bounding boxes into training data: no
