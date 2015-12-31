@@ -49,7 +49,6 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     print "Preparing data..."
 
     print "\tParsing Planet Labs data into independent cropped bounding boxes using %s..." % input_metadata
-    #details = _get_landsat_details()
     # TODO: When we save our cropped images, partition them into training and validation
     # sub-directories (and make sure the set of images for each one matches what's in leveldb!)
     # TODO: For training data (but not validation), do data augmentation here.
@@ -102,6 +101,8 @@ def _get_planetlab_details(input_metadata, input_images):
 
     return details
 
+# The first early iteration of the system used Landsat data to confirm the pipeline; left here
+# commented out for future reference.
 # def _get_landsat_details():
 #     """
 #     Loads available image paths and image filenames for landsat, along with their target values if
@@ -125,10 +126,10 @@ def _get_planetlab_details(input_metadata, input_images):
 #         has_cloud = 0
 #         if row[1] == "1":
 #           has_cloud = 1
-
+#
 #         image_paths.append(os.path.join(LANDSAT_IMAGES, filename))
 #         targets.append(has_cloud)
-
+#
 #     return {
 #         "image_paths": image_paths,
 #         "targets": targets,
