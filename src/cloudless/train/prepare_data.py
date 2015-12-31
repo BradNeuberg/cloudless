@@ -296,9 +296,6 @@ def _preprocess_data(data):
     """
     # Do nothing for now.
     # We don't scale it's values to be between 0 and 1 as our Caffe model will do that.
-    # TODO(neuberg): Confirm that the AlexNet proto file has correct scaling values
-    # for the kinds of pixels we will use.
-
     return data
 
 def _load_numpy_image(image_path, width, height):
