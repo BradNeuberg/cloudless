@@ -49,9 +49,6 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     print "Preparing data..."
 
     print "\tParsing Planet Labs data into independent cropped bounding boxes using %s..." % input_metadata
-    # TODO: When we save our cropped images, partition them into training and validation
-    # sub-directories (and make sure the set of images for each one matches what's in leveldb!)
-    # TODO: For training data (but not validation), do data augmentation here.
     details = _crop_planetlab_images(_get_planetlab_details(input_metadata, input_images), output_images)
 
     print "\t\tClass details before balancing (balancing not implemented yet):"
@@ -61,6 +58,9 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     #_balance_classes(details)
 
     (train_paths, validation_paths, train_targets, validation_targets) = _split_data_sets(details)
+    validation_paths = _move_validation_images(validation_paths, output_images)
+
+    # TODO: For training data (but not validation), do data augmentation here.
 
     print "\tSaving prepared data..."
     training_file = os.path.join(output_leveldb, "train_leveldb")
@@ -217,7 +217,6 @@ def _split_data_sets(details):
     """
     Shuffles and splits our datasets into training and validation sets.
     """
-
     image_paths = details["image_paths"]
     targets = details["targets"]
 
@@ -227,6 +226,23 @@ def _split_data_sets(details):
     print "\tSplitting data 80% training, 20% validation..."
     return train_test_split(image_paths, targets, train_size=0.8, test_size=0.2, \
       random_state=0)
+
+def _move_validation_images(validation_paths, output_images):
+    """
+    Takes bounded validation images and moves them to a separate directory so we can distinguish
+    training from validation images later on.
+    """
+    validation_images = os.path.join(output_images, "validation")
+    shutil.rmtree(validation_images, ignore_errors=True)
+    os.makedirs(validation_images)
+    print "Moving validation images to %s..." % validation_images
+    for i in xrange(len(validation_paths)):
+        old_path = validation_paths[i]
+        filename = os.path.basename(old_path)
+        new_path = os.path.join(validation_images, filename)
+        shutil.move(old_path, new_path)
+        validation_paths[i] = new_path
+    return validation_paths
 
 def _generate_leveldb(file_path, image_paths, targets, width, height):
     """
