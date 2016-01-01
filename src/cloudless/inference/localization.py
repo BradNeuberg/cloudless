@@ -25,6 +25,8 @@ import caffe
 import numpy as np
 import simplejson as json
 
+# TODO: It looks like PNG images aren't working, only JPG images.
+
 def parse_command_line():
     parser = argparse.ArgumentParser(
       description="""Generate bounding boxes with classifications on an image.""")
@@ -32,7 +34,7 @@ def parse_command_line():
         "-i",
         "--image",
         help="input image",
-        default='cat.jpg'
+        default="cat.jpg"
     )
     parser.add_argument(
         "-m",
