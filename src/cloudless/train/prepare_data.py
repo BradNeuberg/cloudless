@@ -66,6 +66,7 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     details = _crop_planetlab_images(_get_planetlab_details(input_metadata, input_images), output_images)
 
     train_paths, validation_paths, train_targets, validation_targets = _split_data_sets(details)
+    validation_paths = _move_validation_images(validation_paths, output_images)
 
     if do_augmentation == True:
         print "\tDoing data augmentation..."
