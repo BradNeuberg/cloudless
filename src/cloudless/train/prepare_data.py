@@ -47,13 +47,16 @@ def parse_command_line():
     # Ensure the random number generator always starts from the same place for consistent tests.
     random.seed(0)
 
-    log_path = args["log_path"]
+    log_path = os.path.abspath(args["log_path"])
     log_num = args["log_num"]
     (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
 
-    prepare_data(args["input_metadata"], args["input_images"], args["output_images"],
-        args["output_leveldb"], args["width"], args["height"], args["do_augmentation"],
-        output_log_prefix)
+    input_metadata = os.path.abspath(args["input_metadata"])
+    input_images = os.path.abspath(args["input_images"])
+    output_images = os.path.abspath(args["output_images"])
+    output_leveldb = os.path.abspath(args["output_leveldb"])
+    prepare_data(input_metadata, input_images, output_images, output_leveldb, args["width"],
+        args["height"], args["do_augmentation"], output_log_prefix)
 
 def prepare_data(input_metadata, input_images, output_images, output_leveldb, width, height,
                  do_augmentation, output_log_prefix):

@@ -2,6 +2,7 @@
 import argparse
 import re
 import random
+import os
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
@@ -49,7 +50,7 @@ def parse_command_line():
     # Ensure the random number generator always starts from the same place for consistent tests.
     random.seed(0)
 
-    log_path = args["log_path"]
+    log_path = os.path.abspath(args["log_path"])
     log_num = args["log_num"]
     (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
     output_graph_path = output_log_prefix
@@ -57,9 +58,13 @@ def parse_command_line():
     (training_details, validation_details) = utils.parse_logs(log_path, output_log_file)
 
     plot_results(training_details, validation_details, args["note"], output_graph_path, args["solver"])
-    predict.test_validation(args["threshold"], output_log_prefix, args["validation_leveldb"],
-        args["deploy"], args["width"], args["height"], args["inference_width"],
-        args["inference_height"], args["input_weight_file"], args["training_mean_pickle"])
+    validation_leveldb = os.path.abspath(args["validation_leveldb"])
+    deploy = os.path.abspath(args["deploy"])
+    input_weight_file = os.path.abspath(args["input_weight_file"])
+    training_mean_pickle = os.path.abspath(args["training_mean_pickle"])
+    predict.test_validation(args["threshold"], output_log_prefix, validation_leveldb,
+        deploy, args["width"], args["height"], args["inference_width"],
+        args["inference_height"], input_weight_file, training_mean_pickle)
 
 def plot_results(training_details, validation_details, note, output_graph_path, solver):
     """

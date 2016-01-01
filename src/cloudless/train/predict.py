@@ -29,8 +29,12 @@ def parse_command_line():
 
     args = vars(parser.parse_args())
 
-    predict(args["image"], args["deploy"], args["input_weight_file"], args["training_mean_pickle"],
-        args["inference_width"], args["inference_height"])
+    image = os.path.abspath(args["image"])
+    deploy = os.path.abspath(args["deploy"])
+    input_weight_file = os.path.abspath(args["input_weight_file"])
+    training_mean_pickle = os.path.abspath(args["os.path.abspath"])
+    predict(image, deploy, input_weight_file, training_mean_pickle, args["inference_width"],
+        args["inference_height"])
 
 def predict(image_path, deploy_file, input_weight_file, training_mean_pickle, inference_width,
         inference_height):

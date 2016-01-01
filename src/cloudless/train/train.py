@@ -7,6 +7,7 @@ import sys
 import fileinput
 import re
 import random
+import os
 
 import utils
 
@@ -34,12 +35,15 @@ def parse_command_line():
     # Ensure the random number generator always starts from the same place for consistent tests.
     random.seed(0)
 
-    log_path = args["log_path"]
+    log_path = os.path.abspath(args["log_path"])
     log_num = args["log_num"]
     (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
 
-    train(caffe_home, log_path, output_log_file, args["solver"], args["input_weight_file"],
-        args["output_weight_file"], args["note"])
+    solver = os.path.abspath(args["solver"])
+    input_weight_file = os.path.abspath(args["input_weight_file"])
+    output_weight_file = os.path.abspath(args["output_weight_file"])
+    train(caffe_home, log_path, output_log_file, solver, input_weight_file, output_weight_file,
+        args["note"])
 
 def train(caffe_home, log_path, output_log_file, solver, input_weight_file, output_weight_file, note):
     """ Trains Caffe finetuning the given model. """

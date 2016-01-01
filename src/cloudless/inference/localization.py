@@ -279,7 +279,8 @@ def dump_bounding_box_info(image_path, predictions):
 
 def main(argv):
     args = parse_command_line()
-    image = skimage.io.imread(args.image)
+    image_path = os.path.abspath(args.image)
+    image = skimage.io.imread(image_path)
 
     crops = gen_regions(image, args.dimension, args.pad, args.ks)
 
@@ -288,15 +289,17 @@ def main(argv):
 
     images = [entry[1] for entry in crops]
     classes = load_classes(args.classes)
-    predictions = classify(images, args.config, args.weights)
+    config = os.path.abspath(args.config)
+    weights = os.path.abspath(args.weights)
+    predictions = classify(images, config, weights)
 
     bboxes = [entry[3] for entry in crops]
     predictions = sort_predictions(classes, predictions, bboxes)
     predictions = filter_predictions(predictions, args.max_regions, args.threshold)
     print_predictions(classes, predictions)
 
-    draw_bounding_boxes(args.image, image, classes, predictions, args.only_for_class)
-    dump_bounding_box_info(args.image, predictions)
+    draw_bounding_boxes(image_path, image, classes, predictions, args.only_for_class)
+    dump_bounding_box_info(image_path, predictions)
 
 if __name__ == '__main__':
     main(sys.argv)
