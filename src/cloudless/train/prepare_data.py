@@ -8,7 +8,7 @@ import csv
 import json
 import random
 
-from PIL import Image
+from PIL import (Image, ImageOps)
 import numpy as np
 from sklearn.cross_validation import train_test_split
 from sklearn.utils import shuffle
@@ -36,7 +36,10 @@ def parse_command_line():
     parser.add_argument("--log_num", help="""Number that will be appended to log files; this will
         be automatically padded and added with zeros, such as output00001.log""", type=int,
         default=1)
+    parser.add_argument("--do_augmentation", help="Whether to do data augmentation",
+        dest="do_augmentation", action="store_true")
 
+    parser.set_defaults(do_augmentation=False)
     args = vars(parser.parse_args())
 
     utils.assert_caffe_setup()
@@ -49,9 +52,11 @@ def parse_command_line():
     (output_ending, output_log_prefix, output_log_file) = utils.get_log_path_details(log_path, log_num)
 
     prepare_data(args["input_metadata"], args["input_images"], args["output_images"],
-        args["output_leveldb"], args["width"], args["height"], output_log_prefix)
+        args["output_leveldb"], args["width"], args["height"], args["do_augmentation"],
+        output_log_prefix)
 
-def prepare_data(input_metadata, input_images, output_images, output_leveldb, width, height, output_log_prefix):
+def prepare_data(input_metadata, input_images, output_images, output_leveldb, width, height,
+                 do_augmentation, output_log_prefix):
     """
     Prepares our training and validation data sets for use by Caffe.
     """
@@ -60,15 +65,18 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     print "\tParsing Planet Labs data into independent cropped bounding boxes using %s..." % input_metadata
     details = _crop_planetlab_images(_get_planetlab_details(input_metadata, input_images), output_images)
 
-    _print_input_details(details, output_log_prefix)
+    train_paths, validation_paths, train_targets, validation_targets = _split_data_sets(details)
 
-    # TODO(brad): Balance classes.
+    if do_augmentation == True:
+        print "\tDoing data augmentation..."
+        train_paths, train_targets = _do_augmentation(output_images, train_paths, train_targets)
+    else:
+        print "\tNot doing data augmentation"
+
+    # TODO(brad): Balance classes if command-line option provided to do so.
     #_balance_classes(details)
 
-    (train_paths, validation_paths, train_targets, validation_targets) = _split_data_sets(details)
-    validation_paths = _move_validation_images(validation_paths, output_images)
-
-    # TODO: For training data (but not validation), do data augmentation here.
+    _print_input_details(details, train_paths, train_targets, output_log_prefix, do_augmentation)
 
     print "\tSaving prepared data..."
     training_file = os.path.join(output_leveldb, "train_leveldb")
@@ -199,13 +207,13 @@ def _crop_planetlab_images(details, output_images):
         "raw_input_images_count": raw_input_images_count,
     }
 
-def _print_input_details(details, output_log_prefix):
+def _print_input_details(details, train_paths, train_targets, output_log_prefix, do_augmentation):
     """
     Prints out statistics about our input data.
     """
     positive_cloud_class = 0
     negative_cloud_class = 0
-    for entry in details["targets"]:
+    for entry in train_targets:
         if entry == 1:
             positive_cloud_class = positive_cloud_class + 1
         else:
@@ -214,22 +222,24 @@ def _print_input_details(details, output_log_prefix):
     ratio = min(float(positive_cloud_class), float(negative_cloud_class)) / \
             max(float(positive_cloud_class), float(negative_cloud_class))
 
-    statistics = """\t\tClass details before balancing (balancing not implemented yet):
-        \t\tInput preparation data details:
-        \t\t\tTotal number of raw input images: %d
-        \t\t\tTotal number of generated bounding box images: %d
-        \t\t\tPositive cloud count (# of images with clouds): %d
-        \t\t\tNegative cloud count (# of images without clouds): %d
-        \t\t\tRatio: %.2f
-        \t\t\tBalanced classes: no
-        \t\t\tData augmentation: no
-        \t\t\tAdding inference bounding boxes into training data: no""" \
+    statistics = """\t\tInput data details during data preparation:
+        \t\tTotal # of raw input images for training/validation: %d
+        \t\tTotal # of generated bounding box images for training/validation: %d
+        \t\tPositive cloud count (# of images with clouds) in training data: %d
+        \t\tNegative cloud count (# of images without clouds) in training data: %d
+        \t\tRatio: %.2f
+        \t\tTotal # of input images including data augmentation: %d
+        \t\tBalanced classes: no
+        \t\tData augmentation: %r
+        \t\tAdding inference bounding boxes into training data: no""" \
         % ( \
             details["raw_input_images_count"],
             len(details["image_paths"]),
             positive_cloud_class,
             negative_cloud_class,
             ratio,
+            len(train_paths),
+            do_augmentation,
     )
     print statistics
 
@@ -273,6 +283,98 @@ def _move_validation_images(validation_paths, output_images):
         shutil.move(old_path, new_path)
         validation_paths[i] = new_path
     return validation_paths
+
+def _do_augmentation(output_images, train_paths, train_targets):
+    """
+    Augments our training data through cropping, rotations, and mirroring.
+    """
+    result_train_paths = []
+    result_train_targets = []
+
+    augmentation_dir = os.path.join(output_images, "augmentation")
+    shutil.rmtree(augmentation_dir, ignore_errors=True)
+    os.makedirs(augmentation_dir)
+
+    # We are cropping each image into its four corners and its center. Then, for each of these,
+    # we are rotating them 90 degrees all four ways. Finally, for each of these rotated images,
+    # we are mirroring them horizontally.
+    for i in xrange(len(train_paths)):
+        input_path = train_paths[i]
+        input_target = train_targets[i]
+        result_train_paths.append(input_path)
+        result_train_targets.append(input_target)
+
+        print "\t\tDoing data augmentation for %s" % input_path
+        im = Image.open(input_path)
+        (width, height) = im.size
+        process_me = []
+
+        # Only crop if our image is above some size or else it gets nonsensical.
+        process_me.append(im)
+        if width >= 100 and height >= 100:
+            _crop_image(im, width, height, process_me)
+
+        # Now rotate all of these four ways 90 degrees and then mirror them.
+        process_me = _rotate_images(process_me)
+        process_me = _mirror_images(process_me)
+
+        # Note: the original image is the first entry. Remove it since its already saved to disk
+        # so we don't accidentally duplicate it again.
+        del process_me[0]
+
+        _, base_filename = os.path.split(input_path)
+        base_filename, file_extension = os.path.splitext(base_filename)
+        for idx in xrange(len(process_me)):
+            entry = process_me[idx]
+            new_path = os.path.join(augmentation_dir,
+                base_filename + "_augment_" + str(idx + 1) + file_extension)
+            result_train_paths.append(new_path)
+            result_train_targets.append(input_target)
+
+            entry.save(new_path)
+
+    return result_train_paths, result_train_targets
+
+def _crop_image(im, width, height, process_me):
+    """
+    Crops an image into its four corners and its center, adding them to process_me.
+    """
+    process_me.append(im.crop((0, 0, width / 2, height / 2)))
+    process_me.append(im.crop((width / 2, 0, width, height / 2)))
+    process_me.append(im.crop((0, height / 2, width / 2, height)))
+    process_me.append(im.crop((width / 2, height / 2, width, height)))
+
+    # Crop the center.
+    center_width = width / 2
+    center_height = height / 2
+    center_left = (width - center_width) / 2
+    center_top = (height - center_height) / 2
+    center_right = (width + center_width) / 2
+    center_bottom = (height + center_height) / 2
+    process_me.append(im.crop((center_left, center_top, center_right, center_bottom)))
+
+def _rotate_images(process_me):
+    """
+    Rotates the images given in process_me by all four possible 90 degrees.
+    """
+    results = []
+    for orig_im in process_me:
+        results.append(orig_im)
+        rotated_im = orig_im
+        for i in range(3):
+            rotated_im = rotated_im.rotate(90)
+            results.append(rotated_im)
+    return results
+
+def _mirror_images(process_me):
+    """
+    Mirrors the given images horizontally.
+    """
+    results = []
+    for orig_im in process_me:
+        results.append(orig_im)
+        results.append(ImageOps.mirror(orig_im))
+    return results
 
 def _generate_leveldb(file_path, image_paths, targets, width, height):
     """
