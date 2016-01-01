@@ -162,7 +162,6 @@ def _crop_planetlab_images(details, output_images):
     targets = []
     raw_input_images_count = 0
 
-
     # Remove the directory to ensure we don't get old data runs included.
     shutil.rmtree(output_images, ignore_errors=True)
     os.makedirs(output_images)
