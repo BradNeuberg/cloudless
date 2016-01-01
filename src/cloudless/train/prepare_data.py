@@ -400,7 +400,6 @@ def _generate_leveldb(file_path, image_paths, targets, width, height):
       datum.channels = 3 # RGB
       datum.height = height
       datum.width = width
-      # TODO: Should I swap the color channels to BGR?
       datum.data = image.tostring()
       datum.label = targets[idx]
       value = datum.SerializeToString()
