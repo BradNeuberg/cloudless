@@ -187,13 +187,13 @@ def _crop_planetlab_images(details, output_images):
 
             cloud_num = 1
             for bbox in entry["image_annotation"]:
+                im = Image.open(entry["image_path"])
                 try:
                     new_path = os.path.join(output_images, "%s_cloud_%03d%s" % (root, cloud_num, ext))
 
-                    im = Image.open(entry["image_path"])
-                    im = im.crop((bbox["left"], bbox["upper"], bbox["right"], bbox["lower"]))
-                    im = _rgba_to_rgb(im)
-                    im.save(new_path)
+                    new_im = im.crop((bbox["left"], bbox["upper"], bbox["right"], bbox["lower"]))
+                    new_im = _rgba_to_rgb(new_im)
+                    new_im.save(new_path)
 
                     image_paths.append(new_path)
                     targets.append(1)
