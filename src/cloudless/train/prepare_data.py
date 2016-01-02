@@ -304,37 +304,41 @@ def _do_augmentation(output_images, train_paths, train_targets):
     for i in xrange(len(train_paths)):
         input_path = train_paths[i]
         input_target = train_targets[i]
-        result_train_paths.append(input_path)
-        result_train_targets.append(input_target)
 
         print "\t\tDoing data augmentation for %s" % input_path
-        im = Image.open(input_path)
-        (width, height) = im.size
-        process_me = []
+        try:
+            im = Image.open(input_path)
+            (width, height) = im.size
+            process_me = []
 
-        # Only crop if our image is above some size or else it gets nonsensical.
-        process_me.append(im)
-        if width >= 100 and height >= 100:
-            _crop_image(im, width, height, process_me)
-
-        # Now rotate all of these four ways 90 degrees and then mirror them.
-        process_me = _rotate_images(process_me)
-        process_me = _mirror_images(process_me)
-
-        # Note: the original image is the first entry. Remove it since its already saved to disk
-        # so we don't accidentally duplicate it again.
-        del process_me[0]
-
-        _, base_filename = os.path.split(input_path)
-        base_filename, file_extension = os.path.splitext(base_filename)
-        for idx in xrange(len(process_me)):
-            entry = process_me[idx]
-            new_path = os.path.join(augmentation_dir,
-                base_filename + "_augment_" + str(idx + 1) + file_extension)
-            result_train_paths.append(new_path)
+            result_train_paths.append(input_path)
             result_train_targets.append(input_target)
 
-            entry.save(new_path)
+            # Only crop if our image is above some size or else it gets nonsensical.
+            process_me.append(im)
+            if width >= 100 and height >= 100:
+                _crop_image(im, width, height, process_me)
+
+            # Now rotate all of these four ways 90 degrees and then mirror them.
+            process_me = _rotate_images(process_me)
+            process_me = _mirror_images(process_me)
+
+            # Note: the original image is the first entry. Remove it since its already saved to disk
+            # so we don't accidentally duplicate it again.
+            del process_me[0]
+
+            _, base_filename = os.path.split(input_path)
+            base_filename, file_extension = os.path.splitext(base_filename)
+            for idx in xrange(len(process_me)):
+                entry = process_me[idx]
+                new_path = os.path.join(augmentation_dir,
+                    base_filename + "_augment_" + str(idx + 1) + file_extension)
+                result_train_paths.append(new_path)
+                result_train_targets.append(input_target)
+
+                entry.save(new_path)
+        except:
+            print "\t\tWarning: Unable to work with %s" % input_path
 
     return result_train_paths, result_train_targets
 
