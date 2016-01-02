@@ -279,7 +279,7 @@ def _copy_validation_images(validation_paths, output_images):
     validation_images = os.path.join(output_images, "validation")
     shutil.rmtree(validation_images, ignore_errors=True)
     os.makedirs(validation_images)
-    print "\Copying validation images to %s..." % validation_images
+    print "\tCopying validation images to %s..." % validation_images
     for i in xrange(len(validation_paths)):
         old_path = validation_paths[i]
         filename = os.path.basename(old_path)
