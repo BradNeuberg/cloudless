@@ -8,6 +8,7 @@ LOCATION="$2"
 cd .. && rsync -rave "ssh -i $EC2_KEYPAIR" -ar \
     --exclude .git/ \
     --exclude snapshots/ \
+    --exclude archived_data/ \
     --exclude data/landsat/ \
     --exclude data/planetlab/ \
     --exclude src/annotate/train/static/ \
