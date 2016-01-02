@@ -391,7 +391,7 @@ def _generate_leveldb(file_path, image_paths, targets, width, height):
     shutil.rmtree(file_path, ignore_errors=True)
     db = plyvel.DB(file_path, create_if_missing=True)
     wb = db.write_batch()
-    commit_every = 250000
+    commit_every = 10000
     start_time = int(round(time.time() * 1000))
     for idx in range(len(image_paths)):
       # Each image is a top level key with a keyname like 00000000011, in increasing
