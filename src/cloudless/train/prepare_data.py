@@ -69,7 +69,7 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     details = _crop_planetlab_images(_get_planetlab_details(input_metadata, input_images), output_images)
 
     train_paths, validation_paths, train_targets, validation_targets = _split_data_sets(details)
-    validation_paths = _move_validation_images(validation_paths, output_images)
+    validation_paths = _copy_validation_images(validation_paths, output_images)
 
     if do_augmentation == True:
         print "\tDoing data augmentation..."
@@ -270,20 +270,20 @@ def _split_data_sets(details):
     return train_test_split(image_paths, targets, train_size=0.8, test_size=0.2, \
       random_state=0)
 
-def _move_validation_images(validation_paths, output_images):
+def _copy_validation_images(validation_paths, output_images):
     """
-    Takes bounded validation images and moves them to a separate directory so we can distinguish
+    Takes bounded validation images and copies them to a separate directory so we can distinguish
     training from validation images later on.
     """
     validation_images = os.path.join(output_images, "validation")
     shutil.rmtree(validation_images, ignore_errors=True)
     os.makedirs(validation_images)
-    print "Moving validation images to %s..." % validation_images
+    print "\Copying validation images to %s..." % validation_images
     for i in xrange(len(validation_paths)):
         old_path = validation_paths[i]
         filename = os.path.basename(old_path)
         new_path = os.path.join(validation_images, filename)
-        shutil.move(old_path, new_path)
+        shutil.copyfile(old_path, new_path)
         validation_paths[i] = new_path
     return validation_paths
 
