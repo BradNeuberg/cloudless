@@ -69,7 +69,6 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     details = _crop_planetlab_images(_get_planetlab_details(input_metadata, input_images), output_images)
 
     train_paths, validation_paths, train_targets, validation_targets = _split_data_sets(details)
-    validation_paths = _copy_validation_images(validation_paths, output_images)
 
     if do_augmentation == True:
         print "\tDoing data augmentation..."
@@ -87,6 +86,8 @@ def prepare_data(input_metadata, input_images, output_images, output_leveldb, wi
     validation_file = os.path.join(output_leveldb, "validation_leveldb")
     _generate_leveldb(training_file, train_paths, train_targets, width, height)
     _generate_leveldb(validation_file, validation_paths, validation_targets, width, height)
+
+    _copy_validation_images(validation_paths, output_images)
 
 def _get_planetlab_details(input_metadata, input_images):
     """
