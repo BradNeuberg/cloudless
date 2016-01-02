@@ -285,8 +285,6 @@ def _copy_validation_images(validation_paths, output_images):
         filename = os.path.basename(old_path)
         new_path = os.path.join(validation_images, filename)
         shutil.copyfile(old_path, new_path)
-        validation_paths[i] = new_path
-    return validation_paths
 
 def _do_augmentation(output_images, train_paths, train_targets):
     """
