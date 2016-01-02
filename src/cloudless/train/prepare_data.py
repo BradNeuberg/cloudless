@@ -399,7 +399,11 @@ def _generate_leveldb(file_path, image_paths, targets, width, height):
       key = utils.get_key(idx)
 
       # Do common normalization that might happen across both testing and validation.
-      image = _preprocess_data(_load_numpy_image(image_paths[idx], width, height))
+      try:
+        image = _preprocess_data(_load_numpy_image(image_paths[idx], width, height))
+      except:
+        print "\t\t\tWarning: Unable to process leveldb image %s" % image_paths[idx]
+        continue
 
       # Each entry in the leveldb is a Caffe protobuffer "Datum" object containing details.
       datum = Datum()
