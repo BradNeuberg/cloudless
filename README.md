@@ -121,6 +121,26 @@ ssh -i $EC2_KEYPAIR ubuntu@$EC2_HOST_NAME
 sudo chmod a+s /sbin/shutdown
 ```
 
+You will also need to format and mount your EBS volume; in the code below change `/dev/xvdb` to the non-root EBS volume you setup:
+
+```
+sudo mkfs -t ext4 /dev/xvdb
+sudo mkdir /data
+sudo mount /dev/xvdb /data
+```
+
+You will also want to ensure this volume gets mounted when the machine restarts:
+
+```
+sudo vim /etc/fstab
+```
+
+Add a line like the following:
+
+```
+/dev/xvdb       /data   auto    defaults,nobootwait,nofail,comment=cloudconfig  0       2
+```
+
 You can now train the model on your AWS instance, using the `screen` command to ensure training will last even if you quit SSH:
 
 ```
