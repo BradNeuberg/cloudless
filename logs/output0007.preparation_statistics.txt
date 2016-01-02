@@ -1,0 +1,10 @@
+		Input data details during data preparation:
+        		Total # of raw input images for training/validation: 3896
+        		Total # of generated bounding box images for training/validation: 6060
+        		Positive cloud count (# of images with clouds) in training data: 70368
+        		Negative cloud count (# of images without clouds) in training data: 98208
+        		Ratio: 0.72
+        		Total # of input images including data augmentation: 168576
+        		Balanced classes: no
+        		Data augmentation: True
+        		Adding inference bounding boxes into training data: no
