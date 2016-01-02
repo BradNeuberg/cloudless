@@ -297,9 +297,9 @@ def _do_augmentation(output_images, train_paths, train_targets):
     shutil.rmtree(augmentation_dir, ignore_errors=True)
     os.makedirs(augmentation_dir)
 
-    # We are cropping each image into its four corners and its center. Then, for each of these,
-    # we are rotating them 90 degrees all four ways. Finally, for each of these rotated images,
-    # we are mirroring them horizontally.
+    # Note: our Caffe train_val.prototxt already does mirroring and basic cropping, so just
+    # do 90 degree rotations.
+
     for i in xrange(len(train_paths)):
         input_path = train_paths[i]
         input_target = train_targets[i]
@@ -315,12 +315,12 @@ def _do_augmentation(output_images, train_paths, train_targets):
 
             # Only crop if our image is above some size or else it gets nonsensical.
             process_me.append(im)
-            if width >= 100 and height >= 100:
-                _crop_image(im, width, height, process_me)
+            # if width >= 100 and height >= 100:
+            #     _crop_image(im, width, height, process_me)
 
             # Now rotate all of these four ways 90 degrees and then mirror them.
             process_me = _rotate_images(process_me)
-            process_me = _mirror_images(process_me)
+            #process_me = _mirror_images(process_me)
 
             # Note: the original image is the first entry. Remove it since its already saved to disk
             # so we don't accidentally duplicate it again.
