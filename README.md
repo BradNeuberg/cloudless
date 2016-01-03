@@ -27,6 +27,10 @@ This is release 1.0 of Cloudless.
 
 Special thanks to both Dropbox and Planet Labs!
 
+* [Annotation Tool](#annotation-tool)
+* [Training Pipeline](#training-pipeline)
+* [Bounding Box/Inference System](#bounding-boxinference-system)
+
 # Annotation Tool
 
 The annotation tool makes it possible to label Planet Labs data to feed into the neural network. It's code lives in [src/annotate](src/annotate).
