@@ -8,3 +8,4 @@ data/landsat/images
 data/planetlab/images
 data/planetlab/metadata
 src/cloudless/inference/bbox-regions
+archived_data
