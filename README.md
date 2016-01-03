@@ -27,7 +27,7 @@ This is release 1.0 of Cloudless.
 
 Special thanks to both Dropbox and Planet Labs!
 
-Sections:
+Documentation sections:
 
 * [Annotation Tool](#annotation-tool)
 * [Training Pipeline](#training-pipeline)
