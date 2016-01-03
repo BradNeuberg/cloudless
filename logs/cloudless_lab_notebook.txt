@@ -1,8 +1,14 @@
 Cloudless lab notebook with consolidated details on various runs:
 
-output0003: PlanetLab images, ~700 labelled images with bounding boxes, 62.5% accuracy, see PlanetLab Run folder for bounding box images, see output0003.statistics.txt for detailed statistics and graphs. Model for this trained at /Users/bradneuberg/dev/cloudless/logs/output0003.bvlc_alexnet_finetuned.caffemodel
+Note: We have 65 different days of the same San Francisco Bay Area location via RapidEye
+Note: Training/validation split for all runs is 80%/20%
 
-output0005: RapidEye images, ~4000 labelled images with bounding boxes, 89.77% accuracy, see RapidEye Run folder for bounding box images, see output0005.statistics.txt for detailed statistics and graphs. Trained model for this in /Users/bradneuberg/dev/cloudless/logs/output0005.bvlc_alexnet_finetuned.caffemodel
+output0003: PlanetLab images, ~700 labelled images with bounding boxes, 62.5% accuracy, see PlanetLab Run folder for bounding box images, see output0003.statistics.txt for detailed statistics and graphs. Model for this trained at logs/output0003.bvlc_alexnet_finetuned.caffemodel
+	Representative images for this before and after with inference bounding boxes:
+		logs/output0003.image_with_clouds.jpg
+		logs/output0003.image_with_clouds_bounding_box.png
+
+output0005: RapidEye images, ~4000 labelled images with bounding boxes, 89.77% accuracy, see RapidEye Run folder for bounding box images, see output0005.statistics.txt for detailed statistics and graphs. Trained model for this in logs/output0005.bvlc_alexnet_finetuned.caffemodel
 	Some commands used to generate RapidEye bounding boxes experimenting with different hyperparameters:
 		./localization.py -i rapideye_cloud_5.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../../logs/latest_bvlc_alexnet_finetuned.caffemodel --ks 5 --max_regions 600 --only_for_class 1 --platform gpu --threshold 8.5
 		./localization.py -i rapideye_cloud_4.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../../logs/latest_bvlc_alexnet_finetuned.caffemodel --ks 5 --max_regions 600 --only_for_class 1 --platform gpu --threshold 9.0
@@ -14,5 +20,6 @@ output0006: *006 is where I only do manual augmentation for rotations, leaving c
 
 output0007: Things in *007 have full manual data augmentation (cropping, mirroring, rotating). Due to the amount of data glitches happened getting the leveldb to save and some training images were lost, so it might not be exactly the amount given in the statistics file. Accuracy ended up only being 70%. More of an experiment. The proper way to do this would have been as a run-time custom Caffe Python data-layer. The experiment in *006 seemed to show that rotation data augmentations weren't really more effective then the standard Caffe-given mirrors and crops so this path abandoned.
 
-Note: We have 65 different days of the same San Francisco Bay Area location via RapidEye
+output0008: Re-running same as output0005, but through latest pipeline code. The accuracy is only about ~82% though, I think because I did a test_iter of 50 instead of 1000.
 
+output0009: Same as output0008, but with test_iter 1000.
