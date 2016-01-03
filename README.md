@@ -8,13 +8,13 @@ This project has three parts:
 * A training pipeline that takes annotated data, runs it on EC2 on GPU boxes to fine tune an AlexNet trained model, and then generates validation statistics to relate how well the trained model performs.
 * A bounding box system that takes the trained cloud classifier and attempts to draw bounding boxes on orbital satellite data.
 
+Note that even though Cloudless is currently focused on cloud detection and localization, the entire pipeline can be used for any other satellite detection task with just a bit of tweaking, such as detecting cars, different biomes, etc. Use the annotation tools to bootstrap training data then run it through the pipeline for your particular task; everything in Cloudless is what you would need for other kinds of orbital computer vision detection tasks.
+
 Example output of before and after images with detected clouds with yellow overlay boxes via the trained neural network shown below:
 
 ![normal image for comparison](examples/rapideye_cloud_2.jpg "Normal cloud image for comparison")
 
 ![cloud detection boxes](examples/rapideye_cloud_2-regions.png "Areas with yellow boxes are clouds")
-
-Note that even though Cloudless is currently focused on cloud detection and localization, the entire pipeline can be used for any other satellite detection task with just a bit of tweaking, such as detecting cars, different biomes, etc. Use the annotation tools to bootstrap training data then run it through the pipeline for your particular task; everything in Cloudless is what you would need for other kinds of orbital computer vision detection tasks.
 
 This project and its trained model are available under an Apache 2 license; see the [license.txt file](license.txt) for details.
 
