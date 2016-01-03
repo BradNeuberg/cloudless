@@ -130,7 +130,6 @@ def _initialize_caffe(deploy_file, input_weight_file, training_mean_pickle, infe
     # input preprocessing: 'data' is the name of the input blob == net.inputs[0]
     transformer = caffe.io.Transformer({"data": net.blobs["data"].data.shape})
     # PIL.Image loads the data with the channel last.
-    # TODO: Think through whether these should be BGR during training and validation.
     transformer.set_transpose("data", (2, 0, 1))
     # Mean pixel.
     transformer.set_mean("data", np.load(training_mean_pickle).mean(1).mean(1))
