@@ -116,7 +116,7 @@ Original raw TIFF imagery that will be fed into the annotation tool should go in
 
 Note: for any of the data preparation, training, or graphing Python scripts below you can add `--help` to see what command-line options are available to override defaults.
 
-To prepare data that has been labelled via the [annotation tool](src/annotate/README.md), first run the following from the root directory:
+To prepare data that has been labelled via the annotation tool, first run the following from the root directory:
 
 ```
 ./src/cloudless/train/prepare_data.py --input_metadata data/planetlab/metadata/annotated.json --input_images data/planetlab/metadata --output_images data/planetlab/metadata/bounded --output_leveldb data/leveldb --log_num 1
@@ -151,7 +151,7 @@ The four scripts above all have further options to customize them; add `--help` 
 
 Training info and graphs go into logs/.
 
-## Trained Models and Archived Data
+### Trained Models and Archived Data
 
 We currently have pretrained weights from the BVLC AlexNet Caffe Model Zoo, in src/caffe_model/bvlc_alexnet. This is trained on ILSVRC 2012, almost exactly as described in [ImageNet classification with deep convolutional neural networks](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks) by Krizhevsky et al. in NIPS 2012.
 
@@ -163,7 +163,7 @@ The [same shared folder](XXX - cloudless_data/final_trained_model) also has the 
 
 A lab notebook with notes during training runs is at [logs/cloudless_lab_notebook.txt](logs/cloudless_lab_notebook.txt).
 
-## Training on AWS
+### Training on AWS
 
 The code base includes scripts for training on Amazon Web Services (AWS) machines that have GPUs.
 
