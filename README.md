@@ -10,7 +10,7 @@ This project has three parts:
 
 Note that even though Cloudless is currently focused on cloud detection and localization, the entire pipeline can be used for any other satellite detection task with just a bit of tweaking, such as detecting cars, different biomes, etc. Use the annotation tools to bootstrap training data then run it through the pipeline for your particular task; everything in Cloudless is what you would need for other kinds of orbital computer vision detection tasks.
 
-Example output of before and after images with detected clouds with yellow overlay boxes via the trained neural network shown below:
+Here's example output of before and after images with detected clouds. Detected clouds are given yellow overlay boxes via the trained deep neural network:
 
 ![normal image for comparison](examples/rapideye_cloud_2.jpg "Normal cloud image for comparison")
 
