@@ -286,6 +286,9 @@ def _copy_validation_images(validation_paths, output_images):
         new_path = os.path.join(validation_images, filename)
         shutil.copyfile(old_path, new_path)
 
+# TODO: We really should be doing this at training time instead as on-demand transformations, via a
+# Python-based layer right after input data is loaded. Example:
+# https://github.com/BVLC/caffe/blob/master/python/caffe/test/test_python_layer.py
 def _do_augmentation(output_images, train_paths, train_targets):
     """
     Augments our training data through cropping, rotations, and mirroring.
