@@ -1,0 +1,2834 @@
+[
+    {
+        "class_idx": 1,
+        "coords": [
+            275,
+            190,
+            307,
+            225
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/485.jpg",
+        "prob": 13.64938
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            275,
+            176,
+            317,
+            223
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/483.jpg",
+        "prob": 13.14423
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            309,
+            228,
+            382,
+            267
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/618.jpg",
+        "prob": 12.91974
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            147,
+            226,
+            207,
+            275
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/604.jpg",
+        "prob": 12.86644
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            234,
+            191,
+            299,
+            227
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/170.jpg",
+        "prob": 12.7535
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            287,
+            175,
+            346,
+            222
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/469.jpg",
+        "prob": 12.68352
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            263,
+            210,
+            306,
+            237
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/503.jpg",
+        "prob": 12.60519
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            233,
+            203,
+            279,
+            242
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/212.jpg",
+        "prob": 12.47379
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            440,
+            205,
+            474,
+            240
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/291.jpg",
+        "prob": 12.40798
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            391,
+            14,
+            437,
+            68
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/211.jpg",
+        "prob": 12.12218
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            329,
+            126,
+            372,
+            191
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/60.jpg",
+        "prob": 12.01738
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            244,
+            260,
+            297,
+            321
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/125.jpg",
+        "prob": 11.95304
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            377,
+            203,
+            423,
+            245
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/21.jpg",
+        "prob": 11.93348
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            192,
+            371,
+            225,
+            404
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/370.jpg",
+        "prob": 11.90522
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            365,
+            126,
+            411,
+            176
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/172.jpg",
+        "prob": 11.88189
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            273,
+            276,
+            332,
+            314
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/613.jpg",
+        "prob": 11.86897
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            364,
+            135,
+            421,
+            189
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/276.jpg",
+        "prob": 11.862
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            297,
+            160,
+            332,
+            211
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/435.jpg",
+        "prob": 11.81125
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            219,
+            194,
+            254,
+            229
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/161.jpg",
+        "prob": 11.76341
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            222,
+            227,
+            287,
+            277
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/154.jpg",
+        "prob": 11.75601
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            408,
+            200,
+            444,
+            234
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/349.jpg",
+        "prob": 11.74696
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            33,
+            86,
+            101,
+            132
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/112.jpg",
+        "prob": 11.73213
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            290,
+            225,
+            325,
+            252
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/257.jpg",
+        "prob": 11.71283
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            270,
+            250,
+            306,
+            292
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/509.jpg",
+        "prob": 11.70336
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            280,
+            195,
+            335,
+            235
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/316.jpg",
+        "prob": 11.68149
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            14,
+            76,
+            91,
+            132
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/174.jpg",
+        "prob": 11.67015
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            386,
+            0,
+            452,
+            30
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/44.jpg",
+        "prob": 11.66568
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            243,
+            461,
+            279,
+            505
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/743.jpg",
+        "prob": 11.63882
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            63,
+            96,
+            113,
+            147
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/105.jpg",
+        "prob": 11.63394
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            349,
+            260,
+            394,
+            303
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/361.jpg",
+        "prob": 11.57524
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            251,
+            300,
+            289,
+            357
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/534.jpg",
+        "prob": 11.57211
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            56,
+            7,
+            114,
+            53
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/85.jpg",
+        "prob": 11.54966
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            265,
+            235,
+            311,
+            273
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/508.jpg",
+        "prob": 11.52307
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            358,
+            222,
+            393,
+            258
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/513.jpg",
+        "prob": 11.49671
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            455,
+            68,
+            492,
+            112
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/253.jpg",
+        "prob": 11.48081
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            376,
+            26,
+            407,
+            69
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/215.jpg",
+        "prob": 11.47717
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            118,
+            217,
+            179,
+            266
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/218.jpg",
+        "prob": 11.45131
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            277,
+            219,
+            323,
+            258
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/378.jpg",
+        "prob": 11.33547
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            136,
+            205,
+            187,
+            247
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/562.jpg",
+        "prob": 11.31698
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            41,
+            211,
+            102,
+            255
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/72.jpg",
+        "prob": 11.24745
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            382,
+            28,
+            439,
+            86
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/84.jpg",
+        "prob": 11.2163
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            135,
+            474,
+            208,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/597.jpg",
+        "prob": 11.20679
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            287,
+            90,
+            322,
+            161
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/292.jpg",
+        "prob": 11.20417
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            328,
+            191,
+            403,
+            251
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/482.jpg",
+        "prob": 11.18898
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            353,
+            226,
+            410,
+            291
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/186.jpg",
+        "prob": 11.13862
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            90,
+            227,
+            147,
+            264
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/95.jpg",
+        "prob": 11.10001
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            310,
+            204,
+            363,
+            249
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/419.jpg",
+        "prob": 11.06983
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            270,
+            133,
+            316,
+            193
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/341.jpg",
+        "prob": 11.00522
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            318,
+            77,
+            376,
+            156
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/109.jpg",
+        "prob": 10.99495
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            51,
+            307,
+            132,
+            357
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/640.jpg",
+        "prob": 10.98169
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            439,
+            62,
+            480,
+            115
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/282.jpg",
+        "prob": 10.96105
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            204,
+            408,
+            268,
+            457
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/297.jpg",
+        "prob": 10.95517
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            86,
+            309,
+            153,
+            349
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/213.jpg",
+        "prob": 10.95402
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            5,
+            328,
+            69,
+            371
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/347.jpg",
+        "prob": 10.95249
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            305,
+            109,
+            349,
+            176
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/204.jpg",
+        "prob": 10.89971
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            119,
+            237,
+            168,
+            264
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/606.jpg",
+        "prob": 10.89749
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            97,
+            353,
+            149,
+            386
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/724.jpg",
+        "prob": 10.89107
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            205,
+            176,
+            260,
+            214
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/400.jpg",
+        "prob": 10.88704
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            98,
+            464,
+            156,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/808.jpg",
+        "prob": 10.86254
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            385,
+            7,
+            482,
+            57
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/5.jpg",
+        "prob": 10.85742
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            432,
+            44,
+            455
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/689.jpg",
+        "prob": 10.85203
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            75,
+            400,
+            133,
+            437
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/599.jpg",
+        "prob": 10.83479
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            53,
+            330,
+            121,
+            390
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/563.jpg",
+        "prob": 10.83175
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            9,
+            220,
+            90,
+            259
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/498.jpg",
+        "prob": 10.82625
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            8,
+            469,
+            79,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/877.jpg",
+        "prob": 10.80476
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            309,
+            184,
+            392,
+            229
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/233.jpg",
+        "prob": 10.80087
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            439,
+            62,
+            482
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/844.jpg",
+        "prob": 10.77179
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            386,
+            210,
+            437,
+            266
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/521.jpg",
+        "prob": 10.77028
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            333,
+            30,
+            413,
+            119
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/35.jpg",
+        "prob": 10.76498
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            247,
+            214,
+            301,
+            255
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/514.jpg",
+        "prob": 10.76181
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            176,
+            213,
+            232,
+            248
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/340.jpg",
+        "prob": 10.70967
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            80,
+            132,
+            143,
+            201
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/181.jpg",
+        "prob": 10.70486
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            82,
+            292,
+            163,
+            332
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/460.jpg",
+        "prob": 10.70006
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            289,
+            251,
+            329,
+            286
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/475.jpg",
+        "prob": 10.69853
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            288,
+            235,
+            358,
+            281
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/627.jpg",
+        "prob": 10.68052
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            342,
+            60,
+            393,
+            136
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/152.jpg",
+        "prob": 10.67972
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            344,
+            263,
+            386,
+            311
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/586.jpg",
+        "prob": 10.66459
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            160,
+            248,
+            225,
+            289
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/256.jpg",
+        "prob": 10.65619
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            137,
+            301,
+            202,
+            329
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/261.jpg",
+        "prob": 10.6411
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            394,
+            90,
+            456,
+            140
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/272.jpg",
+        "prob": 10.62925
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            10,
+            380,
+            86,
+            431
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/746.jpg",
+        "prob": 10.62038
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            85,
+            360,
+            167,
+            407
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/665.jpg",
+        "prob": 10.61707
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            106,
+            315,
+            181,
+            366
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/755.jpg",
+        "prob": 10.61503
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            229,
+            319,
+            256,
+            359
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/342.jpg",
+        "prob": 10.59952
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            14,
+            475,
+            48,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/775.jpg",
+        "prob": 10.59524
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            6,
+            347,
+            64,
+            373
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/784.jpg",
+        "prob": 10.58493
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            364,
+            0,
+            426,
+            58
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/4.jpg",
+        "prob": 10.56985
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            163,
+            184,
+            224,
+            219
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/374.jpg",
+        "prob": 10.5691
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            8,
+            91,
+            55,
+            145
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/314.jpg",
+        "prob": 10.56902
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            440,
+            44,
+            476
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/895.jpg",
+        "prob": 10.53699
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            3,
+            198,
+            61,
+            241
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/427.jpg",
+        "prob": 10.53615
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            70,
+            206,
+            123,
+            257
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/137.jpg",
+        "prob": 10.53385
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            280,
+            73,
+            353,
+            160
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/251.jpg",
+        "prob": 10.51875
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            443,
+            219,
+            496,
+            257
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/140.jpg",
+        "prob": 10.50966
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            400,
+            71,
+            454
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/843.jpg",
+        "prob": 10.49723
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            296,
+            211,
+            343,
+            249
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/199.jpg",
+        "prob": 10.4929
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            116,
+            298,
+            175,
+            343
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/439.jpg",
+        "prob": 10.48568
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            181,
+            365,
+            215,
+            402
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/286.jpg",
+        "prob": 10.48352
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            74,
+            230,
+            134,
+            277
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/348.jpg",
+        "prob": 10.48161
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            252,
+            50,
+            276
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/677.jpg",
+        "prob": 10.47044
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            4,
+            460,
+            49,
+            500
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/786.jpg",
+        "prob": 10.46657
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            76,
+            8,
+            135,
+            61
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/126.jpg",
+        "prob": 10.46562
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            29,
+            21,
+            83,
+            66
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/219.jpg",
+        "prob": 10.45889
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            328,
+            11,
+            375,
+            65
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/26.jpg",
+        "prob": 10.45196
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            188,
+            420,
+            216,
+            461
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/130.jpg",
+        "prob": 10.44704
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            315,
+            249,
+            355,
+            305
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/412.jpg",
+        "prob": 10.42939
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            285,
+            260,
+            338,
+            301
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/620.jpg",
+        "prob": 10.39817
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            8,
+            397,
+            66,
+            422
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/237.jpg",
+        "prob": 10.36956
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            164,
+            220,
+            232,
+            268
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/491.jpg",
+        "prob": 10.36416
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            309,
+            0,
+            345,
+            25
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/46.jpg",
+        "prob": 10.36149
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            461,
+            199,
+            505,
+            237
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/445.jpg",
+        "prob": 10.33814
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            207,
+            472,
+            267,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/813.jpg",
+        "prob": 10.31628
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            58,
+            453,
+            124,
+            490
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/124.jpg",
+        "prob": 10.31145
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            92,
+            397,
+            162,
+            440
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/742.jpg",
+        "prob": 10.2994
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            43,
+            354,
+            121,
+            415
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/148.jpg",
+        "prob": 10.29868
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            182,
+            193,
+            246,
+            243
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/230.jpg",
+        "prob": 10.29131
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            1,
+            79,
+            67,
+            120
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/132.jpg",
+        "prob": 10.29046
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            301,
+            49,
+            347
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/466.jpg",
+        "prob": 10.27955
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            32,
+            435,
+            119,
+            458
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/789.jpg",
+        "prob": 10.27331
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            135,
+            237,
+            181,
+            277
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/155.jpg",
+        "prob": 10.2638
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            418,
+            70,
+            456,
+            132
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/283.jpg",
+        "prob": 10.26182
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            431,
+            0,
+            479,
+            28
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/6.jpg",
+        "prob": 10.25519
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            477,
+            149,
+            511,
+            203
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/441.jpg",
+        "prob": 10.25155
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            113,
+            483,
+            192,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/908.jpg",
+        "prob": 10.24231
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            373,
+            174,
+            417,
+            223
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/25.jpg",
+        "prob": 10.23536
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            169,
+            270,
+            212,
+            313
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/664.jpg",
+        "prob": 10.22925
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            157,
+            458,
+            210,
+            496
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/240.jpg",
+        "prob": 10.22875
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            326,
+            31,
+            363
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/630.jpg",
+        "prob": 10.22561
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            78,
+            416,
+            151,
+            462
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/826.jpg",
+        "prob": 10.22256
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            402,
+            54,
+            448
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/489.jpg",
+        "prob": 10.20654
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            211,
+            208,
+            250,
+            243
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/128.jpg",
+        "prob": 10.20313
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            94,
+            0,
+            161,
+            45
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/23.jpg",
+        "prob": 10.18291
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            72,
+            89,
+            141,
+            171
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/45.jpg",
+        "prob": 10.1785
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            110,
+            13,
+            176,
+            66
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/134.jpg",
+        "prob": 10.17776
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            207,
+            280,
+            259,
+            338
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/545.jpg",
+        "prob": 10.15592
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            24,
+            405,
+            79,
+            441
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/823.jpg",
+        "prob": 10.15404
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            21,
+            112,
+            90,
+            195
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/143.jpg",
+        "prob": 10.15219
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            225,
+            267,
+            278,
+            352
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/470.jpg",
+        "prob": 10.1479
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            101,
+            386,
+            167,
+            432
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/520.jpg",
+        "prob": 10.14114
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            13,
+            0,
+            58,
+            39
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/3.jpg",
+        "prob": 10.13242
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            95,
+            240,
+            171,
+            281
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/600.jpg",
+        "prob": 10.13049
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            23,
+            214,
+            69,
+            246
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/583.jpg",
+        "prob": 10.12501
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            76,
+            366,
+            160,
+            417
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/64.jpg",
+        "prob": 10.09763
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            129,
+            254,
+            202,
+            312
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/220.jpg",
+        "prob": 10.08367
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            14,
+            182,
+            59,
+            222
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/393.jpg",
+        "prob": 10.07977
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            372,
+            257,
+            404,
+            301
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/598.jpg",
+        "prob": 10.06762
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            370,
+            39,
+            436
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/576.jpg",
+        "prob": 10.06549
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            56,
+            59,
+            127
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/197.jpg",
+        "prob": 10.06009
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            311,
+            142,
+            361,
+            225
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/294.jpg",
+        "prob": 10.03957
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            242,
+            316,
+            270,
+            358
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/719.jpg",
+        "prob": 10.03751
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            240,
+            380,
+            275,
+            425
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/544.jpg",
+        "prob": 10.03491
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            13,
+            133,
+            42,
+            184
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/102.jpg",
+        "prob": 10.0257
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            252,
+            466,
+            312,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/621.jpg",
+        "prob": 10.00785
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            27,
+            253,
+            106,
+            307
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/495.jpg",
+        "prob": 10.00736
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            14,
+            353,
+            87,
+            415
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/619.jpg",
+        "prob": 10.00204
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            466,
+            33,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/928.jpg",
+        "prob": 9.999496
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            274,
+            476,
+            317,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/376.jpg",
+        "prob": 9.996605
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            10,
+            230,
+            91,
+            289
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/122.jpg",
+        "prob": 9.996188
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            85,
+            32,
+            139
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/38.jpg",
+        "prob": 9.988844
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            249,
+            142,
+            285,
+            191
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/121.jpg",
+        "prob": 9.986332
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            352,
+            15,
+            398,
+            80
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/10.jpg",
+        "prob": 9.976555
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            211,
+            216,
+            263,
+            269
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/528.jpg",
+        "prob": 9.96681
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            122,
+            281,
+            223,
+            324
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/564.jpg",
+        "prob": 9.960326
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            144,
+            360,
+            186,
+            402
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/733.jpg",
+        "prob": 9.956768
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            19,
+            344,
+            97,
+            396
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/325.jpg",
+        "prob": 9.956491
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            248,
+            318,
+            290,
+            377
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/757.jpg",
+        "prob": 9.935432
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            441,
+            122,
+            477,
+            169
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/369.jpg",
+        "prob": 9.912072
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            124,
+            390,
+            195,
+            438
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/831.jpg",
+        "prob": 9.911189
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            111,
+            219,
+            163,
+            258
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/101.jpg",
+        "prob": 9.908945
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            458,
+            163,
+            502,
+            218
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/387.jpg",
+        "prob": 9.893885
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            139,
+            180,
+            185,
+            224
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/33.jpg",
+        "prob": 9.879192
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            34,
+            312,
+            98,
+            367
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/554.jpg",
+        "prob": 9.868616
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            43,
+            0,
+            109,
+            28
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/2.jpg",
+        "prob": 9.861784
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            40,
+            463,
+            116,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/428.jpg",
+        "prob": 9.860981
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            185,
+            306,
+            231,
+            339
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/679.jpg",
+        "prob": 9.858746
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            107,
+            25,
+            161
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/175.jpg",
+        "prob": 9.837412
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            138,
+            424,
+            186,
+            459
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/728.jpg",
+        "prob": 9.819679
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            217,
+            49,
+            271
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/42.jpg",
+        "prob": 9.815533
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            178,
+            460,
+            262,
+            506
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/796.jpg",
+        "prob": 9.807213
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            271,
+            287,
+            331,
+            334
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/232.jpg",
+        "prob": 9.802813
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            66,
+            0,
+            131,
+            53
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/20.jpg",
+        "prob": 9.800392
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            78,
+            328,
+            170,
+            384
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/726.jpg",
+        "prob": 9.788522
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            213,
+            364,
+            258,
+            402
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/608.jpg",
+        "prob": 9.749855
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            52,
+            236,
+            106,
+            290
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/610.jpg",
+        "prob": 9.6985
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            110,
+            202,
+            173,
+            241
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/525.jpg",
+        "prob": 9.681242
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            483,
+            179,
+            511,
+            227
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/247.jpg",
+        "prob": 9.679602
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            420,
+            15,
+            508,
+            63
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/99.jpg",
+        "prob": 9.677457
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            487,
+            210,
+            511,
+            243
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/457.jpg",
+        "prob": 9.665554
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            68,
+            244,
+            124,
+            303
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/637.jpg",
+        "prob": 9.648823
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            13,
+            441,
+            100,
+            494
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/875.jpg",
+        "prob": 9.630473
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            95,
+            54,
+            170,
+            121
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/146.jpg",
+        "prob": 9.629458
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            123,
+            34,
+            187
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/334.jpg",
+        "prob": 9.606121
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            79,
+            162,
+            135,
+            220
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/263.jpg",
+        "prob": 9.602771
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            45,
+            36,
+            108,
+            117
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/83.jpg",
+        "prob": 9.593715
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            148,
+            62,
+            217
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/57.jpg",
+        "prob": 9.592865
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            161,
+            348,
+            214,
+            393
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/357.jpg",
+        "prob": 9.590652
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            153,
+            70,
+            226
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/208.jpg",
+        "prob": 9.580914
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            341,
+            35,
+            404
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/730.jpg",
+        "prob": 9.560765
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            225,
+            319,
+            266,
+            390
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/741.jpg",
+        "prob": 9.557257
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            65,
+            437,
+            142,
+            483
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/900.jpg",
+        "prob": 9.552582
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            187,
+            240,
+            285,
+            313
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/373.jpg",
+        "prob": 9.53106
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            15,
+            298,
+            65,
+            356
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/676.jpg",
+        "prob": 9.524353
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            223,
+            147,
+            293,
+            214
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/96.jpg",
+        "prob": 9.512554
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            198,
+            438,
+            247,
+            483
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/530.jpg",
+        "prob": 9.499723
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            289,
+            0,
+            325,
+            39
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/67.jpg",
+        "prob": 9.498718
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            171,
+            468,
+            225,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/529.jpg",
+        "prob": 9.488823
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            394,
+            245,
+            432,
+            285
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/654.jpg",
+        "prob": 9.472795
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            446,
+            143,
+            497,
+            219
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/477.jpg",
+        "prob": 9.455602
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            447,
+            254,
+            484,
+            282
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/384.jpg",
+        "prob": 9.407478
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            108,
+            77,
+            167,
+            154
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/17.jpg",
+        "prob": 9.40216
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            323,
+            0,
+            398,
+            45
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/55.jpg",
+        "prob": 9.398222
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            375,
+            106,
+            434,
+            161
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/390.jpg",
+        "prob": 9.389458
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            327,
+            88,
+            402,
+            189
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/135.jpg",
+        "prob": 9.369614
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            89,
+            204,
+            157,
+            247
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/426.jpg",
+        "prob": 9.358995
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            177,
+            37,
+            232
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/337.jpg",
+        "prob": 9.351698
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            12,
+            388,
+            127,
+            457
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/448.jpg",
+        "prob": 9.346979
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            38,
+            13,
+            122,
+            85
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/104.jpg",
+        "prob": 9.34337
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            117,
+            344,
+            172,
+            394
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/629.jpg",
+        "prob": 9.34334
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            481,
+            0,
+            511,
+            44
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/74.jpg",
+        "prob": 9.34095
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            129,
+            182,
+            173,
+            225
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/436.jpg",
+        "prob": 9.337148
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            435,
+            78,
+            483,
+            137
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/133.jpg",
+        "prob": 9.291467
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            40,
+            0,
+            93,
+            31
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/11.jpg",
+        "prob": 9.255615
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            175,
+            385,
+            219,
+            419
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/473.jpg",
+        "prob": 9.230749
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            230,
+            179,
+            273,
+            224
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/507.jpg",
+        "prob": 9.228035
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            96,
+            455,
+            141,
+            511
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/329.jpg",
+        "prob": 9.197667
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            173,
+            302,
+            221,
+            356
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/526.jpg",
+        "prob": 9.182617
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            336,
+            138,
+            426,
+            222
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/305.jpg",
+        "prob": 9.163027
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            0,
+            260,
+            87,
+            335
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/367.jpg",
+        "prob": 9.12761
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            92,
+            183,
+            168,
+            227
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/355.jpg",
+        "prob": 9.119202
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            278,
+            49,
+            338,
+            122
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/52.jpg",
+        "prob": 9.113871
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            5,
+            96,
+            71,
+            171
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/324.jpg",
+        "prob": 9.113039
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            468,
+            219,
+            511,
+            274
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/115.jpg",
+        "prob": 9.105467
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            472,
+            168,
+            511,
+            215
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/522.jpg",
+        "prob": 9.069125
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            159,
+            196,
+            221,
+            234
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/100.jpg",
+        "prob": 9.066776
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            187,
+            245,
+            220,
+            278
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/560.jpg",
+        "prob": 9.007301
+    },
+    {
+        "class_idx": 1,
+        "coords": [
+            104,
+            448,
+            160,
+            485
+        ],
+        "class": "cloud",
+        "fname": "bbox-regions/333.jpg",
+        "prob": 9.004738
+    }
+]

@@ -10,9 +10,9 @@ This project has three parts:
 
 Example output of before and after images with detected clouds via the trained neural network are shown below:
 
-![normal image for comparison](examples/rapideye_cloud_3.jpg "Normal cloud image for comparison")
+![normal image for comparison](examples/rapideye_cloud_2.jpg "Normal cloud image for comparison")
 
-![cloud detection boxes](examples/rapideye_cloud_3-regions.png "Areas with yellow boxes are clouds")
+![cloud detection boxes](examples/rapideye_cloud_2-regions.png "Areas with yellow boxes are clouds")
 
 This project and its trained model are available under an Apache 2 license; see the [license.txt file](license.txt) for details.
 
@@ -277,11 +277,11 @@ Example usage for generating bounding box regions for the example shown at the t
 
 ```
 cd src/cloudless/inference
-./localization.py -i ../../../examples/rapideye_cloud_3.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel --ks 5 --max_regions 600 --only_for_class 1 --platform gpu --threshold 8.0
+./localization.py -i ../../../examples/rapideye_cloud_2.jpg --classes cloud-classes.txt --config ../../caffe_model/bvlc_alexnet/bounding_box.prototxt --weights ../../caffe_model/bvlc_alexnet/bvlc_alexnet_finetuned.caffemodel --ks 1 --max_regions 600 --only_for_class 1 --platform gpu --threshold 9.0
 open rapideye_cloud_3-regions.png
 ```
 
-This will write out the image with bounding boxes drawn on it, including a JSON file with machine readable info on the top bounding boxes, such as rapideye_cloud_3.json, containing all the detected bounding boxes. This can be used by downstream code to ignore or eliminate these clouds, such as treating them as an alpha mask.
+This will write out the image with bounding boxes drawn on it, including a JSON file with machine readable info on the top bounding boxes, such as rapideye_cloud_2.json, containing all the detected bounding boxes. This can be used by downstream code to ignore or eliminate these clouds, such as treating them as an alpha mask.
 
 During development it is sometimes useful to test against the full, non-tuned version of ImageNet (not Cloudless) for debugging purposes. This is done against the full set of ImageNet classes:
 
