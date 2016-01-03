@@ -23,4 +23,4 @@ output0007: Things in *007 have full manual data augmentation (cropping, mirrori
 
 output0008: Re-running same as output0005, but through latest pipeline code. The accuracy is only about ~82% though, I think because I did a test_iter of 50 instead of 1000. The threshold was also higher, about 32%.
 
-output0009: Same as output0008, but with test_iter 1000. Accuracy is ~86% with threshold ~28.0%. output0005 is still a bit better, just going with that one.
+output0009: Same as output0008, but with test_iter 1000. Accuracy is ~86% with threshold ~28.0%. output0005 is still a bit better, going with that one.
