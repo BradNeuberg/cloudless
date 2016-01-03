@@ -8,7 +8,7 @@ This project has three parts:
 * A training pipeline that takes annotated data, runs it on EC2 on GPU boxes to fine tune an AlexNet trained model, and then generates validation statistics to relate how well the trained model performs.
 * A bounding box system that takes the trained cloud classifier and attempts to draw bounding boxes on orbital satellite data.
 
-Example output of before and after images with detected clouds via the trained neural network are shown below:
+Example output of before and after images with detected clouds with yellow overlay boxes via the trained neural network shown below:
 
 ![normal image for comparison](examples/rapideye_cloud_2.jpg "Normal cloud image for comparison")
 
@@ -17,7 +17,7 @@ Example output of before and after images with detected clouds via the trained n
 This project and its trained model are available under an Apache 2 license; see the [license.txt file](license.txt) for details.
 
 Parts of the Cloudless project started as part of Dropbox's Hack Week, with continued work post-Hack Week by Brad Neuberg. Contributors:
-* Brad Neuberg
+* [Brad Neuberg](http://codinginparadise.org)
 * Johann Hauswald
 * Max Nova
 
