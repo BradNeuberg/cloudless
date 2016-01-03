@@ -18,8 +18,8 @@ This project and its trained model are available under an Apache 2 license; see 
 
 Parts of the Cloudless project started as part of Dropbox's Hack Week, with continued work post-Hack Week by Brad Neuberg. Contributors:
 * [Brad Neuberg](http://codinginparadise.org)
-* Johann Hauswald
-* Max Nova
+* [Johann Hauswald](http://web.eecs.umich.edu/~jahausw/)
+* [Max Nova](https://www.linkedin.com/in/maxnova)
 
 This is release 1.0 of Cloudless.
 
