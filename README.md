@@ -14,6 +14,8 @@ Example output of before and after images with detected clouds with yellow overl
 
 ![cloud detection boxes](examples/rapideye_cloud_2-regions.png "Areas with yellow boxes are clouds")
 
+Note that even though Cloudless is currently focused on cloud detection and localization, the entire pipeline can be used for any other satellite detection task with just a bit of tweaking, such as detecting cars, different biomes, etc. Use the annotation tools to bootstrap training data then run it through the pipeline for your particular task; everything in Cloudless is what you would need for other kinds of orbital computer vision detection tasks.
+
 This project and its trained model are available under an Apache 2 license; see the [license.txt file](license.txt) for details.
 
 Parts of the Cloudless project started as part of Dropbox's Hack Week, with continued work post-Hack Week by Brad Neuberg. Contributors:
@@ -246,7 +248,7 @@ screen -x training_session_1
 
 Note: The `train.sh` script is currently hard-coded to use S3 instances in the `us-east-1` region; change `S3_REGION` inside the script if your setup differs.
 
-When training is finished the results will end up in the `cloudless-data` bucket on S3, tarred and gzipped. You can download this and run it locally on your host against the test validation scripts to see how well training went. On your own machine _outside_ aws run:
+When training is finished the results will end up in the `cloudless-data` bucket on S3, tarred and gzipped. You can download this and run it locally on your host against the test validation scripts to see how well training went. On your own machine _outside_ AWS run:
 
 ```
 aws s3 ls cloudless-data
@@ -266,7 +268,7 @@ tar -xvf ~/tmp/caffe-results-12-16-15-host-ip-172-31-6-33-time-1450242072.tar
 # Bounding Box/Inference System
 
 This is the inference portion of the cloudless pipeline once you have trained a
-model to classify clouds and draw bounding boxes. It's code lives in [src/cloudless/inference](src/cloudless/inference).
+model. It draw bounding boxes over cloud candidates. It's code lives in [src/cloudless/inference](src/cloudless/inference).
 
 The primary script is `localization.py`, which generates candidate regions in an image using a [fork of Selective Search from here](https://github.com/BradNeuberg/selective_search_py). The [unforked Selective Search](https://github.com/belltailjp/selective_search_py) had a dependency on Python 3 but was back ported to Python 2.7 as part of the Cloudless work.
 
