@@ -10,9 +10,9 @@ This project has three parts:
 
 Example output of before and after images with detected clouds via the trained neural network are shown below:
 
-![normal image for comparison](rapideye_cloud_3.jpg "Normal cloud image for comparison")
+![normal image for comparison](examples/rapideye_cloud_3.jpg "Normal cloud image for comparison")
 
-![cloud detection boxes](rapideye_cloud_3-regions.png "Areas with yellow boxes are clouds")
+![cloud detection boxes](examples/rapideye_cloud_3-regions.png "Areas with yellow boxes are clouds")
 
 This project and its trained model are available under an Apache 2 license; see the [license.txt file](license.txt) for details.
 
