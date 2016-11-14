@@ -1,11 +1,14 @@
 # Introduction
 
+
 This project provides a classifier for detecting clouds in satellite remote sensing data using deep learning. Startups like [Planet Labs](https://www.planet.com/) have launched fleets of nanosats to image much of the earth daily; detecting clouds in these images to ignore or eliminate them is an important pre-processing step to doing interesting work with nanosat imagery. For example, if we are getting daily orbital photos of a location, we might want to detect changes over time, such as for automatically detecting deforestation, counting cars in parking lots, etc. Being able to first detect and eliminate clouds (which change often and could lead to false positives), is therefore important.
 
 This project has three parts:
 
 * An annotation tool that takes data from the [Planet Labs API](https://www.planet.com/docs/) and allows users to draw bounding boxes around clouds to bootstrap training data.
+
 * A training pipeline that takes annotated data, runs it on EC2 on GPU boxes to fine tune an AlexNet trained model, and then generates validation statistics to relate how well the trained model performs.
+
 * A bounding box system that takes the trained cloud classifier and attempts to draw bounding boxes on orbital satellite data.
 
 Note that even though Cloudless is currently focused on cloud detection and localization, the entire pipeline can be used for any other satellite detection task with just a bit of tweaking, such as detecting cars, different biomes, etc. Use the annotation tools to bootstrap training data then run it through the pipeline for your particular task; everything in Cloudless is what you would need for other kinds of orbital computer vision detection tasks.
